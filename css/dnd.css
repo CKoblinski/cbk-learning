@@ -1,0 +1,434 @@
+/* ========================================
+   D&D Page Styles
+   ======================================== */
+
+/* ---- D&D CSS Variables ---- */
+:root {
+  --color-dnd-deep: #1a1225;
+  --color-dnd-purple: #7c3aed;
+  --color-dnd-purple-light: #ede9fe;
+  --color-dnd-purple-glow: rgba(124, 58, 237, 0.15);
+  --color-dnd-gold: #d4a843;
+  --color-dnd-gold-light: #fef7e6;
+}
+
+/* ---- Hero ---- */
+.dnd-hero {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+  background: var(--color-dnd-deep);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.dnd-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(124, 58, 237, 0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 70%, rgba(212, 168, 67, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.dnd-hero__logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+  filter: brightness(1.2);
+}
+
+.dnd-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.dnd-hero__sub {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 520px;
+  line-height: 1.8;
+  position: relative;
+}
+
+/* ---- Section Labels (reusable) ---- */
+.dnd-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.dnd-section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+/* ---- Why Play Section ---- */
+.dnd-why {
+  padding: 5rem 2rem;
+}
+
+.dnd-why__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dnd-why__intro {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.dnd-why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.dnd-why__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.5s var(--ease-out-expo),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.dnd-why__card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-dnd-purple);
+  box-shadow: 0 4px 24px var(--color-dnd-purple-glow);
+}
+
+.dnd-why__card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.dnd-why__card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* ---- About Connor ---- */
+.dnd-about {
+  background: #f4f3f0;
+  padding: 5rem 2rem;
+}
+
+.dnd-about__inner {
+  max-width: 740px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dnd-about__text {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.85;
+  margin-top: 1.25rem;
+}
+
+/* ---- Start Your Quest / FAQ ---- */
+.dnd-faq {
+  padding: 5rem 2rem;
+}
+
+.dnd-faq__inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.dnd-faq__intro {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 680px;
+  margin-bottom: 2.5rem;
+}
+
+.dnd-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.dnd-faq__item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.dnd-faq__item.is-open {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.dnd-faq__question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: left;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  gap: 1rem;
+}
+
+.dnd-faq__question:hover {
+  color: var(--color-dnd-purple);
+}
+
+.dnd-faq__icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.dnd-faq__item.is-open .dnd-faq__icon {
+  transform: rotate(45deg);
+}
+
+.dnd-faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-out-expo);
+}
+
+.dnd-faq__answer-inner {
+  padding: 0 1.5rem 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.dnd-faq__cta-wrap {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.dnd-faq__cta {
+  display: inline-block;
+  background: var(--color-dnd-purple);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease-out-expo), opacity 0.3s ease;
+}
+
+.dnd-faq__cta:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ---- Testimonials ---- */
+.dnd-testimonials {
+  background: #f4f3f0;
+  padding: 5rem 2rem;
+}
+
+.dnd-testimonials__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dnd-testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.dnd-testimonial {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 2rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dnd-testimonial__quote {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  font-style: italic;
+}
+
+.dnd-testimonial__quote::before {
+  content: '\201C';
+  font-size: 1.5rem;
+  line-height: 0;
+  vertical-align: -0.2em;
+  color: var(--color-dnd-purple);
+  margin-right: 0.15rem;
+}
+
+.dnd-testimonial__author {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: auto;
+}
+
+/* ---- Final CTA ---- */
+.dnd-final-cta {
+  padding: 5rem 2rem 6rem;
+  text-align: center;
+}
+
+.dnd-final-cta__inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dnd-final-cta__text {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.dnd-final-cta__btn {
+  display: inline-block;
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 0.85rem 2.25rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease-out-expo), opacity 0.3s ease;
+}
+
+.dnd-final-cta__btn:hover {
+  transform: scale(1.05);
+  opacity: 0.85;
+}
+
+.dnd-about__inner--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.dnd-about__gif {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+/* ---- Photo Gallery ---- */
+.dnd-gallery {
+  padding: 0 2rem 4rem;
+}
+
+.dnd-gallery__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dnd-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.dnd-gallery__grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .dnd-hero {
+    padding: 7rem 1.5rem 3.5rem;
+    min-height: 60vh;
+  }
+
+  .dnd-hero__logo {
+    width: 60px;
+  }
+
+  .dnd-why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dnd-testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dnd-about__inner--split {
+    grid-template-columns: 1fr;
+  }
+
+  .dnd-gallery__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dnd-gallery__grid img {
+    height: 160px;
+  }
+
+  .dnd-faq__question {
+    font-size: 0.95rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .dnd-faq__answer-inner {
+    padding: 0 1.25rem 1rem;
+  }
+}

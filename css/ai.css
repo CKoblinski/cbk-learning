@@ -1,0 +1,604 @@
+/* ========================================
+   AI Page Styles
+   ======================================== */
+
+/* ---- Hero ---- */
+.ai-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8rem 2rem 4rem;
+  min-height: 80vh;
+}
+
+.ai-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.ai-hero__sub {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.ai-hero__cta {
+  display: inline-block;
+  background: var(--color-accent-ai);
+  color: #fff;
+  padding: 0.75rem 1.75rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.3s var(--ease-out-expo), opacity 0.3s ease;
+}
+
+.ai-hero__cta:hover {
+  transform: scale(1.04);
+  opacity: 0.9;
+}
+
+.ai-hero__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* ---- The Problem ---- */
+.ai-problem {
+  background: #f4f3f0;
+  padding: 5rem 2rem;
+}
+
+.ai-problem__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ai-problem__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+}
+
+.ai-problem__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.ai-problem__card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+}
+
+.ai-problem__card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.ai-problem__card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ---- Approach ---- */
+.ai-approach {
+  padding: 5rem 2rem;
+}
+
+.ai-approach__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ai-approach__label,
+.ai-philosophy__label,
+.ai-services__label,
+.ai-cases__label,
+.ai-testimonials__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-ai);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.ai-approach__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.ai-approach__intro {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.ai-approach__pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.ai-approach__pillar {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 2.5rem;
+}
+
+.ai-approach__pillar h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.ai-approach__pillar p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.ai-approach__pillar p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Philosophy / Three Laws ---- */
+.ai-philosophy {
+  background: #f4f3f0;
+  padding: 5rem 2rem;
+}
+
+.ai-philosophy__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ai-philosophy__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.ai-philosophy__intro {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.ai-philosophy__laws {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ai-philosophy__law {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.ai-philosophy__law-num {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent-ai);
+  opacity: 0.4;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.ai-philosophy__law h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.ai-philosophy__law p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ---- Services ---- */
+.ai-services {
+  padding: 5rem 2rem;
+}
+
+.ai-services__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ai-services__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.ai-services__intro {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.ai-services__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.ai-services__grid .ai-services__card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 0.75rem);
+}
+
+.ai-services__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ai-services__card:hover {
+  border-color: var(--color-accent-ai);
+  box-shadow: 0 4px 20px var(--color-accent-ai-glow);
+}
+
+.ai-services__card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.ai-services__card p {
+  color: var(--color-text-muted);
+  font-size: 0.93rem;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.ai-services__link {
+  color: var(--color-accent-ai);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+
+.ai-services__link:hover {
+  opacity: 0.7;
+}
+
+/* ---- Case Studies ---- */
+.ai-cases {
+  background: #f4f3f0;
+  padding: 5rem 2rem;
+}
+
+.ai-cases__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ai-cases__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+}
+
+.ai-cases__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.ai-cases__placeholder {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-cases__placeholder h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.ai-cases__placeholder p {
+  color: var(--color-text-muted);
+  font-size: 0.93rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.ai-cases__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-ai);
+  opacity: 0.6;
+}
+
+/* ---- Testimonials Carousel ---- */
+.ai-testimonials {
+  padding: 5rem 2rem;
+}
+
+.ai-testimonials__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ai-testimonials__carousel {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.ai-testimonials__track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0 1.5rem;
+  scrollbar-width: none;
+}
+
+.ai-testimonials__track::-webkit-scrollbar {
+  display: none;
+}
+
+.ai-testimonials__quote {
+  flex: 0 0 340px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 2rem;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-testimonials__quote p {
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.ai-testimonials__quote cite {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  display: block;
+}
+
+.ai-testimonials__quote cite span {
+  display: block;
+  font-weight: 400;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+}
+
+.ai-testimonials__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.ai-testimonials__arrow:hover {
+  background: var(--color-bg);
+  border-color: var(--color-text-muted);
+}
+
+.ai-testimonials__arrow--left {
+  left: -20px;
+}
+
+.ai-testimonials__arrow--right {
+  right: -20px;
+}
+
+/* ---- AI Diagnostic ---- */
+.ai-diagnostic {
+  padding: 4rem 2rem;
+  background: var(--color-accent-ai-light);
+}
+
+.ai-diagnostic__inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ai-diagnostic__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-ai);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.ai-diagnostic__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.ai-diagnostic__desc {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.ai-diagnostic__btn {
+  display: inline-block;
+  background: var(--color-accent-ai);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform 0.3s var(--ease-out-expo), opacity 0.3s ease;
+}
+
+.ai-diagnostic__btn:hover {
+  transform: scale(1.04);
+  opacity: 0.9;
+}
+
+/* ---- Final CTA ---- */
+.ai-cta {
+  padding: 5rem 2rem;
+  background: var(--color-accent-ai);
+}
+
+.ai-cta__inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ai-cta__inner h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.ai-cta__inner p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.ai-cta__button {
+  display: inline-block;
+  background: #fff;
+  color: var(--color-accent-ai);
+  padding: 0.75rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+}
+
+.ai-cta__button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .ai-hero {
+    grid-template-columns: 1fr;
+    padding: 7rem 1.5rem 3rem;
+    min-height: auto;
+  }
+
+  .ai-hero__image {
+    order: -1;
+  }
+
+  .ai-problem__grid,
+  .ai-approach__pillars,
+  .ai-services__grid,
+  .ai-testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-cases__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-philosophy__law {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
