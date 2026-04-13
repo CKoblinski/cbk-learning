@@ -108,6 +108,40 @@
 .stagger > .fade-up:nth-child(2) { transition-delay: 0.1s; }
 .stagger > .fade-up:nth-child(3) { transition-delay: 0.2s; }
 
+.cs-card--linked {
+  text-decoration: none;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cs-card--linked:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-text-muted);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.cs-card__tag--live {
+  color: #16a34a;
+  opacity: 1;
+}
+
+.cs-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  margin-top: auto;
+  padding-top: 0.5rem;
+  transition: gap 0.3s var(--ease-out-expo);
+}
+
+.cs-card--linked:hover .cs-card__link {
+  gap: 0.7rem;
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 900px) {

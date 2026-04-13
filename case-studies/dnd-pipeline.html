@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DND Short Factory — Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dnd-pipeline.css">
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- SECTION 1: THE HOOK                          -->
+  <!-- ============================================ -->
+  <section id="hook" class="section section--hero">
+    <div class="hero-content">
+      <p class="hero-kicker">Case Study</p>
+      <h1 class="hero-title">How do you turn the joy of a board game into data an AI can manipulate to produce something like&nbsp;this?</h1>
+      <div class="hero-split">
+        <div class="hero-video">
+          <video id="heroVideo" class="hero-video-player" controls loop muted playsinline poster="">
+            <source src="" type="video/mp4">
+            <!-- Replace src with path to scene-with-audio.mp4 from latest session -->
+          </video>
+          <div class="video-fallback" id="videoFallback">
+            <div class="video-placeholder">
+              <div class="video-placeholder-inner">
+                <span class="video-placeholder-icon">&#9654;</span>
+                <span class="video-placeholder-label">"Bixie on the Dragon"</span>
+                <span class="video-placeholder-sub">Session 103 — 10 sequences, 160s, $2.84</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-vs">
+          <span class="vs-badge">from</span>
+        </div>
+        <div class="hero-raw">
+          <div class="raw-transcript" id="scrollingTranscript">
+            <pre class="transcript-scroll"><span class="t-ts">00:51:15</span> <span class="t-speaker t-player">Kristin (Bixie):</span> I think you're great. I like you a lot. I respect you, I love a woman in charge. But I would like to understand how this city has a fucking dragon?
+<span class="t-ts">00:51:22</span> <span class="t-speaker t-player">Kristin (Bixie):</span> And we're not calling that as an ally. Like, who is this just on your situation? We have a dragon?
+<span class="t-ts">00:51:30</span> <span class="t-speaker t-player">Kristin (Bixie):</span> fight with us, like, I just don't understand why we're not calling that before we call a group of mercenaries.
+<span class="t-ts">00:52:45</span> <span class="t-speaker t-dm">Connor Koblinski (DM/Grand Maven):</span> our most powerful chess piece. This city has been protected by Jamun-Saar for centuries. If he were to leave this plain, we would be open to attack.
+<span class="t-ts">00:53:10</span> <span class="t-speaker t-player">Kristin (Bixie):</span> Listen, I'll talk to Jason. He's a dragon, and there's a seismic shifting of the earth beneath his feet with devils and fucking ghosts, and it's absolutely despicable down there, he's just sitting on his throne.
+<span class="t-ts">00:53:18</span> <span class="t-speaker t-player">Kristin (Bixie):</span> feet crossed? Like, I want to talk to this dragon while he's not fighting for his people.
+<span class="t-ts">00:53:35</span> <span class="t-speaker t-player">Kristin (Bixie):</span> I don't like any of that. All this bureaucracy, I'm not testifying. Let's just get the guy to come fight with us against the shit we just saw.
+<span class="t-ts">00:53:42</span> <span class="t-speaker t-dm">Connor Koblinski (DM/Grand Maven):</span> She rolls a 19, she says, I can have you meet by... with him tomorrow, morning at 8 AM.
+<span class="t-ts">00:53:48</span> <span class="t-speaker t-player">Kristin (Bixie):</span> I'm available.
+<span class="t-ts">00:53:55</span> <span class="t-speaker t-player">Lex (Eas):</span> Bix, let me... Maybe I'll come with you, and just, like, watch you.
+<span class="t-ts">00:53:58</span> <span class="t-speaker t-player">Lex (Eas):</span> I'll be your muscle.
+<span class="t-ts">00:54:02</span> <span class="t-speaker t-player">Kristin (Bixie):</span> Sure. I love dragons. I think they're very powerful and very cool. Why is everyone, like, weirdly nervous all the time?
+<span class="t-ts">00:54:10</span> <span class="t-speaker t-player">Kristin (Bixie):</span> We're just gonna go talk to this guy and, like, get him to fight with us. It's... we have a valuable cause. The fucking ground is shifting.</pre>
+          </div>
+          <div class="raw-label">Raw Zoom Transcript (VTT)</div>
+        </div>
+      </div>
+      <div class="hero-context">
+        <p>I'm a professional Dungeon Master, and I'm always experimenting with fun, engaging recaps for my players. This is what happens when you point AI at a 3-hour recording of friends playing D&D and ask it to find the best 60 seconds.</p>
+        <p>The challenge: a 3-hour session is ~2,000 lines of cross-talk, laughter, rule debates, and snack breaks. Buried inside are 5-7 moments of genuine storytelling magic. A human editor finds them intuitively. An AI needs a map.</p>
+        <p class="hero-context-emphasis">Building that map is what this project is about.</p>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll to explore the pipeline</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 2: THE NUMBERS                       -->
+  <!-- ============================================ -->
+  <section id="numbers" class="section section--numbers">
+    <div class="section-inner">
+      <h2 class="section-label">By The Numbers</h2>
+      <div class="stats-grid">
+        <div class="stat-card" data-delay="0">
+          <span class="stat-number" data-target="22700">0</span>
+          <span class="stat-suffix">+</span>
+          <span class="stat-label">Lines of Code</span>
+        </div>
+        <div class="stat-card" data-delay="100">
+          <span class="stat-number" data-target="13">0</span>
+          <span class="stat-label">Pipeline Stages</span>
+        </div>
+        <div class="stat-card" data-delay="200">
+          <span class="stat-number" data-target="4">0</span>
+          <span class="stat-label">AI Models Working in Tandem</span>
+        </div>
+        <div class="stat-card" data-delay="300">
+          <span class="stat-number" data-target="5">0</span>
+          <span class="stat-label">Quality Control Layers</span>
+        </div>
+        <div class="stat-card stat-card--highlight" data-delay="400">
+          <span class="stat-prefix">$</span>
+          <span class="stat-number" data-target="0.60">0</span>
+          <span class="stat-label">Per Finished Video</span>
+        </div>
+        <div class="stat-card" data-delay="500">
+          <span class="stat-number" data-target="10">0</span>
+          <span class="stat-suffix">min</span>
+          <span class="stat-label">Processing Time</span>
+        </div>
+        <div class="stat-card" data-delay="600">
+          <span class="stat-number" data-target="12">0</span>
+          <span class="stat-label">Specialized AI Prompts</span>
+        </div>
+        <div class="stat-card" data-delay="700">
+          <span class="stat-number" data-target="30">0</span>
+          <span class="stat-suffix">days</span>
+          <span class="stat-label">Concept to Production</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 3: THE PIPELINE                      -->
+  <!-- ============================================ -->
+  <section id="pipeline" class="section section--pipeline">
+    <div class="section-inner">
+      <div class="pipeline-intro">
+        <h2 class="section-title">The Pipeline</h2>
+        <p class="section-subtitle">Each stage transforms the data. Click any phase to see what actually happens inside.</p>
+        <div class="depth-toggle">
+          <button class="depth-btn active" data-depth="overview">Overview</button>
+          <button class="depth-btn" data-depth="technical">Technical Deep Dive</button>
+        </div>
+      </div>
+
+      <!-- PHASE 1: PARSE -->
+      <div class="phase" id="phase-parse">
+        <div class="phase-header" data-phase="parse">
+          <div class="phase-number">01</div>
+          <div class="phase-title-block">
+            <h3 class="phase-title">Parse the Chaos</h3>
+            <p class="phase-subtitle">Turn a messy video transcript into structured data</p>
+          </div>
+          <div class="phase-cost">$0.00</div>
+          <div class="phase-expand-icon">+</div>
+        </div>
+        <div class="phase-preview">
+          <div class="before-after">
+            <div class="before">
+              <div class="ba-label">What Goes In</div>
+              <pre class="data-block data-block--raw">WEBVTT
+
+1
+00:00:01.000 --> 00:00:05.000
+Connor Koblinski (DM): Alright, welcome
+back everyone. Let's do a quick recap.
+
+2
+00:00:06.000 --> 00:00:15.000
+Connor Koblinski (DM): So last session,
+you all made it to the Astral Sea.
+You're on the remains of a dead god's
+skeleton, this massive floating corpse
+drifting through silver mist...</pre>
+            </div>
+            <div class="transform-arrow">
+              <svg width="40" height="40" viewBox="0 0 40 40">
+                <path d="M8 20h24M24 12l8 8-8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="after">
+              <div class="ba-label">What Comes Out</div>
+              <pre class="data-block data-block--clean"><span class="json-key">{</span>
+  <span class="json-key">"cueId"</span>: <span class="json-num">2</span>,
+  <span class="json-key">"speaker"</span>: <span class="json-str">"Connor Koblinski (DM)"</span>,
+  <span class="json-key">"text"</span>: <span class="json-str">"So last session, you all
+    made it to the Astral Sea..."</span>,
+  <span class="json-key">"startMs"</span>: <span class="json-num">6000</span>,
+  <span class="json-key">"endMs"</span>: <span class="json-num">15000</span>,
+  <span class="json-key">"isDM"</span>: <span class="json-bool">true</span>,
+  <span class="json-key">"durationSec"</span>: <span class="json-num">9</span>
+<span class="json-key">}</span></pre>
+            </div>
+          </div>
+        </div>
+        <div class="phase-detail" id="detail-parse">
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h4>How It Detects the DM</h4>
+              <p>The parser doesn't rely on a hardcoded name. It analyzes speaking patterns across the full session: who speaks the most, who has the longest utterances, who speaks after long silences. The person matching that profile gets flagged as DM.</p>
+            </div>
+            <div class="detail-card">
+              <h4>Two VTT Formats</h4>
+              <p>Zoom generates two transcript types: <code>transcript.vtt</code> (with speaker labels) and <code>cc.vtt</code> (auto-caption, no speakers). The parser handles both, inferring speakers from timing patterns in the caption-only format.</p>
+            </div>
+            <div class="detail-card">
+              <h4>Speaker Aliases</h4>
+              <p>Zoom labels show real names: "Kristin (Bixie)". The system maps these to canonical character names using a knowledge base, so downstream stages see "Bixie" not "Kristin."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 2: LISTEN -->
+      <div class="phase" id="phase-listen">
+        <div class="phase-header" data-phase="listen">
+          <div class="phase-number">02</div>
+          <div class="phase-title-block">
+            <h3 class="phase-title">Listen to the Room</h3>
+            <p class="phase-subtitle">Analyze audio for energy spikes, silence patterns, and emotional peaks</p>
+          </div>
+          <div class="phase-cost">~$0.08</div>
+          <div class="phase-expand-icon">+</div>
+        </div>
+        <div class="phase-preview">
+          <div class="waveform-container">
+            <div class="waveform" id="waveform">
+              <!-- Generated by JS -->
+            </div>
+            <div class="waveform-annotations" id="waveformAnnotations">
+              <!-- Spike labels added by JS -->
+            </div>
+          </div>
+          <div class="waveform-legend">
+            <span class="legend-item"><span class="legend-dot legend-dot--spike"></span> Energy Spike</span>
+            <span class="legend-item"><span class="legend-dot legend-dot--silence"></span> Silence (then spike)</span>
+            <span class="legend-item"><span class="legend-dot legend-dot--laughter"></span> Group Laughter</span>
+          </div>
+        </div>
+        <div class="phase-detail" id="detail-listen">
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h4>Energy Analysis</h4>
+              <p>ffmpeg scans the full audio track for loudness peaks. The system identifies the top 7 energy spikes, ranked by intensity. A spike right after a long silence is weighted higher - that's the "dramatic reveal" pattern.</p>
+            </div>
+            <div class="detail-card">
+              <h4>Emotion Detection</h4>
+              <p>Gemini 2.5 Flash listens to 3-minute audio clips around each peak. It returns structured data: laughter intensity, gasps, voice acting quality, table energy. This is one of the cheapest AI calls in the pipeline (~$0.02 per clip).</p>
+            </div>
+            <div class="detail-card">
+              <h4>The "Silence-Then-Spike" Pattern</h4>
+              <p>In D&D, the biggest moments follow the same audio pattern: the DM says something dramatic, the table goes quiet, then erupts. The system specifically looks for these silence-then-spike patterns because they almost always mark a pivotal story beat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3: FIND MOMENTS -->
+      <div class="phase" id="phase-moments">
+        <div class="phase-header" data-phase="moments">
+          <div class="phase-number">03</div>
+          <div class="phase-title-block">
+            <h3 class="phase-title">Find the Moments</h3>
+            <p class="phase-subtitle">Out of 2,000 lines, identify the 5-7 that matter</p>
+          </div>
+          <div class="phase-cost">~$0.04</div>
+          <div class="phase-expand-icon">+</div>
+        </div>
+        <div class="phase-preview">
+          <div class="moment-finder-viz">
+            <div class="transcript-column" id="transcriptColumn">
+              <!-- Full transcript lines generated by JS - most faded, highlights glow -->
+            </div>
+            <div class="moment-card-column" id="momentCards">
+              <!-- Moment cards appear on hover/click -->
+            </div>
+          </div>
+        </div>
+        <div class="phase-detail" id="detail-moments">
+          <div class="detail-grid">
+            <div class="detail-card detail-card--wide">
+              <h4>Moment Taxonomy</h4>
+              <p>The AI classifies every moment it finds into one of 8 types. Each type has different visual treatment downstream:</p>
+              <div class="tag-grid">
+                <span class="moment-tag tag--epic">epic_roll</span>
+                <span class="moment-tag tag--funny">funny_banter</span>
+                <span class="moment-tag tag--dramatic">dramatic_reveal</span>
+                <span class="moment-tag tag--combat">combat_climax</span>
+                <span class="moment-tag tag--character">character_moment</span>
+                <span class="moment-tag tag--chaos">table_chaos</span>
+                <span class="moment-tag tag--dread">atmosphere_dread</span>
+                <span class="moment-tag tag--treasure">treasure_reward</span>
+              </div>
+            </div>
+            <div class="detail-card">
+              <h4>Emotional Arc Extraction</h4>
+              <p>Every moment gets a four-beat emotional arc: Setup, Build, Peak, Payoff. This isn't decoration - it drives the Director's storyboard decisions in Phase 5. A moment without a clear arc gets ranked lower.</p>
+            </div>
+            <div class="detail-card">
+              <h4>The Actual Output</h4>
+              <p>For the "Bixie Looting" moment, the AI wrote: <em>"One player has a profound spiritual moment, another immediately starts looting. The punchline 'That's just economics' is quotable and perfectly in character."</em> That's not just identification - it's editorial judgment about why the moment works.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 4: TRANSLATE -->
+      <div class="phase" id="phase-translate">
+        <div class="phase-header" data-phase="translate">
+          <div class="phase-number">04</div>
+          <div class="phase-title-block">
+            <h3 class="phase-title">Translate the World</h3>
+            <p class="phase-subtitle">Turn fantasy jargon into something an image AI can actually draw</p>
+          </div>
+          <div class="phase-cost">~$0.002</div>
+          <div class="phase-expand-icon">+</div>
+        </div>
+        <div class="phase-preview">
+          <div class="translation-table">
+            <div class="translation-row" data-term="alyxian">
+              <div class="translation-term">
+                <span class="term-label">Fantasy Term</span>
+                <span class="term-name">Alyxian the Apotheon</span>
+              </div>
+              <div class="translation-arrow">
+                <svg width="32" height="32" viewBox="0 0 32 32"><path d="M6 16h20M20 10l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              </div>
+              <div class="translation-result">
+                <span class="term-label">What the Image AI Receives</span>
+                <span class="term-description">A noble warrior-champion in battered golden armor with a fading divine halo. A 9-foot-tall hero, his armor scarred but radiant, his eyes weary but compassionate.</span>
+              </div>
+            </div>
+            <div class="translation-row" data-term="cael-morrow">
+              <div class="translation-term">
+                <span class="term-label">Fantasy Term</span>
+                <span class="term-name">Cael Morrow</span>
+              </div>
+              <div class="translation-arrow">
+                <svg width="32" height="32" viewBox="0 0 32 32"><path d="M6 16h20M20 10l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              </div>
+              <div class="translation-result">
+                <span class="term-label">What the Image AI Receives</span>
+                <span class="term-description">A drowned ancient city submerged beneath a desert oasis. Massive stone columns covered in barnacles loom in murky blue-green water. Schools of bioluminescent fish drift between ruined archways.</span>
+              </div>
+            </div>
+            <div class="translation-row" data-term="vermilion">
+              <div class="translation-term">
+                <span class="term-label">Fantasy Term</span>
+                <span class="term-name">Vermilion Dream</span>
+              </div>
+              <div class="translation-arrow">
+                <svg width="32" height="32" viewBox="0 0 32 32"><path d="M6 16h20M20 10l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              </div>
+              <div class="translation-result">
+                <span class="term-label">What the Image AI Receives</span>
+                <span class="term-description">Shadowy figures wearing fine clothing with subtle crimson accents - red pins, garnet rings, vermilion thread. Outwardly respectable but privately corrupt.</span>
+              </div>
+            </div>
+            <div class="translation-row" data-term="grummish">
+              <div class="translation-term">
+                <span class="term-label">Fantasy Term</span>
+                <span class="term-name">Grummish (the orc god)</span>
+              </div>
+              <div class="translation-arrow">
+                <svg width="32" height="32" viewBox="0 0 32 32"><path d="M6 16h20M20 10l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              </div>
+              <div class="translation-result">
+                <span class="term-label">What the Image AI Receives</span>
+                <span class="term-description">A monstrous divine figure - a 22-foot-tall hulking orc god wielding a massive spear tipped with his own divine heart. A towering silhouette of raw godly strength.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-detail" id="detail-translate">
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h4>Why This Matters</h4>
+              <p>Image generation AI has no idea what "Bazzoxan" is. If you send it the word raw, you get garbage. But "a dark basalt military outpost with scarred walls under gray-green clouds" gives it something it can actually render. This translation layer is what lets different AI models collaborate without corrupting each other's data.</p>
+            </div>
+            <div class="detail-card">
+              <h4>The Prompt Sanitizer</h4>
+              <p>A zero-cost safety net catches any raw proper nouns that slip past the translation layer. Simple string matching with smart article handling - "the Astral Sea" becomes "an infinite expanse of shimmering void" without doubling up articles. Zero API cost, prevents expensive image generation failures.</p>
+            </div>
+            <div class="detail-card">
+              <h4>Cost: $0.002</h4>
+              <p>This entire stage runs on Claude Haiku in parallel with other analysis. It processes in under 14 seconds and adds functionally nothing to the bill. But without it, every downstream image generation call would be working with nonsense.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 5: DIRECT -->
+      <div class="phase" id="phase-direct">
+        <div class="phase-header" data-phase="direct">
+          <div class="phase-number">05</div>
+          <div class="phase-title-block">
+            <h3 class="phase-title">Direct the Story</h3>
+            <p class="phase-subtitle">An AI director plans the storyboard, shot by shot</p>
+          </div>
+          <div class="phase-cost">~$0.03-$0.30</div>
+          <div class="phase-expand-icon">+</div>
+        </div>
+        <div class="phase-preview">
+          <div class="storyboard-viz">
+            <div class="storyboard-header">
+              <span class="storyboard-title">"Bixie on the Dragon: He's Just Sitting There, Feet Crossed?"</span>
+              <span class="storyboard-meta">10 sequences | 160 seconds | $2.84 total</span>
+            </div>
+            <div class="storyboard-timeline">
+              <div class="seq-block seq-block--dialogue" data-seq="1">
+                <div class="seq-type">Dialogue</div>
+                <div class="seq-speaker">Bixie</div>
+                <div class="seq-duration">18s</div>
+                <div class="seq-cost">$0.24</div>
+              </div>
+              <div class="seq-block seq-block--dialogue" data-seq="2">
+                <div class="seq-type">Dialogue</div>
+                <div class="seq-speaker">Bixie</div>
+                <div class="seq-duration">14s</div>
+                <div class="seq-cost">$0.24</div>
+              </div>
+              <div class="seq-block seq-block--dialogue" data-seq="3">
+                <div class="seq-type">Dialogue</div>
+                <div class="seq-speaker">Grand Maven</div>
+                <div class="seq-duration">16s</div>
+                <div class="seq-cost">$0.24</div>
+              </div>
+              <div class="seq-block seq-block--dm" data-seq="4">
+                <div class="seq-type">DM Narration</div>
+                <div class="seq-duration">8s</div>
+                <div class="seq-cost">$0.32</div>
+              </div>
+              <div class="seq-block seq-block--dialogue" data-seq="5">
+                <div class="seq-type">Dialogue</div>
+                <div class="seq-speaker">Bixie</div>
+                <div class="seq-duration">22s</div>
+                <div class="seq-cost">$0.24</div>
+              </div>
+              <div class="seq-block seq-block--closeup" data-seq="6">
+                <div class="seq-type">Action</div>
+                <div class="seq-duration">6s</div>
+                <div class="seq-cost">$0.32</div>
+              </div>
+              <div class="seq-block seq-block--dialogue" data-seq="7">
+                <div class="seq-type">Dialogue</div>
+                <div class="seq-speaker">Bixie</div>
+                <div class="seq-duration">20s</div>
+                <div class="seq-cost">$0.24</div>
+              </div>
+              <div class="seq-block seq-block--dialogue" data-seq="8">
+                <div class="seq-type">Dialogue</div>
+                <div class="seq-speaker">Grand Maven</div>
+                <div class="seq-duration">14s</div>
+                <div class="seq-cost">$0.24</div>
+              </div>
+              <div class="seq-block seq-block--dialogue" data-seq="9">
+                <div class="seq-type">Dialogue</div>
+                <div class="seq-speaker">Bixie</div>
+                <div class="seq-duration">8s</div>
+                <div class="seq-cost">$0.24</div>
+              </div>
+              <div class="seq-block seq-block--dialogue" data-seq="10">
+                <div class="seq-type">Dialogue</div>
+                <div class="seq-speaker">Eas + Bixie</div>
+                <div class="seq-duration">18s</div>
+                <div class="seq-cost">$0.24</div>
+              </div>
+            </div>
+            <div class="storyboard-detail-panel" id="seqDetailPanel">
+              <p class="seq-detail-hint">Click a sequence block to see what the Director planned</p>
+            </div>
+          </div>
+        </div>
+        <div class="phase-detail" id="detail-direct">
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h4>Why Opus?</h4>
+              <p>This is the most expensive AI call in the pipeline - and the most important. The Director decides what the audience sees, in what order, for how long. It needs to understand narrative pacing, comedic timing, visual composition, and emotional arcs simultaneously. Cheaper models produce technically correct but creatively flat storyboards.</p>
+            </div>
+            <div class="detail-card">
+              <h4>5 Framing Strategies</h4>
+              <p>The Director chooses a framing strategy based on moment type: <strong>Cold Open</strong> (start with action), <strong>Stakes-Then-Payoff</strong> (front-load tension), <strong>Character Showcase</strong> (one person's journey), <strong>Comedic Timing</strong> (setup-punchline), <strong>Crescendo Build</strong> (steady escalation). Each strategy changes the shot order and pacing.</p>
+            </div>
+            <div class="detail-card">
+              <h4>Post-Director Guardrails</h4>
+              <p>After the Director returns its plan, 5 automated guardrails enforce constraints: cue order verification, DM fabrication limits, ai-generated line caps, structural validation, and table-talk QC. The Director is creative. The guardrails keep it honest.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 6: QUALITY CONTROL -->
+      <div class="phase phase--showcase" id="phase-qc">
+        <div class="phase-header" data-phase="qc">
+          <div class="phase-number">06</div>
+          <div class="phase-title-block">
+            <h3 class="phase-title">Quality Control</h3>
+            <p class="phase-subtitle">Five layers of checking before a single pixel is drawn</p>
+          </div>
+          <div class="phase-cost">~$0.012</div>
+          <div class="phase-expand-icon">+</div>
+        </div>
+        <div class="phase-preview">
+          <div class="qc-showcase">
+            <div class="qc-layers">
+              <div class="qc-layer" data-layer="technical">
+                <div class="qc-layer-header">
+                  <span class="qc-dot qc-dot--pass"></span>
+                  <span class="qc-layer-name">Technical QC</span>
+                  <span class="qc-layer-model">Claude Haiku</span>
+                  <span class="qc-layer-cost">$0.001</span>
+                </div>
+                <div class="qc-layer-body">
+                  <p>Validates timing math, field presence, duration bounds. Every sequence type has required fields - dialogue needs a speaker, dice moments need a roll value. Hard pass/fail.</p>
+                  <div class="qc-check-list">
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Duration bounds: 3-20s per sequence</div>
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> All required fields present</div>
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Timing math: 800 + (chars x 88) + pauses</div>
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Total duration within moment bounds</div>
+                  </div>
+                </div>
+              </div>
+              <div class="qc-layer" data-layer="creative">
+                <div class="qc-layer-header">
+                  <span class="qc-dot qc-dot--pass"></span>
+                  <span class="qc-layer-name">Creative QC</span>
+                  <span class="qc-layer-model">Claude Sonnet</span>
+                  <span class="qc-layer-cost">$0.005</span>
+                </div>
+                <div class="qc-layer-body">
+                  <p>Reviews three dimensions: Framing & Pacing (does it hook in 2 seconds?), Character Fidelity (do portraits match character cards?), Scene Coherence (does the background fit the story?). Needs 2 of 3 to pass. Retries up to 3x.</p>
+                  <div class="qc-check-list">
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Cinematic Pacing: hooks immediately, tight escalation</div>
+                    <div class="qc-check qc-check--fail"><span class="qc-icon">&#10007;</span> Character Fidelity: "Sequence 11 describes portrait as 'Kristin' (the real player) instead of 'Bixie' (the character). Must use character card, not player name."</div>
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Scene Coherence: chancellor's chambers consistent throughout</div>
+                  </div>
+                  <p class="qc-verdict">Passed (2/3) — Real QC catch from Session 103: the AI confused the player for the character</p>
+                </div>
+              </div>
+              <div class="qc-layer" data-layer="storytelling">
+                <div class="qc-layer-header">
+                  <span class="qc-dot qc-dot--pass"></span>
+                  <span class="qc-layer-name">Storytelling QA</span>
+                  <span class="qc-layer-model">Rules-Based</span>
+                  <span class="qc-layer-cost">$0.00</span>
+                </div>
+                <div class="qc-layer-body">
+                  <p>Seven-dimension scoring rubric. Each dimension gets 0-20 points. This is a report card, not a gate - it flags weaknesses for the human to review without blocking the pipeline.</p>
+                  <div class="rubric-bars">
+                    <div class="rubric-row">
+                      <span class="rubric-label">Plot (Arc Structure)</span>
+                      <div class="rubric-bar"><div class="rubric-fill" style="width:80%"><span>16/20</span></div></div>
+                    </div>
+                    <div class="rubric-row">
+                      <span class="rubric-label">Tone (Mood Alignment)</span>
+                      <div class="rubric-bar"><div class="rubric-fill" style="width:65%"><span>13/20</span></div></div>
+                    </div>
+                    <div class="rubric-row">
+                      <span class="rubric-label">Characterization</span>
+                      <div class="rubric-bar"><div class="rubric-fill" style="width:100%"><span>20/20</span></div></div>
+                    </div>
+                    <div class="rubric-row">
+                      <span class="rubric-label">Staging</span>
+                      <div class="rubric-bar"><div class="rubric-fill" style="width:90%"><span>18/20</span></div></div>
+                    </div>
+                    <div class="rubric-row">
+                      <span class="rubric-label">Vivid Details</span>
+                      <div class="rubric-bar"><div class="rubric-fill" style="width:50%"><span>10/20</span></div></div>
+                    </div>
+                    <div class="rubric-row">
+                      <span class="rubric-label">Cinematic Language</span>
+                      <div class="rubric-bar"><div class="rubric-fill" style="width:55%"><span>11/20</span></div></div>
+                    </div>
+                    <div class="rubric-row">
+                      <span class="rubric-label">Continuity</span>
+                      <div class="rubric-bar"><div class="rubric-fill" style="width:85%"><span>17/20</span></div></div>
+                    </div>
+                  </div>
+                  <p class="qc-verdict">Score: 105/140 (B) — Real scores from Session 103</p>
+                </div>
+              </div>
+              <div class="qc-layer" data-layer="visual">
+                <div class="qc-layer-header">
+                  <span class="qc-dot qc-dot--pass"></span>
+                  <span class="qc-layer-name">Visual QC</span>
+                  <span class="qc-layer-model">Gemini Vision</span>
+                  <span class="qc-layer-cost">$0.006</span>
+                </div>
+                <div class="qc-layer-body">
+                  <p>After images are generated, Gemini Vision inspects its own work. Three separate checks: portrait consistency (does the face match the character card?), background accuracy (does the setting match the scene?), and action frame coherence (do sequential frames look like the same character?).</p>
+                  <div class="qc-check-list">
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Portrait: matches character card</div>
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Background: setting is accurate</div>
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Frames: consistent across sequence</div>
+                  </div>
+                </div>
+              </div>
+              <div class="qc-layer" data-layer="consistency">
+                <div class="qc-layer-header">
+                  <span class="qc-dot qc-dot--pass"></span>
+                  <span class="qc-layer-name">Cross-Sequence Consistency</span>
+                  <span class="qc-layer-model">Rules-Based</span>
+                  <span class="qc-layer-cost">$0.00</span>
+                </div>
+                <div class="qc-layer-body">
+                  <p>The "Script Supervisor" - checks that visual details stay consistent across the entire moment. Does the same character look the same in sequence 1 and sequence 6? Does the background palette drift between shots in the same location?</p>
+                  <div class="qc-check-list">
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> 70%+ dialogue lines covered in plan</div>
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Named items have close-ups</div>
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Palette consistent within location</div>
+                    <div class="qc-check qc-check--pass"><span class="qc-icon">&#10003;</span> Every speaker has a portrait</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="qc-callout">
+              <div class="qc-callout-header">
+                <span class="qc-callout-icon">&#9888;</span>
+                <span>The $6 Lesson</span>
+              </div>
+              <div class="qc-callout-body">
+                <p>Early in development, I gave image generation an unlimited retry budget. The QC would fail a frame, regenerate it, fail again, regenerate - 200+ images for a single sequence. Typical generation cost: $0.40. That run: <strong>$6+</strong>.</p>
+                <p>The fix wasn't "better AI." It was better rubrics and hard retry caps. AI quality control needs the same thing human quality control needs: <strong>clear criteria, not vibes.</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-detail" id="detail-qc">
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h4>Philosophy: "Cheap Checks Everywhere"</h4>
+              <p>Two of the five QC layers cost literally nothing - they're rules-based string matching and field validation. The other three cost a combined $0.012. The most expensive single image generation costs more than all five QC layers combined. Prevention is cheaper than regeneration, every time.</p>
+            </div>
+            <div class="detail-card">
+              <h4>The Rubric Approach</h4>
+              <p>Each QC dimension has specific, measurable criteria. "Is the character fidelity good?" is a bad check. "Does the portrait description match the canonical character card within 3 key visual attributes (hair color, skin tone, signature items)?" is a good one. If you can't explain what "good" means in specific terms, you can't explain it to an AI either.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 7: VOICE -->
+      <div class="phase" id="phase-voice">
+        <div class="phase-header" data-phase="voice">
+          <div class="phase-number">07</div>
+          <div class="phase-title-block">
+            <h3 class="phase-title">Cast the Voices</h3>
+            <p class="phase-subtitle">Decide what you hear: full performance, a quick bark, or just text</p>
+          </div>
+          <div class="phase-cost">~$0.001</div>
+          <div class="phase-expand-icon">+</div>
+        </div>
+        <div class="phase-preview">
+          <div class="voice-tiers">
+            <div class="voice-tier voice-tier--full">
+              <div class="voice-tier-header">
+                <span class="voice-tier-badge">Full Voice</span>
+                <span class="voice-tier-desc">Play the entire audio clip</span>
+              </div>
+              <div class="voice-tier-example">
+                <div class="voice-waveform voice-waveform--full"></div>
+                <div class="voice-line">"Dead things have stuff. That's just economics."</div>
+                <div class="voice-why">Climactic punchline. Great voice acting. The audience needs to hear this.</div>
+              </div>
+            </div>
+            <div class="voice-tier voice-tier--bark">
+              <div class="voice-tier-header">
+                <span class="voice-tier-badge">Bark</span>
+                <span class="voice-tier-desc">Play first 1-2 words, rest as text</span>
+              </div>
+              <div class="voice-tier-example">
+                <div class="voice-waveform voice-waveform--bark"></div>
+                <div class="voice-line"><span class="bark-voiced">"Classic</span> Bixie."</div>
+                <div class="voice-why">Supporting dialogue. You hear the voice, get the character, read the rest.</div>
+              </div>
+            </div>
+            <div class="voice-tier voice-tier--text">
+              <div class="voice-tier-header">
+                <span class="voice-tier-badge">Text Only</span>
+                <span class="voice-tier-desc">Typewriter with beep sounds</span>
+              </div>
+              <div class="voice-tier-example">
+                <div class="voice-waveform voice-waveform--text"></div>
+                <div class="voice-line voice-line--typewriter">The party approaches the ribcage...</div>
+                <div class="voice-why">Connective exposition. AI-generated bridge text. No recorded audio exists.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-detail" id="detail-voice">
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h4>The JRPG Inspiration</h4>
+              <p>Japanese RPGs solved this exact problem decades ago. You can't voice every line in a 60-hour game, so you tier them: important scenes get full voice, supporting dialogue gets a bark (a short vocalization), and exposition gets text with a character beep. The same logic applies to a 60-second Short with 8-12 dialogue lines.</p>
+            </div>
+            <div class="detail-card">
+              <h4>The Decision Criteria</h4>
+              <p>Full Voice goes to: climactic lines, emotional peaks, great punchlines, dramatic NPC voices. Bark goes to: supporting dialogue that benefits from hearing the voice. Text Only is reserved for AI-generated bridge text where no audio recording exists. Hard rule: if real recorded audio exists, it's never text-only.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 8: GENERATE -->
+      <div class="phase" id="phase-generate">
+        <div class="phase-header" data-phase="generate">
+          <div class="phase-number">08</div>
+          <div class="phase-title-block">
+            <h3 class="phase-title">Generate the Art</h3>
+            <p class="phase-subtitle">Turn descriptions into 16-bit pixel art portraits, backgrounds, and action frames</p>
+          </div>
+          <div class="phase-cost">~$0.50</div>
+          <div class="phase-expand-icon">+</div>
+        </div>
+        <div class="phase-preview">
+          <div class="art-gen-viz">
+            <div class="art-gen-row">
+              <div class="art-gen-input">
+                <div class="art-gen-label">Character Card</div>
+                <p class="art-gen-desc">"Lithe half-elf woman with white-blonde hair swept up in a high bun, pointed ears. Fair skin, sharp angular cheekbones, sly confident smirk. Dark leather vest over white shirt..."</p>
+              </div>
+              <div class="art-gen-arrow">
+                <svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 20h24M24 12l8 8-8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              </div>
+              <div class="art-gen-output">
+                <div class="art-gen-label">Generated Portraits</div>
+                <div class="portrait-grid">
+                  <div class="portrait-placeholder" data-mood="comedic">
+                    <span class="portrait-mood">comedic</span>
+                    <span class="portrait-file">bixie_comedic.png</span>
+                  </div>
+                  <div class="portrait-placeholder" data-mood="dark">
+                    <span class="portrait-mood">dark</span>
+                    <span class="portrait-file">bixie_dark.png</span>
+                  </div>
+                  <div class="portrait-placeholder" data-mood="triumphant">
+                    <span class="portrait-mood">triumphant</span>
+                    <span class="portrait-file">bixie_triumphant.png</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="art-gen-note">
+              <p>Each character gets a canonical 512x512 "token" portrait. Mood variants and mouth animation frames are generated using the token as a reference image, ensuring visual consistency. If <code>bixie_triumphant</code> already exists in the knowledge base, the system skips generation entirely.</p>
+            </div>
+          </div>
+        </div>
+        <div class="phase-detail" id="detail-generate">
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h4>Where the Money Goes</h4>
+              <p>Image generation is 95% of the per-video cost. The entire analysis pipeline (parsing, highlights, summary, director, QC) costs ~$0.11. Image generation costs ~$0.45-$0.57. That's why asset reuse matters - if a character portrait already exists, we skip the most expensive call entirely.</p>
+            </div>
+            <div class="detail-card">
+              <h4>The Style Guide</h4>
+              <p>16-bit SNES-era aesthetic: think Octopath Traveler, Final Fantasy VI, Chrono Trigger. Every image generation prompt starts with the same style prefix to maintain consistency across sessions, characters, and backgrounds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 9: ASSEMBLE -->
+      <div class="phase" id="phase-assemble">
+        <div class="phase-header" data-phase="assemble">
+          <div class="phase-number">09</div>
+          <div class="phase-title-block">
+            <h3 class="phase-title">Assemble and Export</h3>
+            <p class="phase-subtitle">Parts become a whole - HTML animation, then MP4 video</p>
+          </div>
+          <div class="phase-cost">$0.00</div>
+          <div class="phase-expand-icon">+</div>
+        </div>
+        <div class="phase-preview">
+          <div class="assembly-flow">
+            <div class="assembly-step">
+              <div class="assembly-icon">&#128444;</div>
+              <div class="assembly-label">Portraits + Backgrounds + Frames</div>
+            </div>
+            <div class="assembly-connector"></div>
+            <div class="assembly-step">
+              <div class="assembly-icon">&#128196;</div>
+              <div class="assembly-label">HTML Animation Template</div>
+            </div>
+            <div class="assembly-connector"></div>
+            <div class="assembly-step">
+              <div class="assembly-icon">&#127916;</div>
+              <div class="assembly-label">Puppeteer Frame Capture</div>
+            </div>
+            <div class="assembly-connector"></div>
+            <div class="assembly-step">
+              <div class="assembly-icon">&#127909;</div>
+              <div class="assembly-label">ffmpeg Encode to MP4</div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-detail" id="detail-assemble">
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h4>HTML-First Assembly</h4>
+              <p>Each scene is first assembled as a self-contained HTML page with CSS animations, dialogue timing, and embedded audio. This gives a live preview before committing to video export. Puppeteer then captures frames from the browser, and ffmpeg encodes them into the final MP4.</p>
+            </div>
+            <div class="detail-card">
+              <h4>Premiere XML Export</h4>
+              <p>For manual editing, the system also exports a Premiere Pro-compatible XML with all clips on separate tracks. Room tone goes on an independent A2 track. This lets a human editor make final adjustments without re-running the pipeline.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 4: PHILOSOPHIES                      -->
+  <!-- ============================================ -->
+  <section id="philosophies" class="section section--philosophies">
+    <div class="section-inner">
+      <h2 class="section-title">Philosophies</h2>
+      <p class="section-subtitle">How I think about building AI-powered creative systems</p>
+
+      <div class="philosophy-cards">
+
+        <div class="philosophy" id="phil-cto">
+          <div class="philosophy-header">
+            <span class="philosophy-number">01</span>
+            <h3>Be the CEO, Let AI Be the CTO</h3>
+          </div>
+          <div class="philosophy-body">
+            <p>I told Claude: you are the CTO of this project. Research the wise answer to technical questions. Execute solutions that drive our bottom-line metrics.</p>
+            <p>It found Apple's local audio analysis models on my machine. I didn't even know I had access to them. That discovery saved real money by running processes locally instead of hitting paid APIs for every audio analysis call.</p>
+            <p>The catch: this only works if you slow down and actually understand what it's proposing. You're the CEO - you set the vision, you approve the architecture, you make the judgment calls about what matters. But you don't have to be the one who knows the fastest way to extract audio peaks from a 3-hour file. That's the CTO's job.</p>
+            <div class="philosophy-takeaway">
+              <strong>Your job:</strong> vision, priorities, judgment calls.<br>
+              <strong>AI's job:</strong> research, execution, technical options.
+            </div>
+          </div>
+        </div>
+
+        <div class="philosophy" id="phil-crew">
+          <div class="philosophy-header">
+            <span class="philosophy-number">02</span>
+            <h3>Cast Your AI Like a Film Crew</h3>
+          </div>
+          <div class="philosophy-body">
+            <p>When Hollywood adapts a book into a movie, they don't hand it to one person. There's a director, a script supervisor, a line editor, a lore manager, a QC team. I built my AI pipeline the same way.</p>
+            <div class="crew-table">
+              <div class="crew-row crew-row--header">
+                <span class="crew-role">Role</span>
+                <span class="crew-model">AI Model</span>
+                <span class="crew-job">Job</span>
+                <span class="crew-cost">Cost/Call</span>
+              </div>
+              <div class="crew-row">
+                <span class="crew-role">The Director</span>
+                <span class="crew-model">Claude Opus</span>
+                <span class="crew-job">Plans the storyboard, makes creative calls</span>
+                <span class="crew-cost">$0.03-$0.30</span>
+              </div>
+              <div class="crew-row">
+                <span class="crew-role">The Lore Master</span>
+                <span class="crew-model">Rules Engine</span>
+                <span class="crew-job">Visual consistency, proper noun translation</span>
+                <span class="crew-cost">$0.00</span>
+              </div>
+              <div class="crew-row">
+                <span class="crew-role">The Line Editor</span>
+                <span class="crew-model">Claude Haiku</span>
+                <span class="crew-job">Timing validation, field structure, technical checks</span>
+                <span class="crew-cost">$0.001</span>
+              </div>
+              <div class="crew-row">
+                <span class="crew-role">The Script Supervisor</span>
+                <span class="crew-model">Claude Sonnet</span>
+                <span class="crew-job">Pacing review, character fidelity, scene coherence</span>
+                <span class="crew-cost">$0.005</span>
+              </div>
+              <div class="crew-row">
+                <span class="crew-role">The Audio Director</span>
+                <span class="crew-model">Claude Haiku</span>
+                <span class="crew-job">Voice tier decisions (full voice / bark / text)</span>
+                <span class="crew-cost">$0.001</span>
+              </div>
+              <div class="crew-row">
+                <span class="crew-role">The Artist</span>
+                <span class="crew-model">Gemini Flash</span>
+                <span class="crew-job">Pixel art generation (portraits, backgrounds, frames)</span>
+                <span class="crew-cost">$0.04-$0.08</span>
+              </div>
+              <div class="crew-row">
+                <span class="crew-role">The QC Team</span>
+                <span class="crew-model">Gemini Vision</span>
+                <span class="crew-job">Inspects generated images for consistency</span>
+                <span class="crew-cost">$0.002</span>
+              </div>
+            </div>
+            <div class="philosophy-takeaway">
+              Different models for different jobs, based on what the job actually requires. Opus only where judgment is irreplaceable. Haiku everywhere speed matters more than depth. Rules-based checks where you don't need AI at all.
+            </div>
+          </div>
+        </div>
+
+        <div class="philosophy" id="phil-data">
+          <div class="philosophy-header">
+            <span class="philosophy-number">03</span>
+            <h3>Data Integrity Is the Entire Game</h3>
+          </div>
+          <div class="philosophy-body">
+            <p>When you're stringing AI calls together, every handoff is a potential break point.</p>
+            <p>Here's a real example: the Director reorders dialogue lines for dramatic effect. The old system used line numbers to match audio to dialogue. Line numbers shifted when the Director moved things around. Audio beds broke. Video and audio desynced by <strong>81 seconds</strong>.</p>
+            <p>The fix: immutable IDs from the original transcript (cueIds) as the single source of truth across all 13 pipeline stages. The Director can reorder whatever it wants - the cueId never changes.</p>
+            <p>Same principle with proper noun translation. Gemini can't draw "Bazzoxan." But it can draw "a dark basalt military outpost with scarred walls." The translation layer is what lets different AI models collaborate without corrupting each other's data.</p>
+            <div class="philosophy-takeaway">
+              Every AI handoff needs three things: an immutable key, a validated schema, and a translation layer.
+            </div>
+          </div>
+        </div>
+
+        <div class="philosophy" id="phil-8020">
+          <div class="philosophy-header">
+            <span class="philosophy-number">04</span>
+            <h3>The 80/20 Reality</h3>
+          </div>
+          <div class="philosophy-body">
+            <p>AI gets you 80% of the way there. The last 20% is the entire project.</p>
+            <p>It always feels like one more data point will close the gap. If only the AI understood that the laughter was loud vs. quiet. If only it could detect sarcasm. If only it knew the emotional history between these two characters.</p>
+            <p>You can think of a thousand data points. But what you're evaluating as a human - especially around art and communication with other people - is so minute and fine-tuned that it doesn't matter if you have every signal. You still benefit from a human interjecting 10-20% of the vision.</p>
+            <p>So I stopped building an automator and started building a tool that presents information to a director and gets quick decisions back.</p>
+            <div class="philosophy-takeaway">
+              The best AI pipelines aren't autonomous. They're fast feedback loops with a human in the chair that matters.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 5: LESSONS LEARNED                   -->
+  <!-- ============================================ -->
+  <section id="lessons" class="section section--lessons">
+    <div class="section-inner">
+      <h2 class="section-title">Lessons Learned</h2>
+      <p class="section-subtitle">What I'd do differently and why it matters</p>
+
+      <div class="lessons-list">
+
+        <div class="lesson">
+          <div class="lesson-header">
+            <span class="lesson-number">01</span>
+            <h3 class="lesson-title">Start With Your Hardest Data Problem</h3>
+          </div>
+          <div class="lesson-body">
+            <p>I started with text because it felt lightweight. I got a great animation engine out of it. Then I went back to add audio - and had to restructure everything.</p>
+            <p>What I thought I was doing: building incrementally. Text first, audio later, keep it simple.</p>
+            <p>What actually happened: the text-first architecture made assumptions about timing, sequencing, and data flow that audio broke. The animation engine assumed character-count-based timing. Audio has real durations. The two systems disagreed on how long every single line should be on screen.</p>
+            <p>If I could redo it, I'd do a lightweight test of my most complex data problem first - even a rough prototype of the audio integration - before building the visual pipeline around text-only assumptions.</p>
+            <div class="lesson-takeaway">
+              If you know another data source is coming, build the connectors early. Even if you don't use them yet, their shape will influence everything downstream.
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-header">
+            <span class="lesson-number">02</span>
+            <h3 class="lesson-title">Don't Fall for the "One More Data Point" Fallacy</h3>
+          </div>
+          <div class="lesson-body">
+            <p>I added energy analysis. Then emotion detection. Then laughter intensity. Then voice acting quality scores. Each one helped - a little.</p>
+            <p>But the moments the AI consistently missed were the ones that required understanding relationships between players, inside jokes, callbacks to earlier sessions. Things that are technically "data" but practically impossible to capture in a pipeline.</p>
+            <p>There's a seductive logic: if only I add one more signal, the AI will finally get it. It won't. The gap between "good enough to be useful" and "good enough to replace a human editor" is not a data problem. It's a judgment problem. And judgment is what humans are for.</p>
+            <div class="lesson-takeaway">
+              Diminishing returns on data are real. Know when to stop instrumenting and start designing for human input.
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-header">
+            <span class="lesson-number">03</span>
+            <h3 class="lesson-title">"Just Do It Better" Is Not QC</h3>
+          </div>
+          <div class="lesson-body">
+            <p>Early on, my quality control was basically "check if this is good." That's not a rubric. That's a vibe.</p>
+            <p>The $6 story: I gave image generation an unlimited retry budget. QC would fail a frame, regenerate, fail again, regenerate - 200+ images for one sequence. Typical cost: $0.40. That run: $6+. And the output wasn't even better, because the QC criteria were vague enough that "passing" was essentially random.</p>
+            <p>The fix: specific, measurable rubrics (seven-dimension scoring), hard retry caps, layered checks at different cost tiers. Two of my five QC layers cost literally zero dollars - they're rules-based checks that don't need AI at all.</p>
+            <div class="lesson-takeaway">
+              If you can't explain to a person what "good" means in specific, measurable terms, you definitely can't explain it to an AI.
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-header">
+            <span class="lesson-number">04</span>
+            <h3 class="lesson-title">Cost Discipline Is a Design Constraint</h3>
+          </div>
+          <div class="lesson-body">
+            <p>Every AI call should justify its existence.</p>
+            <p>Originally, the system analyzed all 7 highlighted moments upfront with full audio processing. That's ~$2.29 each - about $16 total - before a human even looked at the results. Most of those moments get rejected.</p>
+            <p>The fix: deferred processing. The system does lightweight analysis on everything, presents the results to a human, and only runs the expensive audio pipeline on the single moment the human selects. That one change saved ~85% of the audio budget.</p>
+            <p>Model tiering matters too. Haiku at $0.001 per call handles validation. Sonnet at $0.005 handles creative review. Opus handles the Director call because that's the one place where creative judgment actually moves the needle. Using Opus for everything would cost ~$15 per video instead of $0.60.</p>
+            <div class="lesson-takeaway">
+              The cheapest AI call is the one you don't make. Design your pipeline so expensive models only touch expensive decisions.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 6: ABOUT                             -->
+  <!-- ============================================ -->
+  <section id="about" class="section section--about">
+    <div class="section-inner">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="section-title">About This Project</h2>
+          <p>I'm Connor Koblinski. I'm an educator, an AI trainer, and a professional Dungeon Master. I've built curriculum for Ramp, Snapchat, Niantic, and Solana. I teach people to use AI for things they couldn't do before - not to automate things they already know how to do.</p>
+          <p>This project started because I wanted better recaps for my D&D players. It turned into a 22,000-line AI orchestration pipeline that taught me more about data engineering, creative AI, and system design than any course or certification could.</p>
+          <p>The whole thing is a little silly. Pixel art animations of tabletop role-playing games. But underneath it is real science: multi-model orchestration, structured data pipelines, rubric-based quality control, cost optimization, and the hard problem of turning unstructured human interaction into meaningful data.</p>
+          <p>I believe AI should expand what you can do, not just speed up what you already do. This project is proof of that philosophy.</p>
+        </div>
+        <div class="about-laws">
+          <h3>My Three Laws of AI</h3>
+          <ol class="laws-list">
+            <li><strong>AI should expand my skill set and expertise</strong>, not just speed up tasks I already know how to do.</li>
+            <li><strong>AI should not harm people</strong> by using their likeness, work, or insight without permission and compensation.</li>
+            <li><strong>AI should make life easier and more enjoyable</strong> - and I can't trust AI companies to make that happen on their own.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="about-footer">
+        <p>Built in 30 days. March 2026.</p>
+        <p class="about-links">
+          <a href="https://cbklearning.com" target="_blank" rel="noopener">CBK Learning</a>
+          <span class="link-sep">|</span>
+          <a href="https://linkedin.com/in/ckoblinski" target="_blank" rel="noopener">LinkedIn</a>
+          <span class="link-sep">|</span>
+          <a href="https://youtube.com/@cbklearning" target="_blank" rel="noopener">YouTube</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="dnd-pipeline.js"></script>
+</body>
+</html>
