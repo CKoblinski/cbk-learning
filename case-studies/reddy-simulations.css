@@ -1,0 +1,214 @@
+/* ============================================
+   REDDY SIMULATIONS — CASE STUDY
+   Light theme, Reddy purple accent
+   ============================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --reddy-purple: #6b3a5d;
+  --reddy-purple-light: #f5eef3;
+  --reddy-bg: #faf9f7;
+  --reddy-surface: #ffffff;
+  --reddy-text: #1a1a1a;
+  --reddy-text-muted: #6b6560;
+  --reddy-border: rgba(0, 0, 0, 0.08);
+  --reddy-accent: #6b3a5d;
+
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-head: 'Space Grotesk', 'Inter', sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --max-w: 900px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--reddy-bg);
+  color: var(--reddy-text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--reddy-text); }
+
+/* ---------- NAV ---------- */
+.cs-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250, 249, 247, 0.92);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--reddy-border);
+  padding: 1rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cs-nav__back {
+  font-family: var(--font-head); font-size: 0.85rem; font-weight: 600;
+  color: var(--reddy-text-muted); text-decoration: none;
+  display: flex; align-items: center; gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+.cs-nav__back:hover { color: var(--reddy-text); }
+.cs-nav__logo {
+  font-family: var(--font-head); font-size: 0.95rem; font-weight: 700;
+  color: var(--reddy-text); text-decoration: none;
+}
+
+/* ---------- HERO ---------- */
+.reddy-hero {
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.reddy-hero__tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--reddy-text-muted); margin-bottom: 1.5rem;
+}
+.reddy-hero__tag img { height: 20px; width: auto; }
+.reddy-hero__title {
+  font-family: var(--font-head); font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1.25rem;
+}
+.reddy-hero__subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.15rem);
+  color: var(--reddy-text-muted); max-width: 620px;
+  margin: 0 auto; line-height: 1.7;
+}
+
+/* ---------- SECTIONS ---------- */
+.reddy-section {
+  max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem;
+}
+.reddy-section__label {
+  font-family: var(--font-head); font-size: 0.75rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--reddy-text-muted); margin-bottom: 1rem;
+}
+.reddy-section__title {
+  font-family: var(--font-head); font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; line-height: 1.2;
+}
+.reddy-section__text {
+  color: var(--reddy-text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;
+}
+.reddy-section__text:last-child { margin-bottom: 0; }
+
+.reddy-divider { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+.reddy-divider hr { border: none; border-top: 1px solid var(--reddy-border); }
+
+/* ---------- ROLE CARDS ---------- */
+.role-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem;
+}
+.role-card {
+  background: var(--reddy-surface); border: 1px solid var(--reddy-border);
+  border-radius: 12px; padding: 1.75rem 1.5rem;
+}
+.role-card__title {
+  font-family: var(--font-head); font-size: 1rem; font-weight: 700;
+  margin-bottom: 0.5rem; line-height: 1.3;
+}
+.role-card__desc {
+  font-size: 0.88rem; color: var(--reddy-text-muted); line-height: 1.65;
+}
+
+/* ---------- PIPELINE STEPS ---------- */
+.pipeline-steps { margin-top: 2rem; }
+
+.pipeline-step {
+  display: grid; grid-template-columns: 48px 1fr;
+  gap: 1.25rem; margin-bottom: 2rem; align-items: start;
+}
+.pipeline-step__num {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--reddy-purple-light); color: var(--reddy-accent);
+  font-family: var(--font-head); font-size: 0.85rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pipeline-step__content {}
+.pipeline-step__title {
+  font-family: var(--font-head); font-size: 1.05rem; font-weight: 700;
+  margin-bottom: 0.35rem; line-height: 1.3;
+}
+.pipeline-step__text {
+  font-size: 0.9rem; color: var(--reddy-text-muted); line-height: 1.7;
+}
+
+/* ---------- CALLOUT ---------- */
+.reddy-callout {
+  background: var(--reddy-purple-light);
+  border-radius: 12px; padding: 2rem 2rem;
+  margin-top: 2rem;
+}
+.reddy-callout__text {
+  font-size: 1.05rem; line-height: 1.7; color: var(--reddy-text);
+  font-style: italic;
+}
+
+/* ---------- STATS ---------- */
+.stats-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem; margin: 2rem 0;
+}
+.stat-card {
+  background: var(--reddy-surface); border: 1px solid var(--reddy-border);
+  border-radius: 12px; padding: 2rem 1.5rem; text-align: center;
+}
+.stat-card__number {
+  font-family: var(--font-head); font-size: 2.5rem; font-weight: 700;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.5rem;
+  color: var(--reddy-accent);
+}
+.stat-card__label {
+  font-size: 0.82rem; color: var(--reddy-text-muted); line-height: 1.5;
+}
+
+/* ---------- CLIENTS ---------- */
+.client-tags {
+  display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem;
+}
+.client-tag {
+  background: var(--reddy-surface); border: 1px solid var(--reddy-border);
+  border-radius: 100px; padding: 0.5rem 1.1rem;
+  font-size: 0.82rem; font-weight: 500; color: var(--reddy-text-muted);
+}
+
+/* ---------- CTA ---------- */
+.reddy-cta {
+  text-align: center; padding: 4rem 2rem 2rem;
+  max-width: var(--max-w); margin: 0 auto;
+}
+.reddy-cta__text {
+  font-family: var(--font-head); font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;
+}
+.reddy-cta__link {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-weight: 600; font-size: 0.9rem; color: var(--reddy-text);
+  text-decoration: none; border-bottom: 2px solid var(--reddy-text);
+  padding-bottom: 2px; transition: gap 0.3s var(--ease-out);
+}
+.reddy-cta__link:hover { gap: 0.8rem; }
+
+/* ---------- FOOTER ---------- */
+.reddy-footer {
+  text-align: center; padding: 2rem; font-size: 0.78rem;
+  color: var(--reddy-text-muted); border-top: 1px solid var(--reddy-border);
+  max-width: var(--max-w); margin: 2rem auto 0;
+}
+.reddy-footer a {
+  color: var(--reddy-text-muted); text-decoration: none; transition: color 0.3s ease;
+}
+.reddy-footer a:hover { color: var(--reddy-text); }
+.reddy-footer__links {
+  display: flex; gap: 1.5rem; justify-content: center; list-style: none; margin-bottom: 1rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .reddy-hero { padding: 7rem 1.5rem 3rem; }
+  .role-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: 1fr; }
+  .pipeline-step { grid-template-columns: 40px 1fr; gap: 1rem; }
+}
