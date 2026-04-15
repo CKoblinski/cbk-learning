@@ -739,6 +739,8 @@ body {
 .wwhn__icon svg {
   width: 22px;
   height: 22px;
+  display: block;
+  flex-shrink: 0;
 }
 
 .wwhn__step-body {}
