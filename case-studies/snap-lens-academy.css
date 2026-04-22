@@ -806,3 +806,65 @@ a { color: var(--snap-text); }
   .cs2-shipped__grid { grid-template-columns: 1fr; }
   .cs2-quote__text { padding-left: 1.25rem; border-left-width: 3px; }
 }
+
+/* ---- Program Context (program-wide stats moved from hero) ---- */
+.cs2-program {
+  padding: 3rem 2rem;
+  background: var(--snap-v2-cream);
+  border-top: 1px solid var(--snap-border);
+  border-bottom: 1px solid var(--snap-border);
+}
+.cs2-program__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.cs2-program__label {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--snap-v2-faint);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.cs2-program__title {
+  font-family: var(--font-head);
+  font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+.cs2-program__intro {
+  font-size: 0.95rem;
+  color: var(--snap-text-muted);
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0 0 2rem;
+}
+.cs2-program__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 2rem;
+}
+.cs2-program__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.cs2-program__num {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--snap-text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.cs2-program__sub {
+  font-size: 0.78rem;
+  color: var(--snap-text-muted);
+  line-height: 1.45;
+}
+
+@media (max-width: 700px) {
+  .cs2-program__stats { grid-template-columns: repeat(2, 1fr); }
+}
