@@ -10,7 +10,7 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MXZ777ZT');</script>
   <!-- End Google Tag Manager -->
-  <title>Context-Aware AI: The D&D Knowledge Graph — Case Study</title>
+  <title>The Wildemount Knowledge Graph — Case Study</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -23,12 +23,12 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- ============================================ -->
-  <!-- SECTION 1: THE HOOK                          -->
+  <!-- SECTION 1: HERO — IMPACT FIRST               -->
   <!-- ============================================ -->
   <section id="hook" class="section section--hero">
     <div class="hero-content">
-      <p class="hero-kicker">Case Study · Companion to the D&amp;D Shorts Pipeline</p>
-      <h1 class="hero-title">Most AI tools forget everything. This one remembers four years.</h1>
+      <p class="hero-kicker">Case Study · The Wildemount Knowledge Graph</p>
+      <h1 class="hero-title">Most AI tools forget everything. This one remembers four years of a complex game.</h1>
 
       <div class="kg-hero-split">
         <div class="kg-hero-graph">
@@ -53,7 +53,7 @@
               </svg>
             </div>
           </div>
-          <div class="kg-graph-label">1,067 entities · 3,051 relationships · 42 sessions</div>
+          <div class="kg-graph-label">1,067 entities · 3,051 relationships · 115 sessions</div>
         </div>
 
         <div class="hero-vs">
@@ -63,84 +63,96 @@
         <div class="kg-hero-query">
           <div class="kg-query-bubble">
             <div class="kg-query-tag">Question</div>
-            <p>"What is the relationship between Calli and Hodim?"</p>
+            <p>"Walk me through the main villain's story across four years of play."</p>
           </div>
           <div class="kg-answer-bubble">
             <div class="kg-query-tag kg-query-tag--ai">Haiku + Graph</div>
-            <p><strong>ROMANTIC_TENSION</strong> established in Session 69 (first kiss, confidence 0.9). Both wrestle with celestial / divine family burden. Hodim has <strong>PROTECTS</strong> edge toward Calli since Session 82. Three separate <strong>save</strong> events where Hodim intervened to keep Calli alive.</p>
-            <p class="kg-answer-provenance">Evidence pulled from 14 nodes, 22 edges across 9 sessions.</p>
+            <p><strong>Session 47:</strong> First name-drop by a dying NPC. Alyxian. No context.</p>
+            <p><strong>Session 63:</strong> Discovered as a prisoner in the Netherdeep. Originally a hero. Fractured into three psychological aspects after a divine bargain with Asmodeus.</p>
+            <p><strong>Session 102:</strong> Calli kills Alyxian's archdevil avatar in combat. The Jewel of Three Prayers exalts into its final form.</p>
+            <p><strong>Session 114:</strong> Alyxian's true self finally breaks free behind one of the Demon Doors. Bixie and Calli sit at his planning table alongside Melora.</p>
+            <p class="kg-answer-provenance">Pulled from 17 events, 24 nodes, 9 sessions. ~2,800 tokens of subgraph context.</p>
           </div>
         </div>
       </div>
 
+      <div class="hero-stats-strip">
+        <span class="hero-stat"><strong>1,067</strong> entities</span>
+        <span class="hero-stat-sep">·</span>
+        <span class="hero-stat"><strong>3,051</strong> relationships</span>
+        <span class="hero-stat-sep">·</span>
+        <span class="hero-stat"><strong>115</strong> sessions</span>
+        <span class="hero-stat-sep">·</span>
+        <span class="hero-stat"><strong>~10M</strong> tokens of raw transcript, compressed to <strong>3K</strong> per query</span>
+      </div>
+
       <div class="hero-context">
-        <p>I run a four-year Dungeons &amp; Dragons campaign. 115 sessions recorded on Zoom. If you pointed ChatGPT at one of those transcripts, it could summarize it. What it could not do is tell you why the silence in session 103 mattered, or that the NPC who just died was the mentor from session 47.</p>
-        <p>That's the gap most AI tools have. They are stateless. They forget every conversation the moment it ends. For a D&amp;D campaign, that means bad recaps. For a business, it means your AI can't see the last three years of context that matters most.</p>
-        <p class="hero-context-emphasis">This case study is about the other half of the pipeline. Not turning transcripts into video. Turning them into memory.</p>
+        <p>This graph is four years of labor and love. Me and my friends, every Wednesday night, telling one story over 115 sessions. Over a hundred characters. Twenty-five locations. Every relationship, every betrayal, every promise kept and broken.</p>
+        <p>I built it as a shortcut for myself. I'm the DM. I have to remember who said what to whom, which NPC mentored the party in session 47, which villain's name got whispered in session 103 and explained in session 114. A human brain is bad at this. A markdown file of the whole campaign would run past a hundred pages and still miss the connective tissue.</p>
+        <p>But it turns out it's also a shortcut for AI. A graph lets any model answer questions about the full campaign using three thousand tokens of relevant subgraph instead of trying to swallow millions. That's the part that matters for businesses too.</p>
       </div>
 
       <div class="scroll-indicator">
-        <span>Scroll to see how it's built</span>
+        <span>Keep scrolling to see how it's built</span>
         <div class="scroll-arrow"></div>
       </div>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- SECTION 2: THE NUMBERS                       -->
+  <!-- SECTION 2: THE PROBLEM                       -->
   <!-- ============================================ -->
-  <section id="numbers" class="section section--numbers">
+  <section id="problem" class="section section--problem">
     <div class="section-inner">
-      <h2 class="section-label">By The Numbers</h2>
-      <div class="stats-grid">
-        <div class="stat-card" data-delay="0">
-          <span class="stat-number" data-target="1067">0</span>
-          <span class="stat-label">Entities Extracted</span>
-        </div>
-        <div class="stat-card" data-delay="100">
-          <span class="stat-number" data-target="3051">0</span>
-          <span class="stat-label">Relationships Tracked</span>
-        </div>
-        <div class="stat-card" data-delay="200">
-          <span class="stat-number" data-target="42">0</span>
-          <span class="stat-label">Sessions Processed</span>
-        </div>
-        <div class="stat-card" data-delay="300">
-          <span class="stat-number" data-target="230000">0</span>
-          <span class="stat-suffix">+</span>
-          <span class="stat-label">Lines of Transcript</span>
-        </div>
-        <div class="stat-card stat-card--highlight" data-delay="400">
-          <span class="stat-prefix">$</span>
-          <span class="stat-number" data-target="0.001">0</span>
-          <span class="stat-label">Per AI Query</span>
-        </div>
-        <div class="stat-card" data-delay="500">
-          <span class="stat-number" data-target="15">0</span>
-          <span class="stat-suffix">min</span>
-          <span class="stat-label">Per Session Extracted</span>
-        </div>
-        <div class="stat-card" data-delay="600">
-          <span class="stat-number" data-target="5">0</span>
-          <span class="stat-label">Agents in Parallel</span>
-        </div>
-        <div class="stat-card" data-delay="700">
-          <span class="stat-prefix">$</span>
-          <span class="stat-number" data-target="6">0</span>
-          <span class="stat-label">Total Extraction Cost</span>
-        </div>
+      <h2 class="section-label">The Problem</h2>
+      <h2 class="section-title">Everyone wants an AI that knows everything about them. Nobody has figured out how to give it that.</h2>
+      <div class="kg-problem-body">
+        <p>Your employer wants a ChatGPT that remembers every decision your team has made. Your sales team wants one that knows the last 18 months of customer history. You probably want one that's read all your Slack messages, every email thread, every meeting transcript, every strategy doc.</p>
+        <p>The pitch writes itself. The implementation does not.</p>
+        <p>My version of this problem is worse than yours. 120 sessions of Dungeons &amp; Dragons across four years, in Zoom transcripts, side chats, DM notes, and a shared Google Doc. Each session is two to three hours. Dozens of open plot threads at any given moment.</p>
+        <p>If I wanted an AI to answer a real question about my campaign, I'd need to feed it all of that. Even with ten sub-agents sweeping in parallel, they still couldn't traverse enough context to tell me what an NPC first said about the main villain in session 47 and then cross-reference it with what the party learned in session 103. Compressed into a markdown file, the campaign runs past a hundred pages. Every query would burn through hundreds of thousands of tokens.</p>
+        <p class="kg-problem-punchline">So I built a graph instead. Three thousand tokens of relevant subgraph answers the question. The same pattern works for anything a business wants to remember.</p>
       </div>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- SECTION 3: THE PIPELINE                      -->
+  <!-- SECTION 3: LIVE DEMO (moved up)              -->
+  <!-- ============================================ -->
+  <section id="demo" class="section section--demo">
+    <div class="section-inner">
+      <h2 class="section-title">Play with it.</h2>
+      <p class="section-subtitle">The actual graph. Live. Click any node. Ask it questions.</p>
+      <div class="kg-demo-frame">
+        <iframe
+          src="https://ckoblinski.github.io/AI-demo-test/wildemount/"
+          title="Wildemount Campaign Knowledge Graph — Live Demo"
+          loading="lazy"
+          allow="clipboard-read; clipboard-write"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="kg-demo-note">
+        Runs on a free-tier Cloudflare Worker with rate limits. If the AI button is slow, it's probably Haiku warming up. Try things like:
+        <span class="kg-demo-suggestions">
+          <em>"What are the biggest turning points in this campaign?"</em> ·
+          <em>"Who has the party saved from death the most?"</em> ·
+          <em>"How has the main villain's story unfolded?"</em>
+        </span>
+      </p>
+      <p class="kg-demo-fallback">
+        Can't see the embed? <a href="https://ckoblinski.github.io/AI-demo-test/wildemount/" target="_blank" rel="noopener">Open the full-screen version.</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 4: THE PIPELINE                      -->
   <!-- ============================================ -->
   <section id="pipeline" class="section section--pipeline">
     <div class="section-inner">
       <div class="pipeline-intro">
-        <h2 class="section-title">The Pipeline</h2>
-        <p class="section-subtitle">Five stages from raw transcript to queryable memory. Click any phase to expand.</p>
+        <h2 class="section-title">How it works</h2>
+        <p class="section-subtitle">Five stages, turning raw transcript into queryable memory. Click any phase to expand.</p>
       </div>
 
       <!-- PHASE 1: NORMALIZE -->
@@ -148,8 +160,8 @@
         <div class="phase-header" data-phase="normalize">
           <div class="phase-number">01</div>
           <div class="phase-title-block">
-            <h3 class="phase-title">Normalize the Names</h3>
-            <p class="phase-subtitle">Speech-to-text mangles proper nouns. Fix that before anything else.</p>
+            <h3 class="phase-title">Normalize the names</h3>
+            <p class="phase-subtitle">Speech-to-text mangles every proper noun. Fix that before anything else.</p>
           </div>
           <div class="phase-cost">$0.00</div>
           <div class="phase-expand-icon">+</div>
@@ -158,7 +170,7 @@
           <div class="kg-mispronunciation-table">
             <div class="kg-misp-row kg-misp-row--header">
               <span>Canonical</span>
-              <span>What Zoom Transcription Actually Wrote</span>
+              <span>What Zoom transcription actually wrote</span>
             </div>
             <div class="kg-misp-row">
               <span class="kg-canonical">Hojbejrg</span>
@@ -185,27 +197,74 @@
         <div class="phase-detail" id="detail-normalize">
           <div class="detail-grid">
             <div class="detail-card">
-              <h4>Why This Goes First</h4>
+              <h4>Why this goes first</h4>
               <p>If you skip name normalization, your graph ends up with ten different nodes for the same character. The AI confidently extracts relationships between "Hojbejrg" and "Hodge" as if they are two people. Every downstream query is corrupted.</p>
             </div>
             <div class="detail-card">
-              <h4>The Table Is Half the Work</h4>
-              <p>The correction table is not auto-generated. I built it by hand from four years of listening to my friends butcher fantasy names. Each entry gets injected into the extraction prompt as ground truth. When the AI sees "Anchor El" in a transcript, it knows that means Ank'Harel.</p>
+              <h4>The table is half the work</h4>
+              <p>I built the correction table by hand from four years of listening to my friends butcher fantasy names. Each entry gets injected into the extraction prompt as ground truth. When the AI sees "Anchor El" in a transcript, it knows that means Ank'Harel.</p>
             </div>
             <div class="detail-card">
-              <h4>Business Parallel</h4>
-              <p>Every company has a version of this problem. Product names. Customer names. Internal acronyms. Slack handles. If you want useful AI over your data, you need a canonical dictionary. It's unglamorous work. It's also the whole game.</p>
+              <h4>Business parallel</h4>
+              <p>Every company has a version of this. Product names. Customer names. Internal acronyms. Slack handles. If you want useful AI over your data, you need a canonical dictionary. Unglamorous. Also the whole game.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- PHASE 2: EXTRACT -->
-      <div class="phase" id="phase-extract">
-        <div class="phase-header" data-phase="extract">
+      <!-- PHASE 2: PROCESS NEWEST FIRST (recap chaining) -->
+      <div class="phase" id="phase-recap">
+        <div class="phase-header" data-phase="recap">
           <div class="phase-number">02</div>
           <div class="phase-title-block">
-            <h3 class="phase-title">Extract the Subgraph</h3>
+            <h3 class="phase-title">Work backward through the sessions</h3>
+            <p class="phase-subtitle">The DM recap at the start of each session tells you what mattered in the last one. Use that.</p>
+          </div>
+          <div class="phase-cost">$0.00</div>
+          <div class="phase-expand-icon">+</div>
+        </div>
+        <div class="phase-preview">
+          <div class="kg-recap-explainer">
+            <p class="kg-recap-explainer-lead">Every D&amp;D session starts the same way. The DM says "last week, you..." and spends two or three minutes summarizing what happened. That recap is the DM's own judgment about what actually mattered in the last session. It's a free, high-quality summary, embedded in the next session's transcript.</p>
+            <p>So when I'm extracting structured data from session 80, I don't process it blind. I first process session 81, save its recap as a small summary, and then when the extractor runs on session 80, I inject session 81's recap as priority guidance: <em>focus on these moments. The DM thought they mattered.</em></p>
+            <p>This means the pipeline works backward. Newest session first. Each session's extraction is primed with what came after.</p>
+          </div>
+          <div class="kg-recap-flow">
+            <div class="kg-recap-lane">
+              <div class="kg-recap-label kg-recap-label--good">Process newest → oldest</div>
+              <div class="kg-recap-session kg-recap-session--recap">Session 115<br><small>extract fresh</small></div>
+              <div class="kg-recap-arrow kg-recap-arrow--good">&rarr;</div>
+              <div class="kg-recap-session kg-recap-session--recap">Session 114<br><small>primed with 115's recap</small></div>
+              <div class="kg-recap-arrow kg-recap-arrow--good">&rarr;</div>
+              <div class="kg-recap-session kg-recap-session--recap">Session 113<br><small>primed with 114's recap</small></div>
+              <div class="kg-recap-note kg-recap-note--good">Every extraction sees what the DM already decided was important.</div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-detail" id="detail-recap">
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h4>Why I didn't think of this at first</h4>
+              <p>I processed sessions in natural order. Oldest first. It felt right. Each extraction came out clean but missed the DM's own priority judgment. Flipping the order gave me higher-confidence extractions and fewer invented plot points, without changing the extractor at all.</p>
+            </div>
+            <div class="detail-card">
+              <h4>How the priming works in code</h4>
+              <p>After each extraction, the session's <code>dm_recap_summary</code> field is stored on the graph's session node. When the prompt for the previous session is built, the pipeline looks up the next session, pulls that summary, and injects it as priority guidance. Events that appear in the recap get a confidence bump.</p>
+            </div>
+            <div class="detail-card">
+              <h4>Business parallel</h4>
+              <p>Meeting notes have the same shape. Next week's kickoff starts with "last week we decided X." That's a free, pre-existing, high-quality summary of what mattered. Most meeting-intelligence tools don't use it because they process chronologically. Reverse the order.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3: EXTRACT -->
+      <div class="phase" id="phase-extract">
+        <div class="phase-header" data-phase="extract">
+          <div class="phase-number">03</div>
+          <div class="phase-title-block">
+            <h3 class="phase-title">Extract the subgraph</h3>
             <p class="phase-subtitle">Turn ~8,000 lines of transcript into structured entities, relationships, and events.</p>
           </div>
           <div class="phase-cost">~$0.04</div>
@@ -214,7 +273,7 @@
         <div class="phase-preview">
           <div class="before-after">
             <div class="before">
-              <div class="ba-label">What Goes In (Raw Transcript)</div>
+              <div class="ba-label">What goes in (raw transcript)</div>
               <pre class="data-block data-block--raw">01:12:45 Sammi (Calli): He's bleeding out. Kristin, how many hit points is that?
 01:12:49 Kristin (Bixie): He's at zero. First failed save.
 01:12:52 Wilson (Hodim): I'm using my last 4th level slot. Cure Wounds on Hoj.
@@ -227,7 +286,7 @@
               </svg>
             </div>
             <div class="after">
-              <div class="ba-label">What Comes Out (Structured)</div>
+              <div class="ba-label">What comes out (structured)</div>
               <pre class="data-block data-block--clean"><span class="json-key">{</span>
   <span class="json-key">"event"</span>: <span class="json-str">"Hodim saves Hoj from death"</span>,
   <span class="json-key">"subtype"</span>: <span class="json-str">"save"</span>,
@@ -248,67 +307,16 @@
         <div class="phase-detail" id="detail-extract">
           <div class="detail-grid">
             <div class="detail-card">
-              <h4>Parallel Sub-Agents</h4>
-              <p>I run five Claude Sonnet sub-agents simultaneously, each processing one session. Each session takes three to four minutes. Processing 20 sessions in a batch of five parallel agents takes under 20 minutes wall-clock. Serial execution would be over an hour.</p>
+              <h4>Parallel sub-agents</h4>
+              <p>Five Claude Sonnet sub-agents run at the same time, each on one session. Each session takes three to four minutes. Twenty sessions process in under twenty minutes instead of a couple hours.</p>
             </div>
             <div class="detail-card">
-              <h4>Schema With Provenance</h4>
-              <p>Every entity and edge carries three things: a confidence score (0 to 1), a source quote, and the session number it came from. Without provenance, you cannot verify the graph later. You also cannot distinguish things the AI was sure about from things it guessed.</p>
+              <h4>Schema with provenance</h4>
+              <p>Every entity and edge carries a confidence score, a source quote, and a session number. Without provenance you can't verify anything the AI produced. You also can't tell what the AI was sure about from what it guessed.</p>
             </div>
             <div class="detail-card">
-              <h4>Anti-Hallucination Rules</h4>
-              <p>The extraction prompt has an explicit rule: if an entity is not mentioned by name in the transcript, use a descriptive ID like "char_unnamed_tech_elf." Do not invent proper nouns. This one rule catches more hallucinations than any QC layer.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 3: RECAP CHAIN -->
-      <div class="phase" id="phase-recap">
-        <div class="phase-header" data-phase="recap">
-          <div class="phase-number">03</div>
-          <div class="phase-title-block">
-            <h3 class="phase-title">Chain the Recaps Backward</h3>
-            <p class="phase-subtitle">Process sessions highest-first so each extraction is primed with what the DM actually thought was important.</p>
-          </div>
-          <div class="phase-cost">$0.00</div>
-          <div class="phase-expand-icon">+</div>
-        </div>
-        <div class="phase-preview">
-          <div class="kg-recap-flow">
-            <div class="kg-recap-lane">
-              <div class="kg-recap-label">WRONG: Natural order</div>
-              <div class="kg-recap-session">Session 77</div>
-              <div class="kg-recap-arrow">&rarr;</div>
-              <div class="kg-recap-session">Session 78</div>
-              <div class="kg-recap-arrow">&rarr;</div>
-              <div class="kg-recap-session">Session 79</div>
-              <div class="kg-recap-note kg-recap-note--bad">Every session extracted blind. No prior context.</div>
-            </div>
-            <div class="kg-recap-lane">
-              <div class="kg-recap-label kg-recap-label--good">RIGHT: Recap-chained</div>
-              <div class="kg-recap-session kg-recap-session--recap">Session 115<br><small>recap primes 114</small></div>
-              <div class="kg-recap-arrow kg-recap-arrow--good">&rarr;</div>
-              <div class="kg-recap-session kg-recap-session--recap">Session 114<br><small>recap primes 113</small></div>
-              <div class="kg-recap-arrow kg-recap-arrow--good">&rarr;</div>
-              <div class="kg-recap-session kg-recap-session--recap">Session 113<br><small>...</small></div>
-              <div class="kg-recap-note kg-recap-note--good">Each extraction sees "the DM said these moments mattered."</div>
-            </div>
-          </div>
-        </div>
-        <div class="phase-detail" id="detail-recap">
-          <div class="detail-grid">
-            <div class="detail-card">
-              <h4>The Insight</h4>
-              <p>Every D&amp;D session starts with a recap. That recap is the DM telling the players what was important about last week. It is the highest-quality signal for what matters in the prior session. So process session N+1 first. Extract its recap. Use that recap to tell the extractor "focus on these things" when you process session N.</p>
-            </div>
-            <div class="detail-card">
-              <h4>How It Works in Code</h4>
-              <p>After extraction, session N+1's <code>dm_recap_summary</code> is stored on the session node in the graph. When the prompt for session N is built, the pipeline looks for session N+1 in the graph, pulls its recap summary, and injects it into the prompt as priority guidance. Events mentioned in the recap get a confidence bump.</p>
-            </div>
-            <div class="detail-card">
-              <h4>Business Parallel</h4>
-              <p>Meeting notes have the same shape. Next week's meeting starts with "last week we decided X." That's a free, pre-existing, high-quality summary of what mattered. Most meeting-intelligence tools don't use it because they process chronologically. Reverse the order.</p>
+              <h4>Anti-hallucination rules</h4>
+              <p>The extraction prompt has one explicit rule: if a name doesn't appear in the transcript, use a descriptive ID like "char_unnamed_tech_elf." Don't invent proper nouns. That single rule catches more hallucinations than the QC layer ever did.</p>
             </div>
           </div>
         </div>
@@ -319,8 +327,8 @@
         <div class="phase-header" data-phase="merge">
           <div class="phase-number">04</div>
           <div class="phase-title-block">
-            <h3 class="phase-title">Repair, Validate, Merge</h3>
-            <p class="phase-subtitle">Three cheap checks before the graph changes.</p>
+            <h3 class="phase-title">Repair, validate, merge</h3>
+            <p class="phase-subtitle">Three cheap checks before anything touches the graph.</p>
           </div>
           <div class="phase-cost">$0.00</div>
           <div class="phase-expand-icon">+</div>
@@ -331,7 +339,7 @@
               <div class="kg-qc-step-num">01</div>
               <div class="kg-qc-step-body">
                 <div class="kg-qc-step-title">Repair</div>
-                <div class="kg-qc-step-desc">Auto-fix schema drift. Missing fields get defaults. Misspelled relationship types get corrected (TRUSTED_BY &rarr; TRUSTS).</div>
+                <div class="kg-qc-step-desc">Auto-fix schema drift. Missing fields get defaults. Misspelled relationship types get corrected (TRUSTED_BY → TRUSTS).</div>
                 <div class="kg-qc-step-cost">Zero cost. Rule-based.</div>
               </div>
             </div>
@@ -339,7 +347,7 @@
               <div class="kg-qc-step-num">02</div>
               <div class="kg-qc-step-body">
                 <div class="kg-qc-step-title">Validate</div>
-                <div class="kg-qc-step-desc">Flag enemy-marked-as-ALLIED_WITH. Flag entity names containing known mispronunciations. Flag dangling edges pointing to nodes that don't exist.</div>
+                <div class="kg-qc-step-desc">Flag enemy characters marked as ALLIED_WITH the party. Flag entity names containing known speech-to-text mispronunciations. Flag edges pointing to nodes that don't exist.</div>
                 <div class="kg-qc-step-cost">Zero cost. Rule-based.</div>
               </div>
             </div>
@@ -356,23 +364,23 @@
             <div class="kg-qc-example-label">Real catch from session 114:</div>
             <div class="kg-qc-example-body">
               <code>[ERROR] char_grumpy_mushroom_demon_door marked ALLIED_WITH char_bixie. Enemies are not allies of the party — likely extraction error.</code>
-              <p>The validator caught the AI confidently inventing an alliance with a literal door. Edge removed before merge.</p>
+              <p>The validator caught the AI confidently inventing an alliance with a literal demonic door. Edge removed before merge.</p>
             </div>
           </div>
         </div>
         <div class="phase-detail" id="detail-merge">
           <div class="detail-grid">
             <div class="detail-card">
-              <h4>Why No AI in the QC Layer</h4>
+              <h4>Why no AI in the QC layer</h4>
               <p>Every rule that can be a rule should be a rule. Rules are free, fast, deterministic, and explainable. I only use AI where I can't write the rule. For ninety percent of graph QC, I can write the rule.</p>
             </div>
             <div class="detail-card">
-              <h4>First-Meeting Detection</h4>
-              <p>Merge knows which session an entity first appears in. When you click a node, the detail panel shows "First seen in Session 83." This metadata powers spoiler filtering if you want a player-safe version of the graph.</p>
+              <h4>First-meeting detection</h4>
+              <p>Merge tracks which session each entity first appears in. When you click a node, the detail panel shows "First seen in Session 83." This metadata powers spoiler filtering when you want a player-safe version of the graph.</p>
             </div>
             <div class="detail-card">
-              <h4>Business Parallel</h4>
-              <p>Your CRM has duplicate contact records. Your knowledge base has the same article written four times by four different people. Entity resolution is unglamorous, cheap to automate, and worth every hour you spend on it. The rest of your AI pipeline only works if this layer does.</p>
+              <h4>Business parallel</h4>
+              <p>Your CRM has duplicate contact records. Your knowledge base has the same article written four times by four different people. Entity resolution is cheap to automate and worth every hour you spend on it. Nothing downstream works without it.</p>
             </div>
           </div>
         </div>
@@ -383,7 +391,7 @@
         <div class="phase-header" data-phase="query">
           <div class="phase-number">05</div>
           <div class="phase-title-block">
-            <h3 class="phase-title">Query the Graph</h3>
+            <h3 class="phase-title">Query the graph</h3>
             <p class="phase-subtitle">Natural language in. Relevant subgraph out. Answer rendered with clickable evidence.</p>
           </div>
           <div class="phase-cost">~$0.001</div>
@@ -397,35 +405,35 @@
             </div>
             <div class="kg-query-step">
               <div class="kg-query-step-title">Client extracts subgraph (local, free):</div>
-              <div class="kg-query-step-body">Finds Calli node. Walks TRUSTS, PROTECTS, FAMILY_OF edges 2 hops out. Returns 18 nodes, 23 edges. ~2,000 tokens.</div>
+              <div class="kg-query-step-body">Finds Calli node. Walks TRUSTS, PROTECTS, FAMILY_OF edges two hops out. Returns 18 nodes, 23 edges. About 2,000 tokens.</div>
             </div>
             <div class="kg-query-step">
               <div class="kg-query-step-title">Cloudflare Worker receives, adds server-side API key, forwards to Haiku:</div>
-              <div class="kg-query-step-body">System prompt + subgraph + question. Max 1,024 output tokens. ~$0.001 per call.</div>
+              <div class="kg-query-step-body">System prompt + subgraph + question. Max 1,024 output tokens. About $0.001 per call.</div>
             </div>
             <div class="kg-query-step kg-query-step--answer">
               <div class="kg-query-step-title">Haiku responds with answer + relevant node IDs:</div>
               <div class="kg-query-step-body">"Elathar (MENTOR, TRUSTS 0.9) or Hodim (PROTECTS since Session 82, RESCUED_BY in Session 93). Elathar has broader magical capability. Hodim has direct combat stake. RELEVANT_NODES: char_elathar, char_hodim, char_calli"</div>
             </div>
             <div class="kg-query-step kg-query-step--highlight">
-              <div class="kg-query-step-title">Graph visually highlights the cited nodes.</div>
-              <div class="kg-query-step-body">Camera zooms to fit. Edges between cited nodes get emphasis. User can click any node to drill into evidence.</div>
+              <div class="kg-query-step-title">The graph highlights the cited nodes:</div>
+              <div class="kg-query-step-body">Camera zooms to fit. Edges between cited nodes get emphasis. You click any node to drill into the underlying evidence.</div>
             </div>
           </div>
         </div>
         <div class="phase-detail" id="detail-query">
           <div class="detail-grid">
             <div class="detail-card">
-              <h4>Why Subgraph Extraction Matters</h4>
-              <p>Sending the full 1,067-node graph to the AI on every query would cost twenty times more per call and give you worse answers. Focused context beats bulk context. Extract the 1% of the graph that matters, send that.</p>
+              <h4>Why subgraph extraction matters</h4>
+              <p>Sending the full 1,067-node graph to the AI on every query would cost twenty times more per call and give you worse answers. Focused context beats bulk context. Extract the one percent of the graph that matters, send that.</p>
             </div>
             <div class="detail-card">
-              <h4>The Worker Is Not Optional</h4>
-              <p>GitHub Pages is static hosting. It cannot hold an API key. Without a proxy, the Anthropic key would be in the page source for anyone to grab. The Cloudflare Worker holds the key server-side, enforces rate limits (five per minute, fifty per day per IP, five hundred per day total), and locks CORS to the case study domain.</p>
+              <h4>The Worker isn't optional</h4>
+              <p>GitHub Pages is static hosting. It can't hold an API key. Without a proxy, the Anthropic key would be in the page source for anyone to grab. A Cloudflare Worker holds the key server-side, enforces rate limits (5/min, 50/day per IP, 500/day global), and locks CORS to this case study's domain.</p>
             </div>
             <div class="detail-card">
-              <h4>Cost Discipline</h4>
-              <p>Haiku model, 1,024 max output tokens, CAP counters in KV. Worst case for a viral moment: $15 per month. Normal case: pennies. The Anthropic API key itself has a monthly spend cap in the console as final insurance.</p>
+              <h4>Cost discipline</h4>
+              <p>Haiku, 1,024 max output tokens, daily request caps in KV storage. Worst case for a viral moment: about $15 per month. Normal case: pennies. The API key itself has a monthly spend cap set in the Anthropic console as final insurance.</p>
             </div>
           </div>
         </div>
@@ -435,7 +443,7 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- SECTION 4: PHILOSOPHIES                      -->
+  <!-- SECTION 5: PHILOSOPHIES                      -->
   <!-- ============================================ -->
   <section id="philosophies" class="section section--philosophies">
     <div class="section-inner">
@@ -447,14 +455,14 @@
         <div class="philosophy" id="phil-context">
           <div class="philosophy-header">
             <span class="philosophy-number">01</span>
-            <h3>Context Is the Whole Game</h3>
+            <h3>The future of context engineering, applied to my favorite thing to do.</h3>
           </div>
           <div class="philosophy-body">
-            <p>Without context, AI gives you average answers. With context, AI gives you your answers. The context is already in your data. The work is making it queryable.</p>
-            <p>A salesperson doesn't need generic advice on closing. They need to know what this specific customer said in the call six months ago, what was promised by the last account manager, what was left unresolved. That information exists. It's in Slack, Gmail, Zoom recordings, CRM notes. But it's not accessible to any AI tool out of the box.</p>
-            <p>This project is one way to solve that. Extract the relationships. Build the graph. Point the AI at the subgraph that matters.</p>
+            <p>Context engineering is the part of AI work that doesn't make the demo video but decides whether the product is usable. You're not prompting. You're deciding what the model gets to see, in what order, at what fidelity, before the model even starts thinking.</p>
+            <p>D&amp;D is my sandbox for it. I have absurd amounts of relational data with no business consequences if I get it wrong. Every mistake teaches me something I can apply to a client's real data problem next week. The failure modes are the same. The fixes transfer.</p>
+            <p>Companies that figure out their own context engineering will outcompete companies that don't. It's that simple.</p>
             <div class="philosophy-takeaway">
-              <strong>Context is not a prompt trick.</strong> It's a data layer you build once and query forever.
+              Context is not a prompt trick. It's a data layer you build once and query forever.
             </div>
           </div>
         </div>
@@ -462,12 +470,12 @@
         <div class="philosophy" id="phil-structured">
           <div class="philosophy-header">
             <span class="philosophy-number">02</span>
-            <h3>Structured Data Compounds. Summaries Don't.</h3>
+            <h3>Structured data compounds. Summaries don't.</h3>
           </div>
           <div class="philosophy-body">
             <p>"Tell me about Hoj" gives you a paragraph. A structured entity with 17 fields and 45 edges gives you something you can filter, cross-reference, aggregate, and re-query.</p>
             <p>Summaries are terminal. Once you write one, the rest of the information is compressed away. A graph is generative. You can always ask it a new question because the underlying entities still have structure.</p>
-            <p>The rule I follow: if a piece of information might be relevant to more than one future question, store it structurally. Not as a summary.</p>
+            <p>Rule I follow: if a piece of information might be relevant to more than one future question, store it structurally. Not as a summary.</p>
             <div class="philosophy-takeaway">
               A summary is a frozen answer to yesterday's question. A graph is a system that answers tomorrow's.
             </div>
@@ -477,27 +485,27 @@
         <div class="philosophy" id="phil-provenance">
           <div class="philosophy-header">
             <span class="philosophy-number">03</span>
-            <h3>Confidence, Not Certainty</h3>
+            <h3>Confidence, not certainty.</h3>
           </div>
           <div class="philosophy-body">
-            <p>Every extraction has a confidence score. Every edge has a source quote. Every quote is tied to a session number. When you click an edge in the graph, you see where it came from.</p>
+            <p>Every extraction has a confidence score. Every edge has a source quote. Every quote is tied to a session number. Click an edge in the graph and you see where it came from.</p>
             <p>This is how you make AI output trustworthy. Not by making the AI better. By making it show its work.</p>
-            <p>If you cannot audit the AI's reasoning trail, you can never safely act on its output. For anything that matters, provenance is more valuable than accuracy.</p>
+            <p>If you can't audit the AI's reasoning trail, you can never safely act on its output. For anything that matters, provenance is more valuable than accuracy.</p>
             <div class="philosophy-takeaway">
               Build provenance into your data from day one. Retrofitting it later is almost impossible.
             </div>
           </div>
         </div>
 
-        <div class="philosophy" id="phil-memory">
+        <div class="philosophy" id="phil-efficiency">
           <div class="philosophy-header">
             <span class="philosophy-number">04</span>
-            <h3>Build the Memory. Let AI Query It.</h3>
+            <h3>Graph-query AI costs roughly ten thousand times less than context-dump AI. Same answers. Often better.</h3>
           </div>
           <div class="philosophy-body">
             <p>Most AI apps try to cram context into every prompt. Send the whole document. Send the whole conversation history. Send every possibly-relevant file. It's expensive, slow, and the model still loses track of what matters.</p>
-            <p>The alternative: put context in a graph. At query time, extract the small subgraph that actually matters for the specific question. Pass only that.</p>
-            <p>One of my queries uses about 2,000 tokens of context instead of the full 1.8MB graph. That's four orders of magnitude cheaper per call.</p>
+            <p>The alternative is to put context in a graph. At query time, extract the small subgraph that actually matters for the specific question. Pass only that.</p>
+            <p>One of my queries uses about 3,000 tokens of context instead of the ten million that a full transcript dump would need. That's roughly four orders of magnitude cheaper per call. Compounded across a company's daily AI usage, it's the difference between an AI tool you can afford to use and one you can't.</p>
             <div class="philosophy-takeaway">
               Cheap AI lives on top of expensive data work. Not the other way around.
             </div>
@@ -509,26 +517,38 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- SECTION 5: LESSONS                           -->
+  <!-- SECTION 6: LESSONS                           -->
   <!-- ============================================ -->
   <section id="lessons" class="section section--lessons">
     <div class="section-inner">
       <h2 class="section-title">Lessons Learned</h2>
-      <p class="section-subtitle">What I'd do differently and why it matters</p>
+      <p class="section-subtitle">Things I'd do differently, and why they matter for any AI pipeline you build</p>
 
       <div class="lessons-list">
 
         <div class="lesson">
           <div class="lesson-header">
             <span class="lesson-number">01</span>
-            <h3 class="lesson-title">Order of Operations Matters More Than Pipeline Quality</h3>
+            <h3 class="lesson-title">Clever context engineering beats ten-xing the tokens every time.</h3>
           </div>
           <div class="lesson-body">
-            <p>I processed sessions in natural order (oldest first). Every extraction was blind to what came next. The quality was fine but every session was re-inventing context the DM had already summarized seven days later.</p>
-            <p>When I flipped to processing highest-first, each extraction was primed with the next session's recap as priority guidance. The confidence scores on extracted moments went up. The extractor stopped inventing plot points because I was telling it what the DM had confirmed mattered.</p>
-            <p>I didn't change the extractor. I changed the order.</p>
+            <p>I processed sessions in natural order at first. Oldest to newest. Every extraction was blind to what came next. The extractions came out fine.</p>
+            <p>Then I realized: every session starts with a recap. That recap is the DM's summary of what mattered in the last session. If I process session 81 first, I can use its recap as priority guidance when I extract session 80.</p>
+            <p>Flipping the order gave me higher-confidence extractions and fewer invented plot points. I didn't upgrade the model. I didn't lengthen the prompt. I re-sequenced the work so the information I already had was available at the right time.</p>
+            <div class="kg-lesson-diagram">
+              <div class="kg-lesson-diagram-row">
+                <div class="kg-lesson-node">Session 81 extraction<br><small>produces recap summary</small></div>
+                <div class="kg-lesson-arrow">&darr;</div>
+              </div>
+              <div class="kg-lesson-diagram-row">
+                <div class="kg-lesson-annotation">"Focus on these moments, the DM thought they were important"</div>
+              </div>
+              <div class="kg-lesson-diagram-row">
+                <div class="kg-lesson-node kg-lesson-node--primed">Session 80 extraction<br><small>primed with 81's recap</small></div>
+              </div>
+            </div>
             <div class="lesson-takeaway">
-              Before you upgrade your model, check whether you're feeding it the right context in the right order.
+              Before you upgrade your model or expand your context window, check whether you're feeding the model the right context in the right order.
             </div>
           </div>
         </div>
@@ -536,12 +556,12 @@
         <div class="lesson">
           <div class="lesson-header">
             <span class="lesson-number">02</span>
-            <h3 class="lesson-title">The Most Common Extraction Error Has a Name</h3>
+            <h3 class="lesson-title">Clean data doesn't stop being important when you use AI.</h3>
           </div>
           <div class="lesson-body">
-            <p>It's "enemy-as-ally." The extractor will confidently tag a hostile NPC as ALLIED_WITH a player character because they spoke politely in the scene. Happens in about five percent of sessions.</p>
-            <p>I wrote a six-line validator that flags any edge where an entity with <code>subtype: enemy</code> or <code>subtype: creature</code> has an ALLIED_WITH relationship with a PC. That one rule catches it every time.</p>
-            <p>The lesson isn't "AI is bad at this." The lesson is: you can predict the specific ways your AI pipeline will fail, and you can write deterministic checks for those specific failures. Do it once. Saves you every time.</p>
+            <p>The extractor will confidently mark hostile NPCs as ALLIED_WITH the party about five percent of the time. Once I noticed the pattern, I wrote a six-line validator that flags any edge where an entity with <code>subtype: enemy</code> or <code>subtype: creature</code> has an ALLIED_WITH relationship with a PC. Catches it every time.</p>
+            <p>The lesson isn't that AI is bad at this. The lesson is that AI pipelines need monitoring like any other data pipeline. You can predict the specific ways yours will fail. You can write deterministic checks for those specific failures. Do it once. It saves you every time.</p>
+            <p>Teams that skip this step end up with dashboards full of confident nonsense. Teams that bake it in get trustable systems that get better, not worse, as they grow.</p>
             <div class="lesson-takeaway">
               Name the failure modes. Write the rules. Don't rely on the AI to catch itself.
             </div>
@@ -551,14 +571,14 @@
         <div class="lesson">
           <div class="lesson-header">
             <span class="lesson-number">03</span>
-            <h3 class="lesson-title">Provenance Is Cheaper Than Trust</h3>
+            <h3 class="lesson-title">Rooting your data in provenance earns trust and unlocks AI judgment.</h3>
           </div>
           <div class="lesson-body">
-            <p>Early extractions had no source quotes. Everything looked clean until I tried to verify a specific edge and realized I had no way to check if it was real.</p>
-            <p>Retrofitting provenance meant re-running every extraction. Expensive. Painful. Avoidable.</p>
-            <p>Now every field carries: source quote, session number, confidence score. When the AI says "Eas has romantic tension with Bixie," I can click the edge and see the quote that produced it. Five seconds to verify instead of five minutes to re-read the transcript.</p>
+            <p>My early extractions had no source quotes. Everything looked clean until I tried to verify a specific edge and realized I had no way to check if it was real. Retrofitting provenance meant re-running every extraction. Expensive. Painful. Avoidable.</p>
+            <p>Now every field carries a source quote, session number, and confidence score. When the AI says "Eas has romantic tension with Bixie," I click the edge and see the quote that produced it. Five seconds to verify instead of five minutes of re-reading the transcript.</p>
+            <p>The bigger win: an AI querying this graph can make its own judgment calls about what to trust and what to hedge on, because it can see the evidence behind every claim. Accuracy is not the goal. Verifiability is.</p>
             <div class="lesson-takeaway">
-              If your AI output is ever going to inform a decision, build the audit trail before you need it.
+              If AI output will ever inform a decision, build the audit trail before you need it.
             </div>
           </div>
         </div>
@@ -566,12 +586,12 @@
         <div class="lesson">
           <div class="lesson-header">
             <span class="lesson-number">04</span>
-            <h3 class="lesson-title">Parallelize Extraction, Serialize Merging</h3>
+            <h3 class="lesson-title">Parallel where it's safe. Serial where it isn't.</h3>
           </div>
           <div class="lesson-body">
-            <p>Five sub-agents extracting in parallel finish in three to four minutes instead of twenty. Huge wall-clock win.</p>
-            <p>But merging must be serial. Two extractions trying to write to the graph file at the same time produces corruption I spent a day debugging before I figured it out.</p>
-            <p>Concurrency where it's safe. Discipline where it isn't. Know the difference in your own pipeline.</p>
+            <p>Five sub-agents extracting in parallel finish five sessions in the time it would take one agent to do one.</p>
+            <p>But merging has to be serial. Two extractions trying to write to the graph file at the same time produces corruption I spent a day debugging before I figured it out.</p>
+            <p>Concurrency where the work is independent. Discipline where shared state changes. Knowing the difference is most of the job.</p>
             <div class="lesson-takeaway">
               Parallelism is a sharp tool. Use it where independent work happens. Don't use it where shared state changes.
             </div>
@@ -583,12 +603,12 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- SECTION 6: BUSINESS CONNECTIONS              -->
+  <!-- SECTION 7: BUSINESS APPLICATIONS             -->
   <!-- ============================================ -->
   <section id="business" class="section section--business">
     <div class="section-inner">
-      <h2 class="section-title">Where This Goes at Work</h2>
-      <p class="section-subtitle">D&amp;D is the sandbox. Here's the shape of the problem for actual organizations.</p>
+      <h2 class="section-title">How this connects to business applications</h2>
+      <p class="section-subtitle kg-business-intro">D&amp;D is my favorite hobby to try out my latest AI experiments. But this one is a powerful application that could save your business a lot of pain and suffering when it comes to AI.</p>
 
       <div class="kg-business-grid">
 
@@ -609,7 +629,7 @@
           <h3>Your sales team's AI writes outreach emails like it just met the customer.</h3>
           <p>You've been selling to this company for eighteen months. Three account managers have talked to them. There's a folder of call recordings, a thread of email replies, a pile of Loom videos.</p>
           <p>Your AI tool sees none of that. It writes a generic email.</p>
-          <p class="kg-business-translate"><strong>Same pattern as D&amp;D:</strong> a transcript of a customer call is the same shape as a D&amp;D session. Extract the relationship graph. Next time someone writes outreach to that customer, the AI has actual context.</p>
+          <p class="kg-business-translate"><strong>Same pattern as D&amp;D:</strong> a customer call is a transcript, same shape as a D&amp;D session. Extract the relationship graph. Next time someone writes outreach to that customer, the AI has actual context to work from.</p>
         </div>
 
         <div class="kg-business-card">
@@ -617,46 +637,17 @@
             <span class="kg-business-tag">Learning &amp; Development</span>
           </div>
           <h3>Your instructors are designing next semester without access to last semester's lessons.</h3>
-          <p>This is my world. A training team runs forty-plus learning experiences a year. They record debriefs, write retros, capture feedback. Six months later, that knowledge is in someone's head. If that person leaves, it's gone.</p>
+          <p>This is my world. A training team runs forty-plus learning experiences a year. They record debriefs, write retros, capture feedback. Six months later, that knowledge lives in someone's head. If that person leaves, it's gone.</p>
           <p>A knowledge graph over training artifacts lets instructors ask "what do we know about how software engineers respond to case-study format" and get grounded answers across years of prior work. Not summaries. Evidence.</p>
-          <p class="kg-business-translate"><strong>Same pattern as D&amp;D:</strong> session transcripts are training artifacts. Learner behavior is character behavior. The graph remembers what each cohort did so the next cohort's design is smarter.</p>
+          <p class="kg-business-translate"><strong>Same pattern as D&amp;D:</strong> session transcripts are training artifacts. Learner behavior is character behavior. The graph remembers what each cohort did so next cohort's design is smarter.</p>
         </div>
 
       </div>
 
       <div class="kg-business-cta">
-        <p>I help organizations build the memory layer their AI tools are missing. If this case study made you think "we have that data and can't use it," that's the conversation I want to have.</p>
+        <p>If this case study made you think "we have that data and can't use it," that's the conversation I want to have.</p>
         <a href="https://calendly.com/ckoblinski/gtky" class="kg-business-cta-btn" target="_blank" rel="noopener">Book a free consult</a>
       </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- SECTION 7: LIVE DEMO                         -->
-  <!-- ============================================ -->
-  <section id="demo" class="section section--demo">
-    <div class="section-inner">
-      <h2 class="section-title">Try It Yourself</h2>
-      <p class="section-subtitle">The actual graph. Live. Click any node. Ask it questions.</p>
-      <div class="kg-demo-frame">
-        <iframe
-          src="https://ckoblinski.github.io/AI-demo-test/wildemount/"
-          title="Wildemount Campaign Knowledge Graph — Live Demo"
-          loading="lazy"
-          allow="clipboard-read; clipboard-write"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <p class="kg-demo-note">
-        Runs on a free-tier Cloudflare Worker with rate limits. If the AI query button is slow, it's probably just Haiku warming up. Try:
-        <span class="kg-demo-suggestions">
-          <em>"What happens in Session 103?"</em> ·
-          <em>"Who is Bixie's sister?"</em> ·
-          <em>"How are Alyxian and Gruumsh connected?"</em>
-        </span>
-      </p>
-      <p class="kg-demo-fallback">
-        Can't see the embed? <a href="https://ckoblinski.github.io/AI-demo-test/wildemount/" target="_blank" rel="noopener">Open the full-screen version in a new tab.</a>
-      </p>
     </div>
   </section>
 
@@ -667,19 +658,10 @@
     <div class="section-inner">
       <div class="about-content">
         <div class="about-text">
-          <h2 class="section-title">About This Project</h2>
+          <h2 class="section-title">About this project</h2>
           <p>I'm Connor Koblinski. I'm an educator, AI trainer, and professional Dungeon Master. I've built curriculum for Ramp, Snapchat, Niantic, and Solana. I teach people to use AI for things they couldn't do before, not to automate things they already know how to do.</p>
           <p>This case study is the companion to the <a href="/case-studies/dnd-pipeline.html">D&amp;D to animated film pipeline</a>. That one is about turning transcripts into video. This one is about turning transcripts into memory.</p>
           <p>They share the same source data. They solve different problems. Together, they're my argument that AI is most valuable when you give it structure to work with.</p>
-          <p>I believe AI should expand what you can do, not just speed up what you already do. This project is proof of that philosophy.</p>
-        </div>
-        <div class="about-laws">
-          <h3>My Three Laws of AI</h3>
-          <ol class="laws-list">
-            <li><strong>AI should expand my skill set and expertise</strong>, not just speed up tasks I already know how to do.</li>
-            <li><strong>AI should not harm people</strong> by using their likeness, work, or insight without permission and compensation.</li>
-            <li><strong>AI should make life easier and more enjoyable</strong>, and I can't trust AI companies to make that happen on their own.</li>
-          </ol>
         </div>
       </div>
       <div class="about-footer">
