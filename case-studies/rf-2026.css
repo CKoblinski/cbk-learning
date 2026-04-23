@@ -744,3 +744,100 @@ a { color: var(--ramp-text); }
   .cs2-tldr__inner { grid-template-columns: 1fr; gap: 1.5rem; }
   .cs2-quote__text { padding-left: 1.25rem; border-left-width: 3px; }
 }
+
+/* ---- V2 Client Quote (BJ — above TL;DR) ---- */
+.cs2-client-quote {
+  background: var(--ramp-v2-cream);
+  padding: 3rem 2rem;
+  border-bottom: 1px solid var(--ramp-border);
+}
+.cs2-client-quote__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cs2-client-quote__text {
+  font-family: var(--font-head);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  color: var(--ramp-text);
+  margin: 0 0 1.5rem;
+  position: relative;
+  padding-left: 2.75rem;
+}
+.cs2-client-quote__text::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.5rem;
+  font-size: 4rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--ramp-v2-accent);
+  line-height: 1;
+}
+.cs2-client-quote__attr {
+  font-size: 0.88rem;
+  color: var(--ramp-text-muted);
+  padding-left: 2.75rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.cs2-client-quote__name {
+  font-weight: 700;
+  color: var(--ramp-text);
+}
+
+/* ---- Learner Quotes (highlighted) ---- */
+.cs2-learner-quotes {
+  padding: 3rem 2rem;
+}
+.cs2-learner-quotes__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.cs2-learner-quotes__label {
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ramp-text-muted);
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.cs2-learner-quotes__feature {
+  font-family: var(--font-head);
+  font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--ramp-text);
+  margin: 0 0 2rem;
+  padding: 1.5rem 2rem;
+  background: var(--ramp-v2-cream);
+  border-left: 4px solid var(--ramp-v2-accent);
+  border-radius: 0 12px 12px 0;
+}
+.cs2-learner-quotes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.cs2-learner-quote {
+  background: var(--ramp-surface);
+  border: 1px solid var(--ramp-border);
+  border-radius: 12px;
+  padding: 1.5rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--ramp-text);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+@media (max-width: 800px) {
+  .cs2-learner-quotes__grid { grid-template-columns: 1fr; }
+  .cs2-client-quote__text { padding-left: 2rem; font-size: 1.2rem; }
+  .cs2-client-quote__text::before { font-size: 3rem; }
+  .cs2-client-quote__attr { padding-left: 2rem; }
+}

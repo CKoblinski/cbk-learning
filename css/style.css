@@ -863,3 +863,50 @@ body {
     padding: 1.25rem 1.25rem;
   }
 }
+
+/* ========================================
+   Client Testimonial (Homepage)
+   ======================================== */
+
+.home-testimonial {
+  padding: 1rem 2rem 3rem;
+  background: var(--color-bg);
+}
+
+.home-testimonial__inner {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2.5rem 2.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  position: relative;
+}
+
+.home-testimonial__text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.3vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: var(--color-text);
+  margin: 0 0 1.25rem;
+  position: relative;
+}
+
+.home-testimonial__attr {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.home-testimonial__name {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+@media (max-width: 700px) {
+  .home-testimonial__inner { padding: 2rem 1.5rem; }
+}
