@@ -134,8 +134,8 @@
 
       <div class="hero-context">
         <p>This graph is four years of labor and love. Me and my friends, every Wednesday night, telling one story over 115 sessions. Over a hundred characters. Twenty-five locations. Every relationship, every betrayal, every promise kept and broken.</p>
-        <p>I built it as a shortcut for myself. I'm the DM. I have to remember who said what to whom, which NPC mentored the party in session 47, which villain's name got whispered in session 103 and explained in session 114. A human brain is bad at this. A markdown file of the whole campaign would run past a hundred pages and still miss the connective tissue.</p>
-        <p>But it turns out it's also a shortcut for AI. A graph lets any model answer questions about the full campaign using three thousand tokens of relevant subgraph instead of trying to swallow millions. That's the part that matters for businesses too.</p>
+        <p>I built it as a shortcut for myself. The story is my responsibility as the Game Master amongst all of us. I have to remember which NPC mentored the party in session 47, which villain's name got whispered in session 90, and which promise the party made in session 106. Three references to the same storyline, spread over two and a half years of play. A human brain is bad at this. A markdown file of the whole campaign would run past a hundred pages and still miss the connective tissue.</p>
+        <p>I also made it so other projects could query the graph and get meaningful knowledge out of it. It helps generate consistent images for the campaign. It helps me build <a href="/case-studies/dnd-pipeline.html">animated recaps of each session</a>. And it gives any AI tool a way to answer questions about the full campaign using three thousand tokens of relevant subgraph instead of trying to swallow millions. That's the part that matters for businesses too.</p>
       </div>
 
       <div class="scroll-indicator">
@@ -150,10 +150,10 @@
   <!-- ============================================ -->
   <section id="problem" class="section section--problem">
     <div class="section-inner">
-      <h2 class="section-label">The Problem</h2>
+      <p class="section-kicker">The Problem</p>
       <h2 class="section-title">Everyone wants an AI that knows everything about them. Nobody has figured out how to give it that.</h2>
       <div class="kg-problem-body">
-        <p>Your employer wants a ChatGPT that remembers every decision your team has made. Your sales team wants one that knows the last 18 months of customer history. You probably want one that's read all your Slack messages, every email thread, every meeting transcript, every strategy doc.</p>
+        <p>Everybody wants a ChatGPT that remembers every decision their team has made. Sales teams want one that knows the last 18 months of customer history. You probably want one that's read all your Slack messages, every email thread, every meeting transcript, every strategy doc.</p>
         <p>The pitch writes itself. The implementation does not.</p>
         <p>My version of this problem is worse than yours. 120 sessions of Dungeons &amp; Dragons across four years, in Zoom transcripts, side chats, DM notes, and a shared Google Doc. Each session is two to three hours. Dozens of open plot threads at any given moment.</p>
         <p>If I wanted an AI to answer a real question about my campaign, I'd need to feed it all of that. Even with ten sub-agents sweeping in parallel, they still couldn't traverse enough context to tell me what an NPC first said about the main villain in session 47 and then cross-reference it with what the party learned in session 103. Compressed into a markdown file, the campaign runs past a hundred pages. Every query would burn through hundreds of thousands of tokens.</p>

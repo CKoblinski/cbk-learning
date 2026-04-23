@@ -45,8 +45,17 @@
   background: var(--color-surface, #ffffff);
   color: #1a1a1a;
 }
-.section--problem .section-label {
+.section--problem .section-kicker {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
   color: var(--color-accent-ai, #6c63ff);
+  margin: 0 0 0.75rem 0;
+  padding: 0;
+  line-height: 1;
 }
 .section--problem .section-title {
   font-size: clamp(1.6rem, 3vw, 2.25rem);
