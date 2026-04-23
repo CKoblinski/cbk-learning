@@ -39,6 +39,14 @@
 .hero-stat-sep {
   color: rgba(255, 255, 255, 0.3);
 }
+.hero-stat-lead {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-right: 0.25rem;
+}
 
 /* ---- Problem section ---- */
 .section--problem {
@@ -531,6 +539,21 @@
   font-size: 0.9rem;
   color: var(--color-text);
   margin: 0;
+}
+
+/* Info variant (vs warning orange) — used for the merge/dedup example */
+.kg-qc-example--info {
+  background: var(--color-accent-ai-light, #f0eeff);
+  border-color: rgba(108, 99, 255, 0.25);
+  margin-top: 1rem;
+}
+.kg-qc-example-label--info {
+  color: var(--color-accent-ai, #6c63ff);
+}
+.kg-qc-example--info .kg-qc-example-body code {
+  color: #3a2f7a;
+  background: rgba(108, 99, 255, 0.1);
+  white-space: pre;
 }
 
 /* ---- Query Flow ---- */
