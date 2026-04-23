@@ -153,10 +153,31 @@
   pointer-events: none;
 }
 
-.kg-node--pc    { background: #ff7a7a; color: #ff7a7a; }
-.kg-node--npc   { background: #4fd6ff; color: #4fd6ff; }
-.kg-node--event { background: #ffd84f; color: #ffd84f; width: 12px; height: 12px; }
-.kg-node--loc   { background: #9dffcb; color: #9dffcb; }
+/* Node palette aligned with the live viz:
+   characters = pink/red (PCs slightly larger)
+   events = gray dots
+   locations = teal
+   artifacts = purple-pink
+   factions = yellow
+   The villain node "character-major" gets a slightly larger halo. */
+.kg-node--pc             { background: #ff7a7a; color: #ff7a7a; width: 18px; height: 18px; }
+.kg-node--character      { background: #ff7a7a; color: #ff7a7a; width: 14px; height: 14px; }
+.kg-node--character-major {
+  background: #ff7a7a; color: #ff7a7a;
+  width: 22px; height: 22px;
+  box-shadow: 0 0 0 3px rgba(10, 8, 20, 0.92), 0 0 24px currentColor, 0 0 40px rgba(255, 122, 122, 0.4);
+}
+.kg-node--npc            { background: #4fd6ff; color: #4fd6ff; }
+.kg-node--event          { background: #9e9eb8; color: #9e9eb8; width: 10px; height: 10px; }
+.kg-node--loc,
+.kg-node--location       { background: #9dffcb; color: #9dffcb; width: 14px; height: 14px; }
+.kg-node--artifact       { background: #e8a0ff; color: #e8a0ff; width: 12px; height: 12px; }
+.kg-node--faction        { background: #ffd84f; color: #ffd84f; width: 14px; height: 14px; }
+
+/* Edge accents for particular relationships */
+.kg-graph-edges .kg-edge--divine   { stroke: rgba(232, 160, 255, 0.5); }
+.kg-graph-edges .kg-edge--artifact { stroke: rgba(232, 160, 255, 0.5); }
+.kg-graph-edges .kg-edge--location { stroke: rgba(157, 255, 203, 0.4); }
 
 .kg-graph-label {
   font-family: 'JetBrains Mono', monospace;

@@ -34,26 +34,72 @@
         <div class="kg-hero-graph">
           <div class="kg-graph-frame">
             <div class="kg-graph-nodes">
-              <span class="kg-node kg-node--pc" style="top:20%;left:50%" data-label="Hoj"></span>
-              <span class="kg-node kg-node--pc" style="top:55%;left:30%" data-label="Calli"></span>
-              <span class="kg-node kg-node--pc" style="top:70%;left:70%" data-label="Bixie"></span>
-              <span class="kg-node kg-node--npc" style="top:10%;left:20%" data-label="Elathar"></span>
-              <span class="kg-node kg-node--npc" style="top:35%;left:75%" data-label="Alyxian"></span>
-              <span class="kg-node kg-node--event" style="top:45%;left:50%" data-label="Session 69"></span>
-              <span class="kg-node kg-node--loc" style="top:80%;left:25%" data-label="Cael Morrow"></span>
+              <!-- Subgraph for the hero question: Alyxian's story -->
+              <!-- Center: Alyxian the Apotheon (the main villain) -->
+              <span class="kg-node kg-node--character-major" style="top:45%;left:42%" data-label="Alyxian the Apotheon"></span>
+
+              <!-- Deities in the divine bargain -->
+              <span class="kg-node kg-node--character" style="top:10%;left:35%" data-label="Avandra"></span>
+              <span class="kg-node kg-node--character" style="top:15%;left:65%" data-label="Sehanine"></span>
+              <span class="kg-node kg-node--character" style="top:22%;left:15%" data-label="Asmodeus"></span>
+
+              <!-- Villain allies / enemies in his arc -->
+              <span class="kg-node kg-node--character" style="top:32%;left:70%" data-label="Severin"></span>
+              <span class="kg-node kg-node--character" style="top:40%;left:85%" data-label="Prince Tyrvin"></span>
+              <span class="kg-node kg-node--character" style="top:52%;left:12%" data-label="Commander Vexus"></span>
+              <span class="kg-node kg-node--character" style="top:48%;left:28%" data-label="Melora"></span>
+
+              <!-- Artifact + location tied to his imprisonment -->
+              <span class="kg-node kg-node--artifact" style="top:30%;left:92%" data-label="Jewel of Three Prayers"></span>
+              <span class="kg-node kg-node--location" style="top:38%;left:5%" data-label="The Netherdeep"></span>
+
+              <!-- Key events in his arc -->
+              <span class="kg-node kg-node--event" style="top:62%;left:22%" data-label="Confrontation w/ Vexus"></span>
+              <span class="kg-node kg-node--event" style="top:65%;left:58%" data-label="Heist: Black Smile Door"></span>
+              <span class="kg-node kg-node--event" style="top:72%;left:42%" data-label="Watcher &amp; Alyxian scene"></span>
+
+              <!-- Party reaches him -->
+              <span class="kg-node kg-node--faction" style="top:82%;left:30%" data-label="The Party"></span>
+              <span class="kg-node kg-node--pc" style="top:90%;left:45%" data-label="Callistiana"></span>
+              <span class="kg-node kg-node--pc" style="top:92%;left:60%" data-label="Hojbejrg"></span>
+              <span class="kg-node kg-node--pc" style="top:88%;left:75%" data-label="Bixie"></span>
+
               <svg class="kg-graph-edges" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <line x1="50" y1="23" x2="30" y2="55" />
-                <line x1="50" y1="23" x2="75" y2="35" />
-                <line x1="30" y1="55" x2="70" y2="70" />
-                <line x1="20" y1="13" x2="30" y2="55" />
-                <line x1="50" y1="23" x2="50" y2="45" />
-                <line x1="30" y1="55" x2="50" y2="45" />
-                <line x1="70" y1="70" x2="50" y2="45" />
-                <line x1="70" y1="70" x2="25" y2="80" />
+                <!-- Alyxian to deities (divine bargain) -->
+                <line x1="42" y1="45" x2="35" y2="10" class="kg-edge--divine" />
+                <line x1="42" y1="45" x2="65" y2="15" class="kg-edge--divine" />
+                <line x1="42" y1="45" x2="15" y2="22" class="kg-edge--divine" />
+                <!-- Alyxian to villain allies/enemies -->
+                <line x1="42" y1="45" x2="70" y2="32" />
+                <line x1="42" y1="45" x2="85" y2="40" />
+                <line x1="42" y1="45" x2="12" y2="52" />
+                <line x1="42" y1="45" x2="28" y2="48" />
+                <!-- Severin <-> Tyrvin -->
+                <line x1="70" y1="32" x2="85" y2="40" />
+                <!-- Alyxian to artifact/location -->
+                <line x1="42" y1="45" x2="92" y2="30" class="kg-edge--artifact" />
+                <line x1="42" y1="45" x2="5" y2="38" class="kg-edge--location" />
+                <!-- Alyxian to key events -->
+                <line x1="42" y1="45" x2="22" y2="62" />
+                <line x1="42" y1="45" x2="58" y2="65" />
+                <line x1="42" y1="45" x2="42" y2="72" />
+                <!-- Events to party -->
+                <line x1="22" y1="62" x2="30" y2="82" />
+                <line x1="58" y1="65" x2="30" y2="82" />
+                <line x1="42" y1="72" x2="30" y2="82" />
+                <!-- Vexus to Confrontation -->
+                <line x1="12" y1="52" x2="22" y2="62" />
+                <!-- Party to PCs -->
+                <line x1="30" y1="82" x2="45" y2="90" />
+                <line x1="30" y1="82" x2="60" y2="92" />
+                <line x1="30" y1="82" x2="75" y2="88" />
+                <!-- PCs among themselves -->
+                <line x1="45" y1="90" x2="60" y2="92" />
+                <line x1="60" y1="92" x2="75" y2="88" />
               </svg>
             </div>
           </div>
-          <div class="kg-graph-label">1,067 entities · 3,051 relationships · 115 sessions</div>
+          <div class="kg-graph-label">Subgraph for this question · 17 nodes · 9 sessions · ~2,800 tokens</div>
         </div>
 
         <div class="hero-vs">
