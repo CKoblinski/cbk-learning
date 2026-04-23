@@ -58,6 +58,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── Philosophy expand/collapse ──
+  document.querySelectorAll('.philosophy-header').forEach(header => {
+    header.addEventListener('click', () => {
+      header.closest('.philosophy').classList.toggle('open');
+    });
+  });
+
+  // ── Lesson expand/collapse ──
+  document.querySelectorAll('.lesson-header').forEach(header => {
+    header.addEventListener('click', () => {
+      header.closest('.lesson').classList.toggle('open');
+    });
+  });
+
+  // ── Open first philosophy + lesson by default ──
+  const firstPhil = document.querySelector('.philosophy');
+  if (firstPhil) firstPhil.classList.add('open');
+  const firstLesson = document.querySelector('.lesson');
+  if (firstLesson) firstLesson.classList.add('open');
+
   // ── Fade-up on scroll (for general sections) ──
   const fadeTargets = document.querySelectorAll('.philosophy, .lesson, .kg-business-card');
   const fadeObserver = new IntersectionObserver((entries) => {
