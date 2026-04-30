@@ -1,51 +1,557 @@
 /* ============================================
    D&D Knowledge Graph — Case Study
-   Extends dnd-pipeline.css with KG-specific styles.
+   Extends dnd-pipeline.css, but flips it to the
+   site-wide light/editorial theme. Only the live
+   graph demo and the hero's graph-preview card
+   stay dark — deliberate contrast moments.
    ============================================ */
 
-/* ---- Hero readability override ---- */
-/* Shorts pipeline uses --text-dim (#8888a0) for body paragraphs.
-   That's too dim against the black hero for long-form reading.
-   Bump it to something closer to #c6c6d6. */
-.hero-context p {
-  color: #c9c9dc;
-  font-size: 17px;
-  line-height: 1.7;
-}
-.hero-context-emphasis {
-  color: #fff !important;
-  font-size: 19px !important;
+/* =============================================================
+   LIGHT THEME OVERRIDE
+   dnd-pipeline.css sets :root vars for a dark gaming theme.
+   We remap them here so the entire dnd-knowledge-graph page
+   inherits CBK's editorial palette without touching the
+   shorts case study.
+   ============================================================= */
+body.dnd-kg-page {
+  --bg-deep:     #faf9f7;
+  --bg-surface:  #ffffff;
+  --bg-card:     #ffffff;
+  --bg-hover:    #f4f3f0;
+  --border:      rgba(0, 0, 0, 0.08);
+  --border-light:rgba(0, 0, 0, 0.12);
+  --text:        #1a1a1a;
+  --text-dim:    #4a4540;
+  --text-muted:  #6b6560;
+  --accent:      #c2410c;      /* warm rust — primary */
+  --accent-dim:  #9a3109;
+  --accent-soft: #fef0ec;
+  --accent-2:    #6c63ff;      /* indigo — AI/secondary */
+  --accent-2-soft:#f0eeff;
+  --rule:        rgba(0, 0, 0, 0.1);
+
+  background: var(--bg-deep);
+  color: var(--text);
 }
 
-/* ---- Hero stats strip (below the split, above context) ---- */
-.hero-stats-strip {
+/* Article/body links pick up the accent; chrome links (nav/footer/buttons)
+   carry their own explicit colors via their own selectors. */
+body.dnd-kg-page .hero-context a,
+body.dnd-kg-page .kg-problem-body a,
+body.dnd-kg-page .about-text a,
+body.dnd-kg-page .about-built a { color: var(--accent); }
+body.dnd-kg-page .hero-context a:hover,
+body.dnd-kg-page .kg-problem-body a:hover,
+body.dnd-kg-page .about-text a:hover,
+body.dnd-kg-page .about-built a:hover { text-decoration: underline; }
+
+/* Compact case-study nav, matches the pattern on ANY/Reddy/Snap/Ramp */
+body.dnd-kg-page .cs-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250, 249, 247, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  gap: 0.75rem;
-  margin: 1rem 0 2rem;
-  padding: 1rem 1.5rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.75);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  justify-content: space-between;
 }
-.hero-stat strong {
-  color: #fff;
+body.dnd-kg-page .cs-nav__back,
+body.dnd-kg-page .cs-nav__logo {
+  font-family: 'Space Grotesk', sans-serif;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+body.dnd-kg-page .cs-nav__back {
+  font-size: 0.85rem;
   font-weight: 600;
+  color: var(--text-muted);
 }
-.hero-stat-sep {
-  color: rgba(255, 255, 255, 0.3);
+body.dnd-kg-page .cs-nav__back:hover { color: var(--text); }
+body.dnd-kg-page .cs-nav__logo {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
 }
-.hero-stat-lead {
+body.dnd-kg-page strong { color: var(--text); font-weight: 600; }
+body.dnd-kg-page em { color: var(--text); font-style: italic; }
+body.dnd-kg-page code {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-size: 0.88em;
+  background: #f4f3f0;
+  color: var(--accent-dim);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ---- Section chrome ---- */
+body.dnd-kg-page .section-title {
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+body.dnd-kg-page .section-subtitle {
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  max-width: 740px;
+  margin-bottom: 3rem;
+}
+body.dnd-kg-page .section-label {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-  margin-right: 0.25rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+body.dnd-kg-page .section-kicker {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ---- Hero: drop full-viewport dark, give it editorial spacing ---- */
+body.dnd-kg-page .section--hero {
+  min-height: 0;
+  padding: clamp(3rem, 8vh, 6rem) 24px 2rem;
+  background: var(--bg-deep);
+  display: block;
+}
+body.dnd-kg-page .hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+body.dnd-kg-page .hero-kicker {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+body.dnd-kg-page .hero-title {
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  max-width: 1000px;
+  margin-bottom: 2.5rem;
+}
+
+/* Hero body paragraphs — re-point the dim-white override to dark */
+body.dnd-kg-page .hero-context p {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin-bottom: 1.1rem;
+}
+body.dnd-kg-page .hero-context-emphasis {
+  color: var(--text) !important;
+  font-weight: 600;
+  font-size: 1.08rem !important;
+}
+
+/* =============================================================
+   COMPONENT OVERRIDES — flip pipeline.css components to light
+   (except explicit dark-preserved elements below)
+   ============================================================= */
+
+/* Pipeline section background */
+body.dnd-kg-page .section--pipeline {
+  background: #f4f3f0;
+}
+body.dnd-kg-page .pipeline-intro {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+/* Phase cards */
+body.dnd-kg-page .phase {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+body.dnd-kg-page .phase:hover { border-color: rgba(194, 65, 12, 0.35); }
+body.dnd-kg-page .phase-header:hover { background: var(--bg-hover); }
+body.dnd-kg-page .phase-number {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+}
+body.dnd-kg-page .phase-title {
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+body.dnd-kg-page .phase-subtitle { color: var(--text-muted); }
+body.dnd-kg-page .phase-cost {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+}
+body.dnd-kg-page .phase-expand-icon { color: var(--text-muted); }
+
+/* Detail cards inside phases */
+body.dnd-kg-page .detail-card {
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+body.dnd-kg-page .detail-card h4 {
+  color: var(--accent);
+  font-family: 'Space Grotesk', sans-serif;
+}
+body.dnd-kg-page .detail-card p { color: var(--text-dim); }
+
+/* Code / data blocks — keep dark (deliberate, like a terminal snippet) */
+body.dnd-kg-page .data-block {
+  background: #0e1015;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #e0e0e8;
+}
+body.dnd-kg-page .data-block--raw { color: #8888a0; }
+body.dnd-kg-page .data-block--clean { color: #e0e0e8; }
+body.dnd-kg-page .json-key  { color: #7ee3f2; }
+body.dnd-kg-page .json-str  { color: #8ce09a; }
+body.dnd-kg-page .json-num  { color: #ffb677; }
+body.dnd-kg-page .json-bool { color: #d69cff; }
+body.dnd-kg-page .ba-label { color: var(--text-muted); }
+body.dnd-kg-page .transform-arrow { color: var(--accent); }
+
+/* Philosophies */
+body.dnd-kg-page .section--philosophies { background: var(--bg-deep); }
+body.dnd-kg-page .philosophy {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+body.dnd-kg-page .philosophy-number {
+  color: var(--accent);
+  font-family: 'Space Grotesk', sans-serif;
+}
+body.dnd-kg-page .philosophy h3 {
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+body.dnd-kg-page .philosophy-body p { color: var(--text-dim); }
+body.dnd-kg-page .philosophy-takeaway {
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+}
+
+/* Lessons */
+body.dnd-kg-page .section--lessons { background: #f4f3f0; }
+body.dnd-kg-page .lesson {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+body.dnd-kg-page .lesson-number {
+  color: var(--accent-2);
+  font-family: 'Space Grotesk', sans-serif;
+}
+body.dnd-kg-page .lesson-title {
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+body.dnd-kg-page .lesson-body p { color: var(--text-dim); }
+body.dnd-kg-page .lesson-takeaway {
+  background: var(--accent-2-soft);
+  border-left: 3px solid var(--accent-2);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+}
+
+/* Problem section */
+body.dnd-kg-page .section--problem { background: var(--bg-surface); }
+body.dnd-kg-page .section--problem .section-kicker { color: var(--accent-2); }
+body.dnd-kg-page .kg-problem-punchline {
+  background: var(--accent-2-soft);
+  color: var(--accent-2) !important;
+  border-left: 3px solid var(--accent-2);
+  border-radius: 6px;
+}
+
+/* Business section — already light, just tune accent */
+body.dnd-kg-page .section--business { background: var(--bg-deep); }
+body.dnd-kg-page .kg-business-intro {
+  border-left-color: var(--accent);
+  color: var(--text) !important;
+}
+body.dnd-kg-page .kg-business-tag {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+body.dnd-kg-page .kg-business-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+}
+
+/* Recap explainer lead (was dim white on dark) */
+body.dnd-kg-page .kg-recap-explainer p { color: var(--text-dim); }
+body.dnd-kg-page .kg-recap-explainer-lead {
+  color: var(--text) !important;
+  font-weight: 600 !important;
+}
+body.dnd-kg-page .kg-recap-lane {
+  background: var(--bg-surface);
+  border-color: var(--border);
+}
+
+/* Demo section — dark iframe frame stays; surrounding chrome flips */
+body.dnd-kg-page .section--demo { background: var(--bg-deep); }
+body.dnd-kg-page .section--demo .section-title { color: var(--text); }
+body.dnd-kg-page .section--demo .section-subtitle { color: var(--text-muted); }
+body.dnd-kg-page .kg-demo-note { color: var(--text-muted); }
+body.dnd-kg-page .kg-demo-suggestions em { color: var(--accent); }
+body.dnd-kg-page .kg-demo-fallback { color: var(--text-muted); }
+body.dnd-kg-page .kg-demo-fallback a { color: var(--accent); }
+
+/* About section */
+body.dnd-kg-page .section--about {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+}
+body.dnd-kg-page .section--about .section-title { color: var(--text); }
+body.dnd-kg-page .about-text p { color: var(--text-dim); }
+body.dnd-kg-page .about-text a { color: var(--accent); font-weight: 500; }
+body.dnd-kg-page .about-built {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+}
+body.dnd-kg-page .about-built a { color: var(--accent); }
+
+/* Strong text inside the iframe / dark-preserved elements stays white */
+body.dnd-kg-page .kg-hero-graph strong,
+body.dnd-kg-page .data-block strong { color: #fff; }
+
+/* Soft CTA pointing to AI services page */
+body.dnd-kg-page .kg-business-cta {
+  margin-top: 3rem;
+  padding: 2rem 2.25rem;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+}
+body.dnd-kg-page .kg-business-cta p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 1rem 0;
+}
+body.dnd-kg-page .kg-business-cta-btn {
+  display: inline-block;
+  background: #fff;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+body.dnd-kg-page .kg-business-cta-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ---- Hero stat band (scope of the data) ---- */
+.hero-stat-band {
+  margin: 2rem 0 1.75rem;
+  padding: 1.75rem 0 2rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.hero-stat-band__kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.5rem;
+  font-weight: 700;
+}
+.hero-stat-band__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.hero-stat-band__cell {
+  display: flex;
+  flex-direction: column;
+}
+.hero-stat-band__num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.55rem;
+}
+.hero-stat-band__cell--accent .hero-stat-band__num {
+  color: var(--accent);
+}
+.hero-stat-band__label {
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 500;
+  margin-bottom: 0.22rem;
+}
+.hero-stat-band__sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+@media (max-width: 800px) {
+  .hero-stat-band__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1.25rem;
+  }
+}
+@media (max-width: 480px) {
+  .hero-stat-band__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ---- Scale compare bars (10M vs 3K) ---- */
+.hero-scale-compare {
+  margin: 0 0 2rem;
+  padding: 0.25rem 0 0;
+  font-family: 'JetBrains Mono', monospace;
+}
+.hero-scale-compare__row {
+  display: grid;
+  grid-template-columns: 110px 1fr 180px;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.65rem;
+}
+.hero-scale-compare__rowlabel {
+  text-align: right;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.hero-scale-compare__bar {
+  height: 14px;
+  border-radius: 7px;
+  overflow: hidden;
+  position: relative;
+}
+.hero-scale-compare__bar--default {
+  background: var(--accent-soft);
+}
+.hero-scale-compare__bar--graph {
+  background: var(--accent-2-soft);
+}
+.hero-scale-compare__fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+}
+.hero-scale-compare__fill--default {
+  background: linear-gradient(90deg, var(--accent) 0%, #e85d3a 100%);
+}
+.hero-scale-compare__fill--graph {
+  right: auto;
+  width: 6px;
+  background: var(--accent-2);
+}
+.hero-scale-compare__value {
+  font-size: 0.82rem;
+  color: var(--text);
+  font-weight: 500;
+}
+.hero-scale-compare__caption {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin: 0.9rem 0 0 126px;
+}
+@media (max-width: 700px) {
+  .hero-scale-compare__row {
+    grid-template-columns: 90px 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 0.35rem;
+    margin-bottom: 1rem;
+  }
+  .hero-scale-compare__rowlabel {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .hero-scale-compare__bar {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .hero-scale-compare__value {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+  }
+  .hero-scale-compare__caption {
+    margin-left: 0;
+  }
+}
+
+/* ---- Hero CTA button ---- */
+body.dnd-kg-page .hero-cta {
+  margin: 0 0 2.5rem;
+}
+body.dnd-kg-page a.hero-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.75rem;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(194, 65, 12, 0.2);
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+body.dnd-kg-page a.hero-cta__btn:hover {
+  background: var(--accent-dim);
+  color: #fff;
+  transform: translateY(-1px);
+  text-decoration: none;
+  box-shadow: 0 12px 32px rgba(194, 65, 12, 0.28);
 }
 
 /* ---- Problem section ---- */
