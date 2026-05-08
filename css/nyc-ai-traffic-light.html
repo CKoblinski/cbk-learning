@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NYCPS AI Traffic Light — Sorting Game</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #111827;
+    --panel-2: #1f2937;
+    --ink: #e5e7eb;
+    --muted: #9ca3af;
+    --line: #374151;
+    --red: #dc2626;
+    --red-soft: rgba(220,38,38,0.15);
+    --yellow: #d97706;
+    --yellow-soft: rgba(217,119,6,0.15);
+    --green: #16a34a;
+    --green-soft: rgba(22,163,74,0.15);
+    --accent: #60a5fa;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; min-height: 100%; }
+  body { display: flex; flex-direction: column; align-items: center; padding: 32px 20px; }
+
+  .stage { width: 100%; max-width: 720px; }
+
+  /* START SCREEN */
+  .start {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+    padding: 32px; text-align: center;
+  }
+  .start h1 { margin: 0 0 8px; font-size: 26px; letter-spacing: -0.01em; }
+  .start p { color: var(--muted); margin: 0 auto 22px; font-size: 15px; line-height: 1.55; max-width: 520px; }
+  .legend-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 0 0 24px; }
+  .legend-pill {
+    display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px;
+    background: var(--panel-2); border: 1px solid var(--line); font-size: 13px;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .dot.red { background: var(--red); } .dot.yellow { background: var(--yellow); } .dot.green { background: var(--green); }
+
+  button {
+    appearance: none; cursor: pointer; font: inherit;
+    border-radius: 10px; border: 1px solid var(--line); background: var(--panel-2); color: var(--ink);
+    padding: 10px 16px; font-size: 14px;
+  }
+  button:hover { border-color: var(--accent); }
+  .go {
+    background: var(--accent); color: #0b1220; border-color: var(--accent);
+    font-weight: 600; padding: 14px 28px; font-size: 16px; border-radius: 12px;
+  }
+  .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  /* CARD SCREEN */
+  .progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 13px; color: var(--muted); }
+  .progress-bar { height: 6px; background: var(--panel-2); border-radius: 999px; overflow: hidden; margin-bottom: 18px; }
+  .progress-bar > span { display: block; height: 100%; background: var(--accent); transition: width 200ms ease; }
+
+  .qcard {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px; margin-bottom: 16px;
+  }
+  .qcard h2 { margin: 0 0 10px; font-size: 22px; letter-spacing: -0.01em; }
+  .qcard .desc { margin: 0 0 6px; color: var(--ink); font-size: 15px; line-height: 1.55; }
+  .qcard .prompt { margin: 18px 0 12px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .choices { display: grid; gap: 10px; }
+  .choice {
+    text-align: left; padding: 14px 16px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--panel-2);
+    display: flex; align-items: flex-start; gap: 12px;
+    transition: transform 80ms ease, border-color 120ms ease, background 120ms ease;
+  }
+  .choice:hover { transform: translateY(-1px); }
+  .choice .swatch { width: 14px; height: 14px; border-radius: 4px; margin-top: 3px; flex-shrink: 0; }
+  .choice.red    .swatch { background: var(--red); }
+  .choice.yellow .swatch { background: var(--yellow); }
+  .choice.green  .swatch { background: var(--green); }
+  .choice .label { font-weight: 600; font-size: 15px; }
+  .choice .tag { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .choice.red:hover    { border-color: var(--red); background: var(--red-soft); }
+  .choice.yellow:hover { border-color: var(--yellow); background: var(--yellow-soft); }
+  .choice.green:hover  { border-color: var(--green); background: var(--green-soft); }
+
+  .choice.correct { border-color: var(--green); background: var(--green-soft); }
+  .choice.wrong   { border-color: var(--red); background: var(--red-soft); }
+  .choice:disabled { cursor: default; }
+  .choice:disabled:hover { transform: none; }
+
+  .feedback {
+    margin-top: 14px; padding: 12px 14px; border-radius: 10px; font-size: 14px;
+    border: 1px solid var(--line); background: var(--panel-2); display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.right { border-color: var(--green); background: var(--green-soft); }
+  .feedback.almost { border-color: var(--yellow); background: var(--yellow-soft); }
+  .feedback.failed { border-color: var(--red); background: var(--red-soft); }
+  .feedback strong { display: block; margin-bottom: 2px; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
+  .nav .skip { color: var(--muted); background: transparent; border: none; padding: 6px 4px; }
+  .nav .skip:hover { color: var(--ink); }
+  .nav .next { background: var(--accent); color: #0b1220; border-color: var(--accent); font-weight: 600; }
+  .nav .next.hidden { visibility: hidden; }
+
+  /* RESULTS SCREEN */
+  .results { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 32px; text-align: center; }
+  .results h2 { margin: 0 0 6px; font-size: 24px; }
+  .results .score { font-size: 48px; font-weight: 700; margin: 14px 0 4px; }
+  .results .score-label { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
+  .breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 22px; text-align: left; }
+  .breakdown .b { background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+  .breakdown .b h4 { margin: 0 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .breakdown .b .num { font-size: 22px; font-weight: 600; }
+
+  .wrong-list { text-align: left; margin: 22px 0 8px; }
+  .wrong-list h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .wrong-item {
+    background: var(--panel-2); border: 1px solid var(--line); border-left: 4px solid var(--line);
+    border-radius: 8px; padding: 12px 14px; margin-bottom: 10px;
+  }
+  .wrong-item.red    { border-left-color: var(--red); }
+  .wrong-item.yellow { border-left-color: var(--yellow); }
+  .wrong-item.green  { border-left-color: var(--green); }
+  .wi-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+  .wi-desc { color: var(--muted); font-size: 13px; line-height: 1.45; margin-bottom: 8px; }
+  .wi-correct { font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .wi-row { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; }
+  .wi-row .wi-you, .wi-row .wi-ans { display: flex; align-items: center; gap: 6px; }
+  .wi-row .wi-you { color: var(--muted); }
+
+  .all-right { color: var(--muted); font-size: 14px; margin: 18px 0; }
+  .ask { color: var(--muted); font-size: 13px; margin: 18px 0 14px; font-style: italic; }
+
+  /* REVEAL SCREEN */
+  .reveal { width: 100%; max-width: 1100px; }
+  .reveal-head { text-align: center; margin-bottom: 18px; }
+  .reveal-head h2 { margin: 0 0 6px; font-size: 22px; }
+  .reveal-head p { margin: 0; color: var(--muted); font-size: 14px; }
+  .reveal-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+  @media (max-width: 800px) { .reveal-cols { grid-template-columns: 1fr; } }
+  .col { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .col.red    { border-top: 4px solid var(--red); }
+  .col.yellow { border-top: 4px solid var(--yellow); }
+  .col.green  { border-top: 4px solid var(--green); }
+  .col h3 { margin: 0 0 4px; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+  .col .sub { margin: 0 0 12px; color: var(--muted); font-size: 12.5px; line-height: 1.45; }
+  .item { background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; font-size: 13px; }
+  .item .t { font-weight: 600; margin-bottom: 2px; }
+  .item .d { color: var(--muted); font-size: 12.5px; line-height: 1.4; }
+  .item-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 2px; }
+  .item.got-right { border-color: var(--green); background: var(--green-soft); }
+  .item.got-wrong { border-color: var(--red); background: var(--red-soft); }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; font-weight: 600; }
+  .badge.correct { background: var(--green); color: #0b1220; }
+  .badge.wrong { background: var(--red); color: #fff; }
+  .reveal-actions { text-align: center; margin-top: 20px; }
+
+  .shake { animation: shake 280ms cubic-bezier(0.36,0.07,0.19,0.97); }
+  @keyframes shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-3px); }
+    40%, 60% { transform: translateX(3px); }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage"></div>
+
+<script>
+const ITEMS = [
+  // RED
+  { id: "decisions", title: "Decisions About Students", answer: "red",
+    desc: "Using AI to determine student placement, discipline, eligibility, promotion, graduation, or program access." },
+  { id: "iep",       title: "IEP and 504 Plan Development", answer: "red",
+    desc: "Using AI to draft or finalize a student's IEP or 504 special-education plan documents." },
+  { id: "assess",    title: "Assessments and Grading", answer: "red",
+    desc: "Using AI as the source of truth for assessing what a student knows or assigning a grade." },
+  { id: "surv",      title: "Surveillance and Behavior Monitoring", answer: "red",
+    desc: "Using AI to monitor student behavior, devices, emotions, or activity for surveillance." },
+  { id: "care",      title: "Care and Counseling", answer: "red",
+    desc: "Using AI to provide counseling, crisis intervention, or therapeutic support to students." },
+  { id: "path",      title: "Deciding a Student's Course Path", answer: "red",
+    desc: "Using an algorithm to assign a student's course pathway with no ability for an educator or student to override it." },
+  { id: "data",      title: "Vendor Use of Student Data", answer: "red",
+    desc: "Letting a vendor use NYCPS student data to train AI models, monetize it, or sell it." },
+
+  // YELLOW
+  { id: "schooldata", title: "Analyzing Student & School Data", answer: "yellow",
+    desc: "Running AI over student or school performance data to surface patterns that an educator will then interpret." },
+  { id: "critcomm",   title: "Critical Communications & Translations", answer: "yellow",
+    desc: "Using AI to translate a critical school communication (legal notices, IEP letters, safety messages) that will be sent to families." },
+  { id: "diverse",    title: "Materials for Diverse Learners", answer: "yellow",
+    desc: "Using AI to draft translations, accommodations, or scaffolds for multilingual learners and students with IEPs." },
+  { id: "studentuse", title: "Student Use of AI", answer: "yellow",
+    desc: "Students using AI for research, exploration, or creative projects as part of classwork." },
+
+  // GREEN
+  { id: "brainstorm", title: "Brainstorming & Lesson Planning", answer: "green",
+    desc: "An educator using AI to brainstorm lesson ideas, instructional approaches, and unit plans." },
+  { id: "drafting",   title: "Drafting & Refining Communications", answer: "green",
+    desc: "An educator using AI to help draft or refine a parent newsletter, classroom email, or similar materials." },
+  { id: "simplify",   title: "Scheduling, Formatting, Summarizing", answer: "green",
+    desc: "Using AI for scheduling, formatting documents, or summarizing non-sensitive information." },
+  { id: "ops",        title: "Operational Data Synthesis", answer: "green",
+    desc: "A school leader using AI to synthesize operational data and support resource planning." },
+  { id: "translate",  title: "Translating Non-Critical Communications", answer: "green",
+    desc: "Using AI to translate non-critical school communications for families who prefer another language." },
+  { id: "access",     title: "Creating Accessible Materials", answer: "green",
+    desc: "Using AI to help produce accessible versions of materials for families and communities." },
+  { id: "proflearn",  title: "Professional Learning", answer: "green",
+    desc: "An educator or leader using AI to support their own professional development, preparation, and research." },
+];
+
+const TAGLINES = {
+  red:    { label: "Red",    tag: "Never use AI this way" },
+  yellow: { label: "Yellow", tag: "OK only with strong human oversight" },
+  green:  { label: "Green",  tag: "Approved and encouraged" },
+};
+
+const COL_DESC = {
+  red: "Off-limits. Highest risk to students, families, and fairness.",
+  yellow: "Allowed only with careful thought and trained adult oversight.",
+  green: "Approved and encouraged uses, with a professional in charge.",
+};
+
+const stage = document.getElementById("stage");
+let state;
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startGame() {
+  state = {
+    screen: "start",
+    order: shuffle(ITEMS.map(i => i.id)),
+    index: 0,
+    correctCount: 0,
+    cardLocked: false,
+    // per-card outcome: null = not answered, {correct: bool, choice: 'red'|'yellow'|'green'}
+    answers: new Array(ITEMS.length).fill(null),
+  };
+  render();
+}
+
+function renderStart() {
+  stage.innerHTML = `
+    <div class="start">
+      <h1>NYCPS AI Traffic Light</h1>
+      <p>You'll see ${ITEMS.length} ways AI might be used in NYC Public Schools, one at a time. Pick whether each is Red, Yellow, or Green. One shot per card — make it count.</p>
+      <div class="legend-row">
+        <span class="legend-pill"><span class="dot red"></span> Red — never</span>
+        <span class="legend-pill"><span class="dot yellow"></span> Yellow — with caution</span>
+        <span class="legend-pill"><span class="dot green"></span> Green — encouraged</span>
+      </div>
+      <div class="actions">
+        <button class="go" id="goBtn">Go</button>
+        <button id="skipBtn">Skip test &amp; reveal</button>
+      </div>
+    </div>
+  `;
+  document.getElementById("goBtn").addEventListener("click", () => { state.screen = "card"; render(); });
+  document.getElementById("skipBtn").addEventListener("click", () => { state.screen = "reveal"; render(); });
+}
+
+function currentItem() {
+  return ITEMS.find(i => i.id === state.order[state.index]);
+}
+
+function renderCard() {
+  const item = currentItem();
+  const mistakesSoFar = state.answers.filter(a => a && !a.correct).length;
+
+  stage.innerHTML = `
+    <div class="progress-row">
+      <span>Card ${state.index + 1} of ${ITEMS.length}</span>
+      <span>Mistakes: <strong>${mistakesSoFar}</strong></span>
+    </div>
+    <div class="progress-bar"><span style="width:${(state.index / ITEMS.length) * 100}%"></span></div>
+
+    <div class="qcard">
+      <h2>${escapeHtml(item.title)}</h2>
+      <p class="desc">${escapeHtml(item.desc)}</p>
+      <p class="prompt">How should this be classified?</p>
+      <div class="choices" id="choices">
+        ${["red","yellow","green"].map(c => `
+          <button class="choice ${c}" data-choice="${c}">
+            <span class="swatch"></span>
+            <span>
+              <span class="label">${TAGLINES[c].label}</span>
+              <span class="tag">${TAGLINES[c].tag}</span>
+            </span>
+          </button>
+        `).join("")}
+      </div>
+      <div class="feedback" id="feedback"></div>
+    </div>
+
+    <div class="nav">
+      <button class="skip" id="skipBtn">Skip to answers</button>
+      <button class="next hidden" id="nextBtn">${state.index === ITEMS.length - 1 ? "See results" : "Next card →"}</button>
+    </div>
+  `;
+
+  document.querySelectorAll(".choice").forEach(btn => {
+    btn.addEventListener("click", () => onChoose(btn.dataset.choice, btn));
+  });
+  document.getElementById("skipBtn").addEventListener("click", () => { state.screen = "results"; render(); });
+  document.getElementById("nextBtn").addEventListener("click", advance);
+}
+
+function onChoose(choice, btnEl) {
+  if (state.cardLocked) return;
+  const item = currentItem();
+  const correct = choice === item.answer;
+  state.answers[state.index] = { correct, choice };
+
+  if (correct) {
+    btnEl.classList.add("correct");
+    state.correctCount++;
+    showFeedback("right", "Correct.", `${TAGLINES[item.answer].label} — ${TAGLINES[item.answer].tag.toLowerCase()}.`);
+  } else {
+    btnEl.classList.add("wrong");
+    btnEl.classList.add("shake");
+    setTimeout(() => btnEl.classList.remove("shake"), 320);
+    const correctBtn = document.querySelector(`.choice[data-choice="${item.answer}"]`);
+    correctBtn.classList.add("correct");
+    showFeedback("failed", "Not quite.", `The correct answer is ${TAGLINES[item.answer].label} — ${TAGLINES[item.answer].tag.toLowerCase()}.`);
+  }
+
+  state.cardLocked = true;
+  document.querySelectorAll(".choice").forEach(b => b.disabled = true);
+  document.getElementById("nextBtn").classList.remove("hidden");
+}
+
+function showFeedback(kind, head, body) {
+  const el = document.getElementById("feedback");
+  el.className = `feedback show ${kind}`;
+  el.innerHTML = `<strong>${escapeHtml(head)}</strong>${escapeHtml(body)}`;
+}
+
+function advance() {
+  state.index++;
+  state.cardLocked = false;
+  if (state.index >= ITEMS.length) {
+    state.screen = "results";
+  }
+  render();
+}
+
+function renderResults() {
+  const total = ITEMS.length;
+  const answered = state.answers.filter(a => a !== null).length;
+  const correct = state.correctCount;
+  const mistakes = answered - correct;
+
+  let headline;
+  if (answered === 0) headline = "No answers yet.";
+  else if (answered < total) headline = `You answered ${answered} ${answered === 1 ? "question" : "questions"} and got ${correct} right.`;
+  else if (mistakes === 0) headline = "Perfect — no mistakes.";
+  else if (mistakes === 1) headline = "Just one mistake.";
+  else headline = `${mistakes} mistakes out of ${total}.`;
+
+  const wrongList = state.answers
+    .map((a, idx) => ({ a, item: ITEMS.find(i => i.id === state.order[idx]) }))
+    .filter(x => x.a && x.a.correct === false);
+
+  let wrongHtml = "";
+  if (wrongList.length > 0) {
+    wrongHtml = `
+      <div class="wrong-list">
+        <h3>Your mistakes</h3>
+        ${wrongList.map(({a, item}) => `
+          <div class="wrong-item ${item.answer}">
+            <div class="wi-title">${escapeHtml(item.title)}</div>
+            <div class="wi-desc">${escapeHtml(item.desc)}</div>
+            <div class="wi-row">
+              <span class="wi-you"><span class="dot ${a.choice}"></span>You said: <strong>${TAGLINES[a.choice].label}</strong></span>
+              <span class="wi-ans"><span class="dot ${item.answer}"></span>Correct: <strong>${TAGLINES[item.answer].label}</strong></span>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    `;
+  } else if (answered > 0) {
+    wrongHtml = `<p class="all-right">No mistakes — every answer correct.</p>`;
+  }
+
+  stage.innerHTML = `
+    <div class="results">
+      <h2>${escapeHtml(headline)}</h2>
+      ${answered > 0 ? `
+        <div class="score">${correct}/${answered}</div>
+        <div class="score-label">${mistakes} ${mistakes === 1 ? "mistake" : "mistakes"}${answered < total ? ` · ${total - answered} unanswered` : ""}</div>
+      ` : ""}
+      ${wrongHtml}
+      <p class="ask">Have any questions about these?</p>
+      <div class="actions">
+        <button class="go" id="revealBtn">See the full sort</button>
+        <button id="againBtn">${answered === 0 ? "Start the game" : "Play again"}</button>
+      </div>
+    </div>
+  `;
+  document.getElementById("revealBtn").addEventListener("click", () => { state.screen = "reveal"; render(); });
+  document.getElementById("againBtn").addEventListener("click", startGame);
+}
+
+function countByAnswer(a) {
+  return ITEMS.filter(i => i.answer === a).length;
+}
+
+function getAnswerForItem(itemId) {
+  const orderIdx = state.order.indexOf(itemId);
+  return orderIdx >= 0 ? state.answers[orderIdx] : null;
+}
+
+function renderReveal() {
+  const answered = state.answers.filter(a => a !== null).length;
+  const mistakes = state.answers.filter(a => a && !a.correct).length;
+  const subtitle = answered > 0
+    ? `Your mistakes are highlighted. ${mistakes} of ${answered} answered cards were wrong.`
+    : "Every use organized by the NYCPS guidance.";
+
+  stage.innerHTML = `
+    <div class="reveal">
+      <div class="reveal-head">
+        <h2>NYCPS AI Traffic Light — Full Sort</h2>
+        <p>${escapeHtml(subtitle)}</p>
+      </div>
+      <div class="reveal-cols">
+        ${["red","yellow","green"].map(c => `
+          <div class="col ${c}">
+            <h3><span class="dot ${c}"></span>${TAGLINES[c].label} — ${TAGLINES[c].tag}</h3>
+            <p class="sub">${COL_DESC[c]}</p>
+            ${ITEMS.filter(i => i.answer === c).map(i => {
+              const ans = getAnswerForItem(i.id);
+              let stateClass = "";
+              let badge = "";
+              if (ans && ans.correct) {
+                stateClass = "got-right";
+                badge = `<span class="badge correct">✓ correct</span>`;
+              } else if (ans && !ans.correct) {
+                stateClass = "got-wrong";
+                badge = `<span class="badge wrong">✗ you said ${TAGLINES[ans.choice].label}</span>`;
+              }
+              return `
+                <div class="item ${stateClass}">
+                  <div class="item-head">
+                    <div class="t">${escapeHtml(i.title)}</div>
+                    ${badge}
+                  </div>
+                  <div class="d">${escapeHtml(i.desc)}</div>
+                </div>
+              `;
+            }).join("")}
+          </div>
+        `).join("")}
+      </div>
+      <div class="reveal-actions">
+        <button class="go" id="againBtn">Play again</button>
+      </div>
+    </div>
+  `;
+  document.getElementById("againBtn").addEventListener("click", startGame);
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+function render() {
+  if (state.screen === "start")   return renderStart();
+  if (state.screen === "card")    return renderCard();
+  if (state.screen === "results") return renderResults();
+  if (state.screen === "reveal")  return renderReveal();
+}
+
+startGame();
+</script>
+</body>
+</html>
