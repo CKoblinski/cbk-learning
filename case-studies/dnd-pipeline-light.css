@@ -1,0 +1,305 @@
+/* ============================================
+   DND Short Factory — Case Study (Light)
+   Extends dnd-pipeline.css. Flips the dark gaming
+   theme to the site-wide cream/rust editorial
+   palette. Mirrors the approach used by
+   dnd-knowledge-graph.css.
+
+   Deliberate dark contrast moments are preserved:
+   - .raw-transcript  (terminal-style transcript)
+   - .data-block      (JSON before/after)
+   - .waveform-container (audio waveform)
+   - .code-block      (terminal output)
+   ============================================ */
+
+body.dnd-pipeline-page {
+  --bg-deep:     #faf9f7;
+  --bg-surface:  #ffffff;
+  --bg-card:     #ffffff;
+  --bg-hover:    #f4f3f0;
+  --border:      rgba(0, 0, 0, 0.08);
+  --border-light:rgba(0, 0, 0, 0.12);
+  --text:        #1a1a1a;
+  --text-dim:    #4a4540;
+  --text-muted:  #6b6560;
+  --accent:      #c2410c;       /* warm rust — primary */
+  --accent-dim:  #9a3109;
+  --accent-soft: #fef0ec;
+  --accent-2:    #6c63ff;       /* indigo — AI/secondary */
+  --accent-2-soft:#f0eeff;
+  --rule:        rgba(0, 0, 0, 0.1);
+
+  background: var(--bg-deep);
+  color: var(--text);
+}
+
+/* ---------- base typography ---------- */
+body.dnd-pipeline-page strong { color: var(--text); font-weight: 600; }
+body.dnd-pipeline-page em { color: var(--text); font-style: italic; }
+body.dnd-pipeline-page code {
+  background: var(--bg-hover);
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+
+/* All headings flip to dark text by default. Specific phase/data-block
+   headings stay light via their own dark-preserved rules below. */
+body.dnd-pipeline-page h1,
+body.dnd-pipeline-page h2,
+body.dnd-pipeline-page h3,
+body.dnd-pipeline-page h4 { color: var(--text); }
+
+/* Body-flow links pick up rust. Chrome/buttons use their own selectors. */
+body.dnd-pipeline-page .hero-context a,
+body.dnd-pipeline-page .about-text a,
+body.dnd-pipeline-page .about-built a,
+body.dnd-pipeline-page .lesson-body a,
+body.dnd-pipeline-page .philosophy-body a { color: var(--accent); }
+body.dnd-pipeline-page .hero-context a:hover,
+body.dnd-pipeline-page .about-text a:hover,
+body.dnd-pipeline-page .about-built a:hover,
+body.dnd-pipeline-page .lesson-body a:hover,
+body.dnd-pipeline-page .philosophy-body a:hover { text-decoration: underline; }
+
+/* ---------- case-study nav ---------- */
+body.dnd-pipeline-page .cs-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250, 249, 247, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body.dnd-pipeline-page .cs-nav__back,
+body.dnd-pipeline-page .cs-nav__logo {
+  font-family: 'Space Grotesk', sans-serif;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+body.dnd-pipeline-page .cs-nav__back {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+body.dnd-pipeline-page .cs-nav__back:hover { color: var(--text); }
+body.dnd-pipeline-page .cs-nav__logo {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ---------- section structure ---------- */
+body.dnd-pipeline-page .section-label { color: var(--accent); }
+body.dnd-pipeline-page .section-subtitle { color: var(--text-dim); }
+
+/* ---------- hero ---------- */
+body.dnd-pipeline-page .hero-kicker { color: var(--accent); }
+body.dnd-pipeline-page .hero-context p { color: var(--text-dim); }
+body.dnd-pipeline-page .hero-context-emphasis {
+  color: var(--text) !important;
+  font-weight: 600;
+}
+body.dnd-pipeline-page .scroll-indicator { color: var(--text-muted); }
+body.dnd-pipeline-page .scroll-arrow {
+  border-right-color: var(--text-muted);
+  border-bottom-color: var(--text-muted);
+}
+
+body.dnd-pipeline-page .hero-vs .vs-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* Hero video card — keep a soft dark frame so the video pops on cream */
+body.dnd-pipeline-page .hero-video {
+  background: #1a1a25;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+body.dnd-pipeline-page .video-placeholder {
+  background: #12121a;
+  color: #e0e0e8;
+}
+body.dnd-pipeline-page .video-placeholder-label { color: #fff; }
+body.dnd-pipeline-page .video-placeholder-sub { color: #8888a0; }
+body.dnd-pipeline-page .video-placeholder-icon { color: #d4a537; }
+
+/* Raw transcript card — DELIBERATE DARK CONTRAST (terminal feel) */
+body.dnd-pipeline-page .raw-transcript {
+  background: #12121a;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #e0e0e8;
+}
+body.dnd-pipeline-page .raw-transcript::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+}
+body.dnd-pipeline-page .t-ts { color: #6b6580; }
+body.dnd-pipeline-page .t-dm { color: #d4a537; }
+body.dnd-pipeline-page .t-player { color: #26c6da; }
+body.dnd-pipeline-page .t-group { color: #ff9800; }
+body.dnd-pipeline-page .raw-label { color: var(--text-muted); }
+
+/* ---------- by-the-numbers ---------- */
+body.dnd-pipeline-page .section--numbers {
+  background: var(--bg-hover);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+body.dnd-pipeline-page .stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+body.dnd-pipeline-page .stat-number { color: var(--accent); }
+body.dnd-pipeline-page .stat-suffix { color: var(--accent); }
+body.dnd-pipeline-page .stat-label { color: var(--text-muted); }
+body.dnd-pipeline-page .stat-sub { color: var(--text-dim); }
+
+/* ---------- pipeline phases ---------- */
+body.dnd-pipeline-page .section--pipeline { background: var(--bg-deep); }
+body.dnd-pipeline-page .phase {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+body.dnd-pipeline-page .phase-header { border-bottom: 1px solid var(--border); }
+body.dnd-pipeline-page .phase-number { color: var(--accent); }
+body.dnd-pipeline-page .phase-title { color: var(--text); }
+body.dnd-pipeline-page .phase-subtitle { color: var(--text-dim); }
+body.dnd-pipeline-page .phase-body p { color: var(--text-dim); }
+body.dnd-pipeline-page .phase-body h3,
+body.dnd-pipeline-page .phase-body h4 { color: var(--text); }
+
+/* JSON / data blocks — DELIBERATE DARK CONTRAST (terminal feel) */
+body.dnd-pipeline-page .data-block {
+  background: #12121a;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #e0e0e8;
+}
+body.dnd-pipeline-page .data-block--raw { color: #8888a0; }
+body.dnd-pipeline-page .data-block--clean { color: #e0e0e8; }
+body.dnd-pipeline-page .data-block strong { color: #fff; }
+body.dnd-pipeline-page .data-block code {
+  background: rgba(255,255,255,0.06);
+  color: #26c6da;
+  border: none;
+}
+body.dnd-pipeline-page .transform-arrow { color: var(--accent); }
+
+/* Waveform — DELIBERATE DARK CONTRAST (audio viz) */
+body.dnd-pipeline-page .waveform-container {
+  background: #12121a;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Generic code blocks the page may use — stay dark when class is set */
+body.dnd-pipeline-page .code-block,
+body.dnd-pipeline-page .terminal-block {
+  background: #12121a;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #e0e0e8;
+}
+
+/* Sequence rows + headers in pipeline phases */
+body.dnd-pipeline-page .seq-row,
+body.dnd-pipeline-page .seq-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+body.dnd-pipeline-page .seq-title { color: var(--text); }
+body.dnd-pipeline-page .seq-duration { color: var(--accent); }
+body.dnd-pipeline-page .seq-meta { color: var(--text-muted); }
+
+/* ---------- philosophies + lessons ---------- */
+body.dnd-pipeline-page .philosophy,
+body.dnd-pipeline-page .lesson {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+body.dnd-pipeline-page .philosophy-header,
+body.dnd-pipeline-page .lesson-header { color: var(--text); }
+body.dnd-pipeline-page .philosophy-number,
+body.dnd-pipeline-page .lesson-number { color: var(--accent); }
+body.dnd-pipeline-page .philosophy-title,
+body.dnd-pipeline-page .lesson-title { color: var(--text); }
+body.dnd-pipeline-page .philosophy-body p,
+body.dnd-pipeline-page .lesson-body p { color: var(--text-dim); }
+
+body.dnd-pipeline-page .philosophy-takeaway {
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+}
+body.dnd-pipeline-page .lesson-takeaway {
+  background: var(--accent-2-soft);
+  border-left: 3px solid var(--accent-2);
+  color: var(--text);
+}
+
+/* ---------- about ---------- */
+body.dnd-pipeline-page .section--about { background: var(--bg-hover); }
+body.dnd-pipeline-page .about-text p { color: var(--text-dim); }
+body.dnd-pipeline-page .about-built { color: var(--text-muted); }
+
+/* ============================================
+   Examples gallery — new section
+   ============================================ */
+body.dnd-pipeline-page .section--gallery {
+  background: var(--bg-deep);
+  border-top: 1px solid var(--border);
+}
+body.dnd-pipeline-page .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+@media (max-width: 900px) {
+  body.dnd-pipeline-page .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  body.dnd-pipeline-page .gallery-grid { grid-template-columns: 1fr; }
+}
+body.dnd-pipeline-page .gallery-item {
+  background: #12121a;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+body.dnd-pipeline-page .gallery-video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  display: block;
+  background: #000;
+  object-fit: cover;
+}
+body.dnd-pipeline-page .gallery-caption {
+  padding: 0.75rem 0.9rem 0.9rem;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+}
+body.dnd-pipeline-page .gallery-caption strong {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.92rem;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+body.dnd-pipeline-page .gallery-caption span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
