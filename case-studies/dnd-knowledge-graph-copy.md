@@ -13,22 +13,23 @@ Conventions:
 ## SECTION 1 — HERO
 
 ### [hero-kicker]
-Case Study · The Wildemount Knowledge Graph
+Case Study · The D&D Knowledge Graph
 
 ### [hero-title]
-Most AI tools forget everything. This one remembers four years of a complex game.
+Most AI tools forget everything. 
+This one remembers across almost 500 hours of D&D games.
 
 ### [hero-question]
 "Walk me through the main villain's story across four years of play."
 
 ### [hero-answer]
-**Session 47:** First name-drop by a dying NPC. Alyxian. No context.
+**Session 27:** Alyxian is the first name-drop in an ancient legend. Our heroes have no context. 
 
-**Session 63:** Discovered as a prisoner in the Netherdeep. Originally a hero. Fractured into three psychological aspects after a divine bargain with Asmodeus.
+**Session 63:** Learn that he is a prisoner held in the Netherdeep. Originally a hero, now possibly corrupt. 
 
-**Session 102:** Calli kills Alyxian's archdevil avatar in combat. The Jewel of Three Prayers exalts into its final form.
+**Session 102:** Calli kills Alyxian's archdevil avatar in combat. The Jewel of Three Prayers exalts into its final form. 
 
-**Session 114:** Alyxian's true self finally breaks free behind one of the Demon Doors. Bixie and Calli sit at his planning table alongside Melora.
+**Session 114:** The party learns why Alyxian is trapped in the Netherdeep by the devils.
 
 *Pulled from 17 events, 24 nodes, 9 sessions. ~2,800 tokens of subgraph context.*
 
@@ -36,14 +37,17 @@ Most AI tools forget everything. This one remembers four years of a complex game
 Subgraph for this question · 17 nodes · 9 sessions · ~2,800 tokens
 
 ### [hero-stats-strip]
-**1,067** entities · **3,051** relationships · **115** sessions · **~10M** tokens of raw transcript, compressed to **3K** per query
+My visual graph includes:
+**1,067** entities · **3,051** relationships · **across 115** sessions of 3+ hours D&D sessions· **~10M** tokens of raw transcript, compressed to **3K** per query
 
 ### [hero-context]
-This graph is four years of labor and love. Me and my friends, every Wednesday night, telling one story over 115 sessions. Over a hundred characters. Twenty-five locations. Every relationship, every betrayal, every promise kept and broken.
+This graph is the result of four years of labor and love. My friends and I have been telling the same story in our D&D campaign over 115 sessions, which has taken us almost four years. That means this graph tracks over a hundred characters. Twenty-five locations. Every relationship, every betrayal, every promise kept and broken.
 
-I built it as a shortcut for myself. The story is my responsibility as the Game Master amongst all of us. I have to remember which NPC mentored the party in session 47, which villain's name got whispered in session 90, and which promise the party made in session 106. Three references to the same storyline, spread over two and a half years of play. A human brain is bad at this. A markdown file of the whole campaign would run past a hundred pages and still miss the connective tissue.
+I built this visual graph for two reasons. First, to be a brainstorming and shortcut tool for myself. With hundreds of hours of gameplay over the years, there are things that even I, the game master and author of many of these characters, forget when I am preparing the next session.
 
-I also made it so other projects could query the graph and get meaningful knowledge out of it. It helps generate consistent images for the campaign. It helps me build <cs-link>animated recaps of each session → /case-studies/dnd-pipeline.html</cs-link>. And it gives any AI tool a way to answer questions about the full campaign using three thousand tokens of relevant subgraph instead of trying to swallow millions. That's the part that matters for businesses too.
+Second, I built this for my other AI projects. AI tools can easily query this graph and extract meaningful knowledge from it. What would have taken scanning 10 million tokens' worth of context can now be done with a 3,000-token query. Typically, an AI tool needs to query large amounts of text, and users rely on hoping the AI pulls out the right context. This allows both me and my tools to see relationships over time and get the entire picture of our story without blowing our entire token budget.
+
+
 
 ---
 
@@ -53,24 +57,27 @@ I also made it so other projects could query the graph and get meaningful knowle
 The Problem
 
 ### [section-title]
-Everyone wants an AI that knows everything about them. Nobody has figured out how to give it that.
+Everyone wants an AI that knows everything about them. Nobody is organizing their data. 
 
 ### [problem-body]
-Everybody wants a ChatGPT that remembers every decision their team has made. Sales teams want one that knows the last 18 months of customer history. You probably want one that's read all your Slack messages, every email thread, every meeting transcript, every strategy doc.
+Everybody wants an AI tool that remembers every decision their team has made. Sales teams want one that knows the last 18 months of customer history. You probably want one that's read all your Slack messages, every email thread, every meeting transcript, every strategy doc, so it can write like you and knows what you know.
 
-The pitch writes itself. The implementation does not.
+The appeal is obvious and promising, but the implementation doesn't happen by accident.
 
-My version of this problem is worse than yours. 120 sessions of Dungeons & Dragons across four years, in Zoom transcripts, side chats, DM notes, and a shared Google Doc. Each session is two to three hours. Dozens of open plot threads at any given moment.
+In April of 2026, I realized that the issue I was facing with my D&D campaign and my AI tools was similar to the one every business using AI faces in context engineering. I have 120 sessions of Dungeons & Dragons over four years, with my notes scattered across Zoom transcripts, DM notes, shared Google Docs, and a pen-and-paper journal. Just processing the transcripts was a feat of its own, with each session being longer than three hours and dozens of open plot points and characters at any given moment.
 
-If I wanted an AI to answer a real question about my campaign, I'd need to feed it all of that. Even with ten sub-agents sweeping in parallel, they still couldn't traverse enough context to tell me what an NPC first said about the main villain in session 47 and then cross-reference it with what the party learned in session 103. Compressed into a markdown file, the campaign runs past a hundred pages. Every query would burn through hundreds of thousands of tokens.
+
+If I wanted an AI to answer a real question about my campaign, I'd need to feed it all my contacts, in a way, could read it. . Even with ten sub-agents sweeping in parallel, they still couldn't traverse enough context to tell me what an NPC first said about the main villain in session 47 and then cross-reference it with what the party learned in session 103. Compressed into a Markdown file, the campaign info still runs to over 100 pages with huge plot holes. 
+
+Every query burned through hundreds of thousands of tokens and still did not get me what I wanted.
 
 [[punchline]]
-So I built a graph instead. Three thousand tokens of relevant subgraph answers the question. The same pattern works for anything a business wants to remember.
+So I built a graph instead. Three thousand tokens of relevant subgraph answers any questions I have about the campaign over time? . The same pattern works for anything a business wants to remember.
 [[/punchline]]
 
 ---
 
-## SECTION 3 — PLAY WITH IT
+## SECTION 3 — PLAY WITH IT ( move up over problem. We only have 20-ish seconds to capture someone's attention, if not less.
 
 ### [section-title]
 Play with it.
@@ -102,7 +109,7 @@ Five stages, turning raw transcript into queryable memory. Click any phase to ex
 
 ### PHASE 01 — Normalize the names
 
-**Subtitle:** Speech-to-text mangles every proper noun. Fix that before anything else.
+**Subtitle:** Speech-to-text mangles every proper noun. We need to clean this common data problem before we do anything else. 
 
 **Cost:** $0.00
 
@@ -120,9 +127,9 @@ Five stages, turning raw transcript into queryable memory. Click any phase to ex
 
 **Why this goes first** — If you skip name normalization, your graph ends up with ten different nodes for the same character. The AI confidently extracts relationships between "Hojbejrg" and "Hodge" as if they are two people. Every downstream query is corrupted.
 
-**The table is half the work** — I built the correction table by hand from four years of listening to my friends butcher fantasy names. Each entry gets injected into the extraction prompt as ground truth. When the AI sees "Anchor El" in a transcript, it knows that means Ank'Harel.
+**The table is half the work** — I built the correction table by hand from four years of watching how Zoom transcripts butcher fantasy names. Each entry gets injected into the extraction prompt as ground truth. When the AI sees "Anchor El" in a transcript, it knows that means Ank'Harel.
 
-**Business parallel** — Every company has a version of this. Product names. Customer names. Internal acronyms. Slack handles. If you want useful AI over your data, you need a canonical dictionary. Unglamorous. Also the whole game.
+**Business parallel** — Every company has a version of this. Product names. Customer names. Internal acronyms. Slack handles. If you want useful AI over your data, you need a canonical dictionary to differentiate signal from noise.
 
 ---
 
@@ -134,9 +141,9 @@ Five stages, turning raw transcript into queryable memory. Click any phase to ex
 
 **Explainer paragraphs:**
 
-Every D&D session starts the same way. The DM says "last week, you..." and spends two or three minutes summarizing what happened. That recap is the DM's own judgment about what actually mattered in the last session. It's a free, high-quality summary, embedded in the next session's transcript.
+Every D&D session starts the same way. The DM says "last time we saw our intrepid heroes, you..." and spends two or three minutes summarizing what happened. That recap is the DM's own judgment about what actually mattered in the last session. It's a free, high-quality summary, embedded in the next session's transcript.
 
-So when I'm extracting structured data from session 80, I don't process it blind. I first process session 81, save its recap as a small summary, and then when the extractor runs on session 80, I inject session 81's recap as priority guidance: *focus on these moments. The DM thought they mattered.*
+So when I'm extracting structured data from session 80, I don't process it blindly. I first process session 81, save its recap as a brief summary, and then, when the extractor runs on session 80, I inject session 81's recap as priority guidance: *focus on these moments.* The DM thought they mattered.*
 
 This means the pipeline works backward. Newest session first. Each session's extraction is primed with what came after.
 
@@ -194,9 +201,9 @@ This means the pipeline works backward. Newest session first. Each session's ext
 
 **Detail cards:**
 
-**Parallel sub-agents** — Five Claude Sonnet sub-agents run at the same time, each on one session. Each session takes three to four minutes. Twenty sessions process in under twenty minutes instead of a couple hours.
+**Parallel sub-agents** — Five Claude Sonnet sub-agents run at the same time, each on one session. Each session takes three to four minutes. Twenty sessions are processed in under twenty minutes instead of a couple of hours.
 
-**Schema with provenance** — Every entity and edge carries a confidence score, a source quote, and a session number. Without provenance you can't verify anything the AI produced. You also can't tell what the AI was sure about from what it guessed.
+**Schema with provenance** — Every entity and edge carries a confidence score, a source quote, and a session number. Without provenance, you can't verify anything the AI produced. You also can't tell what the AI was sure about from what it guessed.
 
 **Anti-hallucination rules** — The extraction prompt has one explicit rule: if a name doesn't appear in the transcript, use a descriptive ID like "char_unnamed_tech_elf." Don't invent proper nouns. That single rule catches more hallucinations than the QC layer ever did.
 
@@ -214,7 +221,7 @@ This means the pipeline works backward. Newest session first. Each session's ext
 
 **02 Validate** — Flag enemy characters marked as ALLIED_WITH the party. Flag entity names containing known speech-to-text mispronunciations. Flag edges pointing to nodes that don't exist. Zero cost. Rule-based.
 
-**03 Merge** — Fuzzy-match new entities against existing nodes. Detect first meetings. Deduplicate edges. Chain provenance from multiple extractions pointing at the same edge. Zero cost. Rule-based.
+**03 Merge** — Fuzzy-match new entities against existing nodes. Detect first meetings. Deduplicate edges. Chain provenance from multiple extractions pointing at the same edge. Zero cost. Rule-based.  (GIVE an example of this- if we hvae Hodim - first meets Father Green Briar in sessison 100 and then while doing session 90 we see hodim - first meets- father green brair - we prune and replace FLAG) 
 
 **Real catch example (session 114):**
 
@@ -229,7 +236,7 @@ The validator caught the AI confidently inventing an alliance with a literal dem
 
 **Why no AI in the QC layer** — Every rule that can be a rule should be a rule. Rules are free, fast, deterministic, and explainable. I only use AI where I can't write the rule. For ninety percent of graph QC, I can write the rule.
 
-**First-meeting detection** — Merge tracks which session each entity first appears in. When you click a node, the detail panel shows "First seen in Session 83." This metadata powers spoiler filtering when you want a player-safe version of the graph.
+**First-meeting detection** — Merge tracks that each entity first appears in. When you click a node, the detail panel shows "First seen in Session 83." This metadata powers spoiler filtering when you want a player-safe version of the graph.
 
 **Business parallel** — Your CRM has duplicate contact records. Your knowledge base has the same article written four times by four different people. Entity resolution is cheap to automate and worth every hour you spend on it. Nothing downstream works without it.
 
@@ -255,9 +262,9 @@ The validator caught the AI confidently inventing an alliance with a literal dem
 
 **Detail cards:**
 
-**Why subgraph extraction matters** — Sending the full 1,067-node graph to the AI on every query would cost twenty times more per call and give you worse answers. Focused context beats bulk context. Extract the one percent of the graph that matters, send that.
+**Why subgraph extraction matters** — Sending the full 1,067-node graph to the AI on every query would cost twenty times more per call and give you worse answers. Focused context beats bulk context. Extract the 1% of the graph that matters, and send that.
 
-**The Worker isn't optional** — GitHub Pages is static hosting. It can't hold an API key. Without a proxy, the Anthropic key would be in the page source for anyone to grab. A Cloudflare Worker holds the key server-side, enforces rate limits (5/min, 50/day per IP, 500/day global), and locks CORS to this case study's domain.
+**The Worker isn't optional** — GitHub Pages is static hosting. It can't hold an API key. Without a proxy, the Anthropic key would be in the page source, where anyone could grab it. A Cloudflare Worker holds the key on the server side, enforces rate limits (5/min, 50/day per IP, 500/day global), and locks CORS for this case study's domain.
 
 **Cost discipline** — Haiku, 1,024 max output tokens, daily request caps in KV storage. Worst case for a viral moment: about $15 per month. Normal case: pennies. The API key itself has a monthly spend cap set in the Anthropic console as final insurance.
 
@@ -277,9 +284,9 @@ How I think about building AI systems that have memory
 
 **Title:** The future of context engineering, applied to my favorite thing to do.
 
-Context engineering is the part of AI work that doesn't make the demo video but decides whether the product is usable. You're not prompting. You're deciding what the model gets to see, in what order, at what fidelity, before the model even starts thinking.
+Context engineering is the part of AI work that doesn't make the demo video but determines whether your output is usable. You're not prompting. You're deciding what the model gets to see, in what order, at what fidelity, before the model even starts thinking.
 
-D&D is my sandbox for it. I have absurd amounts of relational data with no business consequences if I get it wrong. Every mistake teaches me something I can apply to a client's real data problem next week. The failure modes are the same. The fixes transfer.
+D&D is my sandbox for practicing this difficult art/science. I have absurd amounts of relational data with no business consequences if I get it wrong. Every mistake teaches me something I can apply to a client's real data problem next week. 
 
 Companies that figure out their own context engineering will outcompete companies that don't. It's that simple.
 
@@ -295,9 +302,9 @@ Context is not a prompt trick. It's a data layer you build once and query foreve
 
 "Tell me about Hoj" gives you a paragraph. A structured entity with 17 fields and 45 edges gives you something you can filter, cross-reference, aggregate, and re-query.
 
-Summaries are terminal. Once you write one, the rest of the information is compressed away. A graph is generative. You can always ask it a new question because the underlying entities still have structure.
+Summaries are terminal. Once you write one, the rest of the information is compressed away. A graph is generative. You can always ask a new question because the underlying entities still have structure.
 
-Rule I follow: if a piece of information might be relevant to more than one future question, store it structurally. Not as a summary.
+Rule I follow: if a piece of information might be relevant to more than one future question, store it in a structured format. Not as a summary.
 
 [[takeaway]]
 A summary is a frozen answer to yesterday's question. A graph is a system that answers tomorrow's.
@@ -309,11 +316,11 @@ A summary is a frozen answer to yesterday's question. A graph is a system that a
 
 **Title:** Confidence, not certainty.
 
-Every extraction has a confidence score. Every edge has a source quote. Every quote is tied to a session number. Click an edge in the graph and you see where it came from.
+Every extraction has a confidence score. Every edge has a source quote. Every quote is tied to a session number. Click an edge in the graph, and you see where it came from.
 
-This is how you make AI output trustworthy. Not by making the AI better. By making it show its work.
+This is how you make AI output trustworthy. Not by spending more tokens, but by making it show its work and trace beliefs to the origin of the data. 
 
-If you can't audit the AI's reasoning trail, you can never safely act on its output. For anything that matters, provenance is more valuable than accuracy.
+If you can't audit the AI's reasoning trail, you can never confidently act on its output. 
 
 [[takeaway]]
 Build provenance into your data from day one. Retrofitting it later is almost impossible.
@@ -337,7 +344,7 @@ Cheap AI lives on top of expensive data work. Not the other way around.
 
 ---
 
-## SECTION 6 — LESSONS LEARNED
+## SECTION 6 — LESSONS LEARNED.  (maybe move to end) 
 
 ### [section-title]
 Lessons Learned
@@ -374,9 +381,9 @@ Before you upgrade your model or expand your context window, check whether you'r
 
 The extractor will confidently mark hostile NPCs as ALLIED_WITH the party about five percent of the time. Once I noticed the pattern, I wrote a six-line validator that flags any edge where an entity with `subtype: enemy` or `subtype: creature` has an ALLIED_WITH relationship with a PC. Catches it every time.
 
-The lesson isn't that AI is bad at this. The lesson is that AI pipelines need monitoring like any other data pipeline. You can predict the specific ways yours will fail. You can write deterministic checks for those specific failures. Do it once. It saves you every time.
+The lesson isn't that AI is bad at this. The lesson is that AI pipelines need monitoring, just like any other data pipelines. You can predict the specific ways yours will fail. You can write deterministic checks for those specific failures. Do it once. It saves you every time.
 
-Teams that skip this step end up with dashboards full of confident nonsense. Teams that bake it in get trustable systems that get better, not worse, as they grow.
+Teams that skip this step end up with dashboards full of confident nonsense. Teams that bake it in get trustworthy systems that get better, not worse, as they grow.
 
 [[takeaway]]
 Name the failure modes. Write the rules. Don't rely on the AI to catch itself.
@@ -404,7 +411,7 @@ If AI output will ever inform a decision, build the audit trail before you need 
 
 **Title:** Parallel where it's safe. Serial where it isn't.
 
-Five sub-agents extracting in parallel finish five sessions in the time it would take one agent to do one.
+Five sub-agents, working in parallel, complete five sessions in the time it would take one agent to complete one.
 
 But merging has to be serial. Two extractions trying to write to the graph file at the same time produces corruption I spent a day debugging before I figured it out.
 
@@ -422,7 +429,7 @@ Parallelism is a sharp tool. Use it where independent work happens. Don't use it
 How this connects to business applications
 
 ### [business-intro]
-*D&D is my favorite hobby to try out my latest AI experiments. But this one is a powerful application that could save your business a lot of pain and suffering when it comes to AI.*
+*D&D is my favorite hobby to try out my latest AI experiments. But context engineering effectively could save your business a lot of pain and suffering when it comes to AI.*
 
 ---
 
@@ -434,7 +441,7 @@ How this connects to business applications
 
 Every decision your team has made is documented somewhere. The strategy doc from Q3 last year. The Slack thread where you decided to cut that feature. The customer call that made you pivot.
 
-When a new hire asks "why do we do it this way," they get a shrug. When your AI assistant gets the same question, it makes something up.
+When a new hire asks, "Why do we do it this way?" they get a shrug. When your AI assistant gets the same question, it makes something up.
 
 **Same pattern as D&D:** extract decisions, participants, and outcomes into a graph. Ask it "why did we choose vendor X" and get a grounded answer with links to the actual thread.
 
@@ -464,7 +471,7 @@ This is my world. A training team runs forty-plus learning experiences a year. T
 
 A knowledge graph over training artifacts lets instructors ask "what do we know about how software engineers respond to case-study format" and get grounded answers across years of prior work. Not summaries. Evidence.
 
-**Same pattern as D&D:** session transcripts are training artifacts. Learner behavior is character behavior. The graph remembers what each cohort did so next cohort's design is smarter.
+**Same pattern as D&D:** session transcripts are training artifacts. Learner behavior is character behavior. The graph remembers what each cohort did, so the next cohort's design is smarter.
 
 ---
 
