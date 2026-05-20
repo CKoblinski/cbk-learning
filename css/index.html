@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MXZ777ZT');</script>
+  <!-- End Google Tag Manager -->
+  <title>How AI is Different in 2026 — for the Center for Supportive Schools</title>
+  <meta name="description" content="Resources and concepts from Connor Koblinski's May 19 AI literacy workshop with the Center for Supportive Schools — the slides, the deeper writing, and the homework." />
+
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+  <link rel="canonical" href="https://cbklearning.com/css/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CBK Learning" />
+  <meta property="og:title" content="How AI is Different in 2026 — for the Center for Supportive Schools" />
+  <meta property="og:description" content="The slides, the concepts, and the homework from our May 19 AI literacy session." />
+  <meta property="og:url" content="https://cbklearning.com/css/" />
+  <meta property="og:image" content="https://cbklearning.com/css/slides/slide-01.png" />
+  <meta property="og:image:width" content="1100" />
+  <meta property="og:image:height" content="619" />
+  <meta property="og:image:alt" content="Title slide reading: How AI is Different in 2026 — An AI literacy course, by Connor Koblinski" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How AI is Different in 2026 — for the Center for Supportive Schools" />
+  <meta name="twitter:description" content="The slides, the concepts, and the homework from our May 19 AI literacy session." />
+  <meta name="twitter:image" content="https://cbklearning.com/css/slides/slide-01.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ============================================================
+       /css/ — Center for Supportive Schools resources page
+       Self-contained styling for the long-form resource sections.
+       Nav, footer, and base typography inherit from style.css.
+       ============================================================ */
+
+    main { padding-top: 5rem; }
+
+    /* ---------- Hero ---------- */
+    .css-hero {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .css-hero__kicker {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .css-hero__title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+    }
+    .css-hero__sub {
+      font-size: 1.15rem;
+      color: var(--color-text-muted);
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.55;
+    }
+    .css-hero__meta {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.2rem;
+      padding: 0.75rem 1.25rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: var(--color-text);
+    }
+    .css-hero__meta strong { font-weight: 600; }
+    .css-hero__meta .dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent-ai);
+      margin: 0 0.6rem;
+      vertical-align: middle;
+    }
+    .css-hero__disclosure {
+      max-width: 580px;
+      margin: 1.75rem auto 0;
+      padding: 0.85rem 1.1rem;
+      background: var(--color-accent-ai-light);
+      border: 1px solid rgba(108, 99, 255, 0.18);
+      border-radius: 10px;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--color-text);
+      font-style: italic;
+      text-align: left;
+    }
+    .css-hero__disclosure strong { font-style: normal; }
+
+    /* ---------- Slides embed ---------- */
+    .css-deck {
+      max-width: 1080px;
+      margin: 1rem auto 4rem;
+      padding: 0 1.5rem;
+    }
+    .css-deck__frame {
+      position: relative;
+      width: 100%;
+      padding-bottom: 60%; /* 5:3 aspect like Google Slides default */
+      background: #111;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 30px 60px -30px rgba(0,0,0,0.25);
+    }
+    .css-deck__frame iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      border: 0;
+    }
+    .css-deck__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 1.25rem;
+    }
+    .css-deck__btn {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.6rem 1.1rem;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    }
+    .css-deck__btn:hover { border-color: var(--color-accent-ai); background: var(--color-accent-ai-light); }
+    .css-deck__btn--primary { background: var(--color-accent-ai); color: white; border-color: var(--color-accent-ai); }
+    .css-deck__btn--primary:hover { background: #5a52e0; border-color: #5a52e0; }
+    .css-deck__note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 0.85rem;
+    }
+    .css-deck__cheatsheet {
+      display: block;
+      max-width: 640px;
+      margin: 1.4rem auto 0;
+      padding: 1.1rem 1.4rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-accent-ai);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .css-deck__cheatsheet:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -16px var(--color-accent-ai-glow);
+    }
+    .css-deck__cheatsheet-kicker {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-ai);
+      margin-bottom: 0.35rem;
+    }
+    .css-deck__cheatsheet-title {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .css-deck__cheatsheet-desc {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* ---------- Section scaffold ---------- */
+    .css-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+      border-top: 1px solid var(--color-border);
+    }
+    .css-section--wide { max-width: 1040px; }
+    .css-section__kicker {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-accent-ai);
+      margin-bottom: 0.7rem;
+    }
+    .css-section__title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .css-section p {
+      font-size: 1.04rem;
+      line-height: 1.65;
+      color: var(--color-text);
+      margin-bottom: 1.1rem;
+    }
+    .css-section p.muted {
+      color: var(--color-text-muted);
+      font-size: 0.98rem;
+    }
+    .css-section a.inline {
+      color: var(--color-accent-ai);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+    .css-section a.inline:hover { text-decoration-thickness: 2px; }
+
+    /* ---------- Pull quote ---------- */
+    .pullquote {
+      font-family: var(--font-heading);
+      font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      padding: 1.5rem 0 1.5rem 1.5rem;
+      margin: 2rem 0;
+      border-left: 3px solid var(--color-accent-ai);
+      color: var(--color-text);
+    }
+    .pullquote--attr {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--color-text-muted);
+      margin-top: 0.6rem;
+      display: block;
+    }
+
+    /* ---------- Persona grid ---------- */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0 1rem;
+    }
+    .persona {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 1.25rem;
+    }
+    .persona__name {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .persona__tag {
+      font-size: 0.78rem;
+      color: var(--color-accent-ai);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .persona__desc {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* ---------- "What I heard from you" section ---------- */
+    .heard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 1.6rem 0;
+    }
+    .heard__card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1.2rem 1.3rem;
+    }
+    .heard__theme {
+      font-family: var(--font-heading);
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-accent-ai);
+      margin-bottom: 0.5rem;
+    }
+    .heard__quote {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+    .heard__attr {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.02em;
+    }
+    .session2 {
+      background: var(--color-accent-ai-light);
+      border: 1px solid rgba(108, 99, 255, 0.18);
+      border-radius: 14px;
+      padding: 1.5rem 1.6rem;
+      margin: 2rem 0 0.5rem;
+    }
+    .session2__label {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-ai);
+      margin-bottom: 0.5rem;
+    }
+    .session2__title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .session2 ul {
+      margin: 0.6rem 0 0;
+      padding-left: 1.2rem;
+    }
+    .session2 li {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-bottom: 0.55rem;
+      color: var(--color-text);
+    }
+    .session2 li:last-child { margin-bottom: 0; }
+    .session2 li strong { font-weight: 600; }
+
+    /* ---------- Survey breakdown ---------- */
+    .survey {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+      margin: 2rem 0 0.5rem;
+    }
+    .survey__cell {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 0.9rem 0.7rem;
+      text-align: center;
+    }
+    .survey__num {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--color-accent-ai);
+    }
+    .survey__label {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+      margin-top: 0.4rem;
+    }
+    .survey__caption {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-align: center;
+      margin-top: 0.6rem;
+      font-style: italic;
+    }
+    @media (max-width: 540px) {
+      .survey { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ---------- Slide image (visual aid from deck) ---------- */
+    .slide-img {
+      margin: 1.5rem 0 0.6rem;
+      padding: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px -20px rgba(0,0,0,0.18);
+    }
+    .slide-img img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .slide-img__cap {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.45;
+      padding: 0.7rem 0.95rem 0.85rem;
+      border-top: 1px solid var(--color-border);
+      background: #fafaf8;
+    }
+    .slide-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0 0.6rem;
+    }
+    .slide-row .slide-img { margin: 0; }
+
+    /* ---------- Concerns grid ---------- */
+    .concerns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .concern {
+      padding: 1.1rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+    }
+    .concern__title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .concern__desc {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* ---------- Inline artifact link card ---------- */
+    .artifact-link {
+      display: block;
+      margin: 1.5rem 0 0.5rem;
+      padding: 1.2rem 1.4rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-accent-ai);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .artifact-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -16px var(--color-accent-ai-glow);
+    }
+    .artifact-link__kicker {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-ai);
+      margin-bottom: 0.35rem;
+    }
+    .artifact-link__title {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .artifact-link__desc {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    /* ---------- Problems-section CTA link ---------- */
+    .problems-link {
+      display: block;
+      margin: 2rem 0 0;
+      padding: 1.4rem 1.6rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-accent-ai);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .problems-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -18px var(--color-accent-ai-glow);
+    }
+    .problems-link__kicker {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-ai);
+      margin-bottom: 0.4rem;
+    }
+    .problems-link__title {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .problems-link__desc {
+      display: block;
+      font-size: 0.94rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    /* ---------- Resource cards ---------- */
+    .resources {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .resource {
+      display: block;
+      padding: 1.4rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .resource:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-accent-ai);
+      box-shadow: 0 10px 30px -15px var(--color-accent-ai-glow);
+    }
+    .resource__kicker {
+      font-size: 0.74rem;
+      color: var(--color-accent-ai);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .resource__title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .resource__desc {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
+    }
+    .resource__arrow {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      color: var(--color-accent-ai);
+      font-weight: 600;
+    }
+    .resource--static { cursor: default; }
+    .resource--static:hover { transform: none; border-color: var(--color-border); box-shadow: none; }
+    .resource__btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+    .resource__btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid var(--color-accent-ai);
+      color: var(--color-accent-ai);
+      background: transparent;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .resource__btn:hover {
+      background: var(--color-accent-ai);
+      color: white;
+    }
+
+    /* ---------- Three-question card ---------- */
+    .three-q {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 1.6rem;
+      margin: 1.5rem 0;
+    }
+    .three-q ol {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    .three-q li {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 0.7rem;
+    }
+    .three-q li:last-child { margin-bottom: 0; }
+
+    /* ---------- Footer note ---------- */
+    .closer {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+      text-align: center;
+      border-top: 1px solid var(--color-border);
+    }
+    .closer h2 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .closer p { color: var(--color-text-muted); margin-bottom: 1.2rem; }
+    .closer__contact {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .closer__contact span { color: var(--color-text-muted); opacity: 0.5; }
+    .closer a {
+      color: var(--color-accent-ai);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-accent-ai);
+    }
+
+    /* ---------- Sticky table of contents ---------- */
+    .toc {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 1.5rem;
+      z-index: 50;
+      max-width: 200px;
+      padding: 0.9rem 1rem;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .toc.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .toc__label {
+      font-family: var(--font-heading);
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 0.55rem;
+    }
+    .toc__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .toc__link {
+      display: block;
+      padding: 0.25rem 0;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.15s ease, padding-left 0.15s ease;
+      border-left: 2px solid transparent;
+      padding-left: 0.6rem;
+      margin-left: -0.6rem;
+    }
+    .toc__link:hover { color: var(--color-text); }
+    .toc__link.is-active {
+      color: var(--color-accent-ai);
+      border-left-color: var(--color-accent-ai);
+      font-weight: 500;
+    }
+
+    /* Hide TOC under desktop width where it would crowd content */
+    @media (max-width: 1180px) {
+      .toc { display: none; }
+    }
+
+    /* Anchor scroll offset so the fixed nav doesn't cover headings */
+    .css-section { scroll-margin-top: 90px; }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 600px) {
+      .css-deck__frame { padding-bottom: 75%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXZ777ZT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ======== Nav ======== -->
+  <nav class="nav">
+    <a href="/" class="nav__logo">CBK Learning</a>
+    <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav__links">
+      <li><a href="/#paths">Services</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/ideas.html">Ideas</a></li>
+      <li><a href="/case-studies.html">Case Studies</a></li>
+      <li><a href="https://calendly.com/ckoblinski/gtky" class="nav__cta" target="_blank" rel="noopener">Free Consultation</a></li>
+    </ul>
+  </nav>
+
+  <!-- ======== Sticky Table of Contents ======== -->
+  <nav class="toc" aria-label="Table of contents">
+    <p class="toc__label">On this page</p>
+    <ul class="toc__list">
+      <li><a class="toc__link" href="#personas">Where you're starting</a></li>
+      <li><a class="toc__link" href="#plinko">How AI works</a></li>
+      <li><a class="toc__link" href="#new-in-2026">What's new in 2026</a></li>
+      <li><a class="toc__link" href="#jagged-edge">The jagged edge</a></li>
+      <li><a class="toc__link" href="#where-to-start">Where to start</a></li>
+      <li><a class="toc__link" href="#offloading">Narrow offloading</a></li>
+      <li><a class="toc__link" href="#achilles">The Achilles heel</a></li>
+      <li><a class="toc__link" href="#problems">Problems with AI</a></li>
+      <li><a class="toc__link" href="#dont-opt-out">Don't opt out</a></li>
+      <li><a class="toc__link" href="#heard">What I heard</a></li>
+      <li><a class="toc__link" href="#resources">Resources</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ======== Hero ======== -->
+    <header class="css-hero">
+      <p class="css-hero__kicker">For the Center for Supportive Schools</p>
+      <h1 class="css-hero__title">How AI is different in 2026.</h1>
+      <p class="css-hero__sub">
+        A place to revisit what we covered on May 19 — the slides, the concepts, and a handful of resources to take with you into your work.
+      </p>
+      <p class="css-hero__meta">
+        <span><strong>Session 1</strong> · May 19, 2026</span>
+        <span class="dot"></span>
+        <span><strong>Session 2</strong> · June 1, 9:30 AM</span>
+      </p>
+
+      <p class="css-hero__disclosure">
+        <strong>This page was co-written with AI.</strong> I created the rough draft using the context of the presentation, our recording transcript, and my previous writing on these topics. Then I edited a text file to make it sound more like my voice.
+      </p>
+    </header>
+
+    <!-- ======== Slides ======== -->
+    <section class="css-deck">
+      <div class="css-deck__frame">
+        <iframe
+          src="https://docs.google.com/presentation/d/11oWwypqRskr9ozVlvXXxF5jP9MYInkqBxS6X1wbnusg/embed?start=false&loop=false&delayms=3000"
+          allowfullscreen
+          mozallowfullscreen
+          webkitallowfullscreen
+          title="How AI is Different in 2026 — slides"></iframe>
+      </div>
+      <div class="css-deck__actions">
+        <a class="css-deck__btn css-deck__btn--primary" href="https://docs.google.com/presentation/d/11oWwypqRskr9ozVlvXXxF5jP9MYInkqBxS6X1wbnusg/edit" target="_blank" rel="noopener">Open in Google Slides</a>
+        <a class="css-deck__btn" href="https://docs.google.com/forms/d/e/1FAIpQLScvIOy3913rgkhK9Q7cqKGHCsv1jcxK8lUtjTHZuRnpT5xPWw/viewform?usp=dialog" target="_blank" rel="noopener">Exit survey</a>
+        <a class="css-deck__btn" href="nyc-ai-traffic-light.html">NYCPS AI Traffic Light game</a>
+      </div>
+
+      <a class="css-deck__cheatsheet" href="css-ai-cheatsheet.pdf" target="_blank" rel="noopener">
+        <span class="css-deck__cheatsheet-kicker">Print + pin in the staff room</span>
+        <span class="css-deck__cheatsheet-title">The one-page AI cheat sheet →</span>
+        <span class="css-deck__cheatsheet-desc">The four core ideas from the session on a single sheet. Designed to print on landscape Letter.</span>
+      </a>
+
+      <p class="css-deck__note">If the deck doesn't load, make sure it's published to web in Google Slides (File → Share → Publish to web).</p>
+    </section>
+
+    <!-- ======== Personas + Survey snapshot ======== -->
+    <section class="css-section" id="personas">
+      <p class="css-section__kicker">Where you're starting from</p>
+      <h2 class="css-section__title">Which kind of AI user are you, right now?</h2>
+      <p>
+        Four postures came up in the pre-workshop survey and in conversation. Most people are a blend. The point isn't to pick a box — it's to have language for the way you tend to reach for AI today, and the places you haven't reached yet.
+      </p>
+
+      <div class="persona-grid">
+        <div class="persona">
+          <p class="persona__tag">Posture 01</p>
+          <p class="persona__name">The Tinkerer</p>
+          <p class="persona__desc">Suspicious by default. Challenges the model, picks it apart, treats it like a coworker who might be wrong. Builds intuition through friction. "I tend to feel like you're going to be wrong about something, and I tend to pick it apart."</p>
+        </div>
+        <div class="persona">
+          <p class="persona__tag">Posture 02</p>
+          <p class="persona__name">The Quick Hitter</p>
+          <p class="persona__desc">Uses AI for one-off tasks — drafting, summarizing, an image, a flyer. In and out. "I really utilize it honestly for image generation the most. I'll take the idea and then go into Canva."</p>
+        </div>
+        <div class="persona">
+          <p class="persona__tag">Posture 03</p>
+          <p class="persona__name">The Process Builder</p>
+          <p class="persona__desc">Reaches for AI to standardize something they do over and over. Custom GPTs, gems, templates. Wants the tool to do the same job the same way each time.</p>
+        </div>
+        <div class="persona">
+          <p class="persona__tag">Posture 04</p>
+          <p class="persona__name">The Manual Holdout</p>
+          <p class="persona__desc">Ethically wary, hands-on, still writes from scratch. "I have some ethical concerns with AI, so I'm okay with still engaging in the manual process." Opting out is a real and defensible choice.</p>
+        </div>
+      </div>
+
+      <div class="survey" aria-label="Pre-workshop self-assessment breakdown">
+        <div class="survey__cell">
+          <p class="survey__num">4</p>
+          <p class="survey__label">Novice</p>
+        </div>
+        <div class="survey__cell">
+          <p class="survey__num">9</p>
+          <p class="survey__label">Developing</p>
+        </div>
+        <div class="survey__cell">
+          <p class="survey__num">3</p>
+          <p class="survey__label">Competent</p>
+        </div>
+        <div class="survey__cell">
+          <p class="survey__num">0</p>
+          <p class="survey__label">Advanced</p>
+        </div>
+      </div>
+      <p class="survey__caption">Where 16 of you placed yourselves on the curve. Right where I'd expect a thoughtful team to be in mid-2026 — poking and exploring.</p>
+    </section>
+
+    <!-- ======== How AI works ======== -->
+    <section class="css-section" id="plinko">
+      <p class="css-section__kicker">The shape of the thing</p>
+      <h2 class="css-section__title">How AI actually works — the Plinko model.</h2>
+      <p>
+        A traditional program is deterministic. Same input, same output, every time. If the rules and the data don't match, you get an error. Think of Excel throwing a red error cell, or that scene from <em>Big</em> where Tom Hanks has to type the line exactly right or the game just dies.
+      </p>
+      <p>
+        Generative AI doesn't work like that. It's probabilistic. Your prompt drops in the top of the machine like a ball at the top of a Family Feud Plinko board. It bounces through billions of weighted pegs and lands somewhere on the bottom — usually in the middle, sometimes way off to one side. There's no "error." It always gives you <em>something.</em>
+      </p>
+
+      <div class="slide-row">
+        <figure class="slide-img">
+          <img src="slides/slide-12.png" alt="A Plinko board from Family Feud, with bullets explaining that the disk is your input, each peg is part of the algorithm, and the output is probabilistic" loading="lazy" />
+          <figcaption class="slide-img__cap">The Plinko model — your prompt drops in, bounces through billions of weighted pegs, lands somewhere on the output distribution.</figcaption>
+        </figure>
+        <figure class="slide-img">
+          <img src="slides/slide-13.png" alt="A normal distribution diagram next to a Gemini chat showing one of several possible 'Hi there' responses" loading="lazy" />
+          <figcaption class="slide-img__cap">Same prompt, ten different responses. Most cluster in the middle of the distribution; a few land in the 2% tails.</figcaption>
+        </figure>
+      </div>
+
+      <blockquote class="pullquote">
+        Hallucinations aren't a bug. They are the feature. The same mechanism that lets it be creative is the mechanism that lets it be wrong.
+        <span class="pullquote--attr">— Connor, on probabilistic systems</span>
+      </blockquote>
+
+      <p>
+        That's the whole game. When you say "professional tone" or "use a sonnet structure," you're not programming the system — you're nudging the ball toward a specific part of the board. Sometimes it lands where you want. Sometimes it doesn't. Treat every response as a draw from a distribution, not as <em>the</em> answer.
+      </p>
+    </section>
+
+    <!-- ======== What's different in 2026 ======== -->
+    <section class="css-section" id="new-in-2026">
+      <p class="css-section__kicker">What changed</p>
+      <h2 class="css-section__title">Three things are new in 2026.</h2>
+
+      <p><strong>1. Omni models.</strong> The same model handles text, images, audio, and video. You can paste a screenshot, hum a melody, drop in a PDF — and it works on all of it together.</p>
+
+      <p><strong>2. Reasoning models.</strong> Linear models answer immediately, in one pass through the Plinko board. Reasoning models (Opus 4.7, GPT-5 thinking, Gemini Pro thinking) take many passes — they brainstorm, backtrack, evaluate their own work, and sometimes do web searches in the middle of thinking. The output is slower, more grounded, and 25–50× more expensive to run. The "how do I give a child a good education" demo we walked through is a good example: the reasoning model went out, pulled real source documents, and came back with cited claims instead of confident vagueness.</p>
+
+      <figure class="slide-img">
+        <img src="slides/slide-30.png" alt="ChatGPT 5 model picker showing GPT-5 flagship vs GPT-5 Thinking, next to a definition of linear and reasoning models" loading="lazy" />
+        <figcaption class="slide-img__cap">In ChatGPT, Claude, and Gemini, the model picker is where you choose between linear ("fast answers") and reasoning ("more brain power"). Pick the right tool for the question.</figcaption>
+      </figure>
+
+      <p><strong>3. Agents.</strong> Models now pick up tools. They search the web, write code to do math, read files they can't parse directly, and on some platforms (Gemini, Claude Computer Use) they reach out and act on your software — creating slides, filling forms, running scripts. The line between "chatbot" and "thing that does work" has mostly dissolved. The Animal Farm study guide we looked at on the call — 800 lines of code, generated in about seven minutes — was an agent demo, not a chat response.</p>
+
+      <figure class="slide-img">
+        <img src="slides/slide-22.png" alt="Diagram of an AI agent: Memory, Tools, and Goals feed into the agent, which produces Actions on an Environment, which the agent observes" loading="lazy" />
+        <figcaption class="slide-img__cap">Anatomy of an agent. The model has memory, picks up tools, holds a goal, takes actions in an environment, and observes the result — looping until it decides the work is ready for review.</figcaption>
+      </figure>
+
+      <a class="artifact-link" href="https://claude.ai/public/artifacts/d347d71a-6a00-4509-8d10-5f3237526825" target="_blank" rel="noopener">
+        <span class="artifact-link__kicker">From the live demo</span>
+        <span class="artifact-link__title">The Animal Farm study guide artifact →</span>
+        <span class="artifact-link__desc">The actual agent-generated study guide from our session. Frighteningly polished, with a broken multiple-choice game, a fun-fact about Scotch garnishes I wouldn't show to ninth-graders, and everything in between. A useful window into what these tools can do — and where they still need a human in the loop.</span>
+      </a>
+
+      <blockquote class="pullquote">
+        Some tasks AI is now superhuman at. Right next to those, it can't move a PowerPoint slide so the title aligns. The edge between capable and useless is jagged, not smooth.
+        <span class="pullquote--attr">— On the limits of these tools</span>
+      </blockquote>
+    </section>
+
+    <!-- ======== Jagged edge / Zone of code intelligence ======== -->
+    <section class="css-section" id="jagged-edge">
+      <p class="css-section__kicker">Why one person's green is another's red</p>
+      <h2 class="css-section__title">The jagged edge — and your zone of code intelligence.</h2>
+      <p>
+        The stoplight diagram is a helpful simplification: green tasks AI handles well, yellow tasks need oversight, red tasks waste your time. But the real edge isn't a clean line. Tasks that sit next to each other in difficulty can sit on opposite sides of the edge.
+      </p>
+
+      <figure class="slide-img">
+        <img src="slides/slide-35.png" alt="A concentric stoplight diagram: green inner circle (95%+ chance of useful output), yellow middle ring (50-80%), red outer ring (under 50%)" loading="lazy" />
+        <figcaption class="slide-img__cap">The clean version of the stoplight. Reality is messier.</figcaption>
+      </figure>
+
+      <p>
+        And — this is the part educators recognize instantly — there's no single edge for everyone. You have your own <strong>zone of code intelligence:</strong> the band where your judgment, context, and skill let you get useful work out of AI without getting burned. Someone else's band is somewhere else entirely. A teacher who knows <em>Animal Farm</em> backwards can tell when the model invents a chapter. A novice can't.
+      </p>
+
+      <figure class="slide-img">
+        <img src="slides/slide-40.png" alt="Two jagged starburst shapes side by side, each with green, yellow, and red regions in different chaotic patterns — illustrating that two people's zones of AI competence look very different" loading="lazy" />
+        <figcaption class="slide-img__cap">Two people, two completely different zones of competence with the same tools. Your job is to learn the shape of yours.</figcaption>
+      </figure>
+
+      <p>
+        Your job isn't to memorize a list of green tasks. It's to learn the shape of your own edge by trying things — and to notice the moments where you've crossed it.
+      </p>
+    </section>
+
+    <!-- ======== 2x2 Matrix ======== -->
+    <section class="css-section" id="where-to-start">
+      <p class="css-section__kicker">Where to actually start</p>
+      <h2 class="css-section__title">The two questions: expertise and attention.</h2>
+      <p>
+        When you're picking a task to hand to AI, ask two questions: <strong>How much do I know about this?</strong> and <strong>How much attention am I willing to give the output?</strong> The honest answers put you in one of four quadrants.
+      </p>
+
+      <figure class="slide-img">
+        <img src="slides/slide-42.png" alt="A 2x2 matrix titled 'AI Implementation: Expertise vs. Attention'. Top-right (high expertise + high attention) is the green STARTER ZONE labeled 'Amplify my strengths'. Bottom-left (low expertise + low attention) is the red DANGER ZONE labeled 'Do it for me'. Top-left is 'Systematize my process'. Bottom-right is 'Teach me to do it'." loading="lazy" />
+        <figcaption class="slide-img__cap">The Starter Zone is where you're the expert <em>and</em> you're paying attention. Start there. Expand into the other quadrants once you've calibrated your trust in the tool.</figcaption>
+      </figure>
+
+      <p class="muted">
+        The Danger Zone is mostly where people get scared by AI — because they're using it there. Don't.
+      </p>
+    </section>
+
+    <!-- ======== Narrow vs broad offloading ======== -->
+    <section class="css-section" id="offloading">
+      <p class="css-section__kicker">What gets offloaded matters</p>
+      <h2 class="css-section__title">Narrow offloading, not broad offloading.</h2>
+      <p>
+        Research on factory automation going back to the 80s is unambiguous: when workers <strong>broadly offload</strong> — press a button, the task gets done — their skills decline within about three months. They lose the ability to do the work they used to do.
+      </p>
+      <p>
+        <strong>Narrow offloading</strong> is different. You hand off a slice of the task — formatting, transcription, a first draft — and keep the thinking. Some of the best automation in factories was designed not to be maximally simple but to keep humans cognitively present, because that turned out to reduce injuries and preserve expertise.
+      </p>
+
+      <blockquote class="pullquote">
+        Bench press, forklift, dolly. The bench press builds you. The forklift replaces you. The dolly does the heavy part while you steer.
+        <span class="pullquote--attr">— Three ways of relating to a tool</span>
+      </blockquote>
+
+      <figure class="slide-img">
+        <img src="slides/slide-44.png" alt="Three photos side by side under the heading 'Cognitive Offloading and Germane Difficulty': a person bench-pressing, a worker pushing a stack of boxes on a dolly, and a yellow forklift" loading="lazy" />
+        <figcaption class="slide-img__cap">Three tools, three relationships. The bench press builds capacity. The dolly extends your reach. The forklift replaces the lift entirely. None is "right" — but they do very different things to you over time.</figcaption>
+      </figure>
+
+      <p>
+        Educators already have language for this. <strong>Germane difficulty</strong> — sometimes called desirable difficulty or productive struggle — is the friction that builds skill. <strong>Extraneous difficulty</strong> is the friction that burns cognitive energy without building anything: formatting, hunting for information, fighting your tools. AI should be eating your extraneous difficulty. It should not be eating your germane difficulty.
+      </p>
+
+      <blockquote class="pullquote">
+        I don't put anything into AI unless I'm willing to read the entire response.
+      </blockquote>
+    </section>
+
+    <!-- ======== The Achilles Heel ======== -->
+    <section class="css-section" id="achilles">
+      <p class="css-section__kicker">The single most important habit</p>
+      <h2 class="css-section__title">The Achilles heel: it answers anyway.</h2>
+      <p>
+        Ask a model to do something it cannot do — because it lacks the data, the permission, or the capability — and most of the time it will <strong>answer anyway, with confidence.</strong> Guardrails are better than they used to be. They are not enough.
+      </p>
+      <p>
+        The Strait of Hormuz example from the session is the clearest version of this I have. Major news outlets reported "no ships are moving" for over a week because every system pulled from the same GPS data feed, and every ship was spoofing its location. Two journalists with binoculars on a beach got a more accurate picture than the international AI-augmented monitoring networks did.
+      </p>
+
+      <div class="slide-row">
+        <figure class="slide-img">
+          <img src="slides/slide-65.png" alt="Two satellite images of the Strait of Hormuz, with the day-after image showing ship tracks veering onto land — the visible result of GPS spoofing" loading="lazy" />
+          <figcaption class="slide-img__cap">Same data feed, same answer everywhere. Ships "on land" because every analytics tool trusted the same spoofed GPS.</figcaption>
+        </figure>
+        <figure class="slide-img">
+          <img src="slides/slide-67.png" alt="Title 'Achilles Heel of AI' followed by an equation: same (bad) data + same algorithm = same (bad) results" loading="lazy" />
+          <figcaption class="slide-img__cap">The structural risk in a single line. When everyone runs the same model on the same data, everyone gets the same wrong answer at the same time.</figcaption>
+        </figure>
+      </div>
+
+      <p>
+        Your expertise, in your context, is your only real edge. Bring it.
+      </p>
+
+      <div class="three-q">
+        <p class="muted" style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; margin-bottom: 0.8rem;">Before you trust the output, ask:</p>
+        <ol>
+          <li>Is this a problem AI can actually solve?</li>
+          <li>Does the model have enough good data to solve it?</li>
+          <li>How close is this output to the real world I live in?</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======== Concerns ======== -->
+    <section class="css-section" id="problems">
+      <p class="css-section__kicker">Where the work is</p>
+      <h2 class="css-section__title">The problems with AI.</h2>
+      <p>
+        A few of the concerns that came up in the chat — the ick, the ethics, the energy use, the slop — are real and well-founded. A few are less about AI than about problems we already had, that AI is now amplifying. Both lists matter, but it's worth telling them apart.
+      </p>
+
+      <figure class="slide-img">
+        <img src="slides/slide-51.png" alt="Venn diagram with two overlapping circles labeled 'AI problems' and 'Existing problems', with an arrow pointing to the overlap labeled 'The really tricky part'" loading="lazy" />
+        <figcaption class="slide-img__cap">Some problems are squarely AI's. Some are old problems amplified. The overlap is where most of the heat is — and where it's hardest to think clearly.</figcaption>
+      </figure>
+
+      <div class="concerns">
+        <div class="concern">
+          <p class="concern__title">Bias in outputs</p>
+          <p class="concern__desc">The doctor/nurse image test still fails. Models reflect the bias of their training data, and the more complex the request, the more bias slips in. There's also active political pressure on companies to tilt outputs.</p>
+        </div>
+        <div class="concern">
+          <p class="concern__title">Deepfakes & the liar's dividend</p>
+          <p class="concern__desc">A $20/month tool was enough to forge an audio clip framing a principal. And once fakes are plausible, real things get dismissed as fakes too. The misinformation cost compounds in both directions.</p>
+        </div>
+        <div class="concern">
+          <p class="concern__title">Labor & IP</p>
+          <p class="concern__desc">Workers in lower-wage countries annotate the data. Every major AI company is being sued by someone whose work was scraped without consent. The supply chain for these models is not clean.</p>
+        </div>
+        <div class="concern">
+          <p class="concern__title">Environment — short-term</p>
+          <p class="concern__desc">The Titan data center outside Memphis is running on natural-gas trailers designed for FEMA emergencies. These are concentrated in low-income communities. This is happening now, not in some hypothetical future.</p>
+        </div>
+        <div class="concern">
+          <p class="concern__title">Environment — long-term (Jevons paradox)</p>
+          <p class="concern__desc">Models get more efficient, but total usage grows faster. The structural impact is from corporate and government use, not from any one person's prompts. Individual abstinence won't move the needle here — policy will.</p>
+        </div>
+        <div class="concern">
+          <p class="concern__title">Attention crisis, amplified</p>
+          <p class="concern__desc">We were already losing the fight for focus. Now we have infinitely responsive companions and infinite generated content. The cost isn't measured in any one interaction — it's measured in habits.</p>
+        </div>
+      </div>
+
+      <div class="slide-row">
+        <figure class="slide-img">
+          <img src="slides/slide-49.png" alt="Aerial photo of a sprawling data center surrounded by rectangular natural-gas turbine trailers" loading="lazy" />
+          <figcaption class="slide-img__cap">The Titan data center outside Memphis, running on natural-gas turbine trailers normally reserved for FEMA emergencies. Concentrated in low-income communities.</figcaption>
+        </figure>
+        <figure class="slide-img">
+          <img src="slides/slide-48.png" alt="Headline 'Outsourced Filipino AI workers exploited in digital sweatshops' next to news clippings about copyright lawsuits against Meta, OpenAI, and Anthropic" loading="lazy" />
+          <figcaption class="slide-img__cap">The supply chain for these models is not clean. Underpaid annotation labor on one side, IP lawsuits from creators on the other.</figcaption>
+        </figure>
+      </div>
+
+      <a class="problems-link" href="https://ai-problems-index.vercel.app/" target="_blank" rel="noopener">
+        <span class="problems-link__kicker">Keep digging</span>
+        <span class="problems-link__title">The AI Problems Index →</span>
+        <span class="problems-link__desc">An ongoing index that sorts real AI problems from overstated ones, with sources. Good place to research a specific concern before raising it in a meeting.</span>
+      </a>
+    </section>
+
+    <!-- ======== Don't opt out ======== -->
+    <section class="css-section" id="dont-opt-out">
+      <p class="css-section__kicker">A request</p>
+      <h2 class="css-section__title">Don't opt out — at least not entirely.</h2>
+
+      <figure class="slide-img">
+        <img src="slides/slide-53.png" alt="A slide reading 'I invite you to not opt out.'" loading="lazy" />
+      </figure>
+
+      <p>
+        I respect the manual-holdout posture. There are tasks I keep manual on purpose. But fully opting out — never touching the tools, never building intuition — has costs that compound:
+      </p>
+      <p>
+        <strong>You lose your immune system.</strong> If you've never used a generative model, you can't recognize generated content. You're more likely to trust the spammy site, fall for the deepfake, miss the AI-drafted email pretending to be from a colleague.
+      </p>
+      <p>
+        <strong>You lose your voice in the conversation.</strong> "This feels icky" is real, but it's easy to dismiss. "This is a bad use of AI because it broadly offloads the entire task, and the user has no expertise to catch the errors" — that lands. Informed critique works. Tepid concern doesn't.
+      </p>
+      <p>
+        <strong>You leave gains on the floor.</strong> The work you do is too important to skip the multipliers. If a tool can make your reach larger or your friction smaller, that matters — even if you don't love every part of how the tool got here.
+      </p>
+      <p>
+        <strong>You become a positive role model.</strong> Shame doesn't change behavior. Watching a thoughtful person use a tool thoughtfully — that does.
+      </p>
+    </section>
+
+    <!-- ======== What I heard from you / Session 2 preview ======== -->
+    <section class="css-section" id="heard">
+      <p class="css-section__kicker">From the chat and the conversation</p>
+      <h2 class="css-section__title">What I heard from you.</h2>
+      <p>
+        Some of the threads that came up during the session — anonymized, lightly trimmed. These are mostly verbatim from the chat and our recording. Most of them are anchoring what I'm building for Session 2.
+      </p>
+
+      <div class="heard">
+        <div class="heard__card">
+          <p class="heard__theme">On AI as helpful assistant</p>
+          <p class="heard__quote">"It supports our work. Our job has so many facets — sometimes AI can be the nice little assistant that swoops in and helps with the tedious things."</p>
+          <p class="heard__attr">— a participant, on the upside</p>
+        </div>
+        <div class="heard__card">
+          <p class="heard__theme">On cognitive offloading</p>
+          <p class="heard__quote">"A facet of our brains isn't being utilized as much as it used to. I feel like we might be losing the ability to think about things in a certain way because we're not using it — we're passing it off to our little AI assistant."</p>
+          <p class="heard__attr">— a participant, on the downside</p>
+        </div>
+        <div class="heard__card">
+          <p class="heard__theme">On accessibility</p>
+          <p class="heard__quote">"I worked with someone who was hearing-impaired, and just the ability for AI to summarize and take notes for a meeting — the accessibility benefits are something I hadn't fully acknowledged."</p>
+          <p class="heard__attr">— a participant, on a good use</p>
+        </div>
+        <div class="heard__card">
+          <p class="heard__theme">On the ethical pull</p>
+          <p class="heard__quote">"I have ethical concerns with AI, so I'm okay with still engaging in the manual process. Even when I'm using it for something constructive, I feel dirty."</p>
+          <p class="heard__attr">— a participant, on the holdout posture</p>
+        </div>
+        <div class="heard__card">
+          <p class="heard__theme">On data centers and equity</p>
+          <p class="heard__quote">"Data centers are popping up in residential areas. Every time you use ChatGPT, my electricity bill goes up. These are being placed in low-income neighborhoods whose autonomy is being ignored."</p>
+          <p class="heard__attr">— a participant, on the environmental cost</p>
+        </div>
+        <div class="heard__card">
+          <p class="heard__theme">On students reaching for AI too early</p>
+          <p class="heard__quote">"I literally caught a fifth-grader having a romantic conversation with AI. They're so young. It's starting."</p>
+          <p class="heard__attr">— a participant, on the classroom reality</p>
+        </div>
+        <div class="heard__card">
+          <p class="heard__theme">On AI's confident wrongness</p>
+          <p class="heard__quote">"It does the best it can and then tells you it's done great."</p>
+          <p class="heard__attr">— a participant, in chat</p>
+        </div>
+        <div class="heard__card">
+          <p class="heard__theme">The killer analogy</p>
+          <p class="heard__quote">"It's Michael Scott driving into the lake."</p>
+          <p class="heard__attr">— a participant, in chat. On AI confidently going the wrong way.</p>
+        </div>
+      </div>
+
+      <div class="session2">
+        <p class="session2__label">Next time we'll focus on</p>
+        <h3 class="session2__title">Session 2 · June 1, 9:30 AM</h3>
+        <p>Based on what came up — especially the request to talk about how this lands in schools — here's where I'm pointing Session 2:</p>
+        <ul>
+          <li><strong>How to coach teachers and students on AI use.</strong> What to actually say in a faculty meeting or to a student who's overusing it. This is the question I want to anchor.</li>
+          <li><strong>Specific use cases in your role.</strong> The field-trip pre-approval gem walkthrough we partially saw, the maternity-leave email build, communications drafting — done end to end, with the prompting choices visible.</li>
+          <li><strong>Custom GPTs / gems / projects.</strong> Building one of your own. The piece I didn't get to fully demo.</li>
+          <li><strong>Data, privacy, and the CSS-laptop point.</strong> What's safe to put into which tool, and where the institutional guardrails actually are.</li>
+          <li><strong>The equity question.</strong> Lower-income students using AI more without the scaffolding to evaluate its output. What to do about it.</li>
+        </ul>
+        <p style="margin-top: 0.9rem; font-size: 0.92rem; color: var(--color-text-muted);">If you have a question or a use case you want me to demo on June 1, send it. I'd rather build the session around what you actually need than what I assume you need.</p>
+      </div>
+    </section>
+
+    <!-- ======== Resources ======== -->
+    <section class="css-section css-section--wide" id="resources">
+      <p class="css-section__kicker">Take with you</p>
+      <h2 class="css-section__title">Resources & homework.</h2>
+      <p>
+        A short list — what to play with, where to keep learning, and what to send back to me before Session 2.
+      </p>
+
+      <div class="resources">
+        <a class="resource" href="nyc-ai-traffic-light.html">
+          <p class="resource__kicker">Interactive · 5 minutes</p>
+          <p class="resource__title">NYCPS AI Traffic Light game</p>
+          <p class="resource__desc">Sort 18 real classroom and school-leader AI uses into Red, Yellow, or Green based on official NYCPS guidance. Good for a faculty meeting warm-up.</p>
+          <p class="resource__arrow">Play the game →</p>
+        </a>
+
+        <a class="resource" href="https://docs.google.com/forms/d/e/1FAIpQLScvIOy3913rgkhK9Q7cqKGHCsv1jcxK8lUtjTHZuRnpT5xPWw/viewform?usp=dialog" target="_blank" rel="noopener">
+          <p class="resource__kicker">Homework · 3 minutes</p>
+          <p class="resource__title">Session 1 exit survey</p>
+          <p class="resource__desc">Tell me what landed, what didn't, and what you want Session 2 to focus on. Clarice's question about how to coach teachers and students will probably anchor part of it.</p>
+          <p class="resource__arrow">Fill out the survey →</p>
+        </a>
+
+        <div class="resource resource--static">
+          <p class="resource__kicker">One-time setup · 5 minutes</p>
+          <p class="resource__title">Set your custom instructions</p>
+          <p class="resource__desc">The single highest-leverage change you can make. Tell the model to be research-backed, to push back, to not act human. Every chat after that gets better. Set it once on whichever tool you actually use.</p>
+          <div class="resource__btns">
+            <a class="resource__btn" href="https://help.openai.com/en/articles/8096356-custom-instructions-for-chatgpt" target="_blank" rel="noopener">ChatGPT guide →</a>
+            <a class="resource__btn" href="https://support.anthropic.com/en/articles/10185728-understanding-claude-s-personalization-features" target="_blank" rel="noopener">Claude guide →</a>
+            <a class="resource__btn" href="https://support.google.com/gemini/answer/15637730" target="_blank" rel="noopener">Gemini guide →</a>
+          </div>
+        </div>
+
+        <a class="resource" href="/ideas.html">
+          <p class="resource__kicker">More writing</p>
+          <p class="resource__title">My ongoing writing on AI in learning</p>
+          <p class="resource__desc">More long-form pieces on how I think about these tools in education and learning design. Some of this is one or two layers deeper than today's session went.</p>
+          <p class="resource__arrow">Visit the Ideas page →</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======== Closer ======== -->
+    <section class="closer">
+      <h2>Thank you for having me.</h2>
+      <p>If anything in the presentation sparked a question — or a concern about how AI is showing up in your school or your work — I'd genuinely like to hear it. The group questions tend to be better than the ones I prepare for, so send them.</p>
+      <p>I'd rather answer them for everyone in Session 2 than have them sit unanswered. See you June 1.</p>
+      <p class="closer__contact">
+        <a href="mailto:connor@cbklearning.com">connor@cbklearning.com</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/connor-koblinski/" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ======== Footer ======== -->
+  <footer class="footer">
+    <div class="footer__signup">
+      <p class="footer__signup-label">Sign up for news and updates.</p>
+      <form class="footer__signup-form" action="https://cbklearning.us22.list-manage.com/subscribe/post?u=0c9256af6309dabcbf97fd239&amp;id=867bdc3f57" method="post" target="_blank">
+        <input type="email" name="EMAIL" class="footer__signup-input" placeholder="Email address" required />
+        <button type="submit" class="footer__signup-btn">Sign Up</button>
+      </form>
+    </div>
+    <ul class="footer__links">
+      <li><a href="mailto:connor@cbklearning.com">Email</a></li>
+      <li><a href="https://www.youtube.com/@cbklearning" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.linkedin.com/in/connor-koblinski/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="/dnd.html">D&amp;D</a></li>
+    </ul>
+    <p>&copy; 2026 CBK Learning. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+
+  <script>
+    // Sticky TOC: show after scrolling past the deck, highlight active section
+    (function () {
+      const toc = document.querySelector('.toc');
+      if (!toc) return;
+      const sections = Array.from(document.querySelectorAll('main section[id]'));
+      const links = Array.from(toc.querySelectorAll('.toc__link'));
+      const linkById = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
+      const deck = document.querySelector('.css-deck');
+
+      function onScroll() {
+        // Show TOC once we've scrolled past the slides embed
+        const showAt = (deck?.offsetTop || 600) + 200;
+        toc.classList.toggle('is-visible', window.scrollY > showAt);
+
+        // Pick the section whose top is closest to (just above) the viewport top
+        let active = null;
+        const probe = 120;
+        for (const s of sections) {
+          const rect = s.getBoundingClientRect();
+          if (rect.top - probe <= 0) active = s.id;
+        }
+        links.forEach(a => a.classList.remove('is-active'));
+        if (active && linkById[active]) linkById[active].classList.add('is-active');
+      }
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
