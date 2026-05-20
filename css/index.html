@@ -269,9 +269,12 @@
     /* ---------- Persona grid ---------- */
     .persona-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       margin: 1.5rem 0 1rem;
+    }
+    @media (max-width: 540px) {
+      .persona-grid { grid-template-columns: 1fr; }
     }
     .persona {
       background: var(--color-surface);
@@ -365,44 +368,6 @@
     }
     .session2 li:last-child { margin-bottom: 0; }
     .session2 li strong { font-weight: 600; }
-
-    /* ---------- Survey breakdown ---------- */
-    .survey {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.6rem;
-      margin: 2rem 0 0.5rem;
-    }
-    .survey__cell {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: 10px;
-      padding: 0.9rem 0.7rem;
-      text-align: center;
-    }
-    .survey__num {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      font-weight: 700;
-      line-height: 1;
-      color: var(--color-accent-ai);
-    }
-    .survey__label {
-      font-size: 0.78rem;
-      color: var(--color-text-muted);
-      letter-spacing: 0.04em;
-      margin-top: 0.4rem;
-    }
-    .survey__caption {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-      text-align: center;
-      margin-top: 0.6rem;
-      font-style: italic;
-    }
-    @media (max-width: 540px) {
-      .survey { grid-template-columns: repeat(2, 1fr); }
-    }
 
     /* ---------- Slide image (visual aid from deck) ---------- */
     .slide-img {
@@ -801,12 +766,12 @@
           title="How AI is Different in 2026 — slides"></iframe>
       </div>
       <div class="css-deck__actions">
-        <a class="css-deck__btn css-deck__btn--primary" href="https://docs.google.com/presentation/d/11oWwypqRskr9ozVlvXXxF5jP9MYInkqBxS6X1wbnusg/edit" target="_blank" rel="noopener">Open in Google Slides</a>
-        <a class="css-deck__btn" href="https://docs.google.com/forms/d/e/1FAIpQLScvIOy3913rgkhK9Q7cqKGHCsv1jcxK8lUtjTHZuRnpT5xPWw/viewform?usp=dialog" target="_blank" rel="noopener">Exit survey</a>
-        <a class="css-deck__btn" href="nyc-ai-traffic-light.html">NYCPS AI Traffic Light game</a>
+        <a class="css-deck__btn css-deck__btn--primary" href="https://docs.google.com/presentation/d/11oWwypqRskr9ozVlvXXxF5jP9MYInkqBxS6X1wbnusg/edit" target="_blank" rel="noopener" data-track="open_slides">Open in Google Slides</a>
+        <a class="css-deck__btn" href="https://docs.google.com/forms/d/e/1FAIpQLScvIOy3913rgkhK9Q7cqKGHCsv1jcxK8lUtjTHZuRnpT5xPWw/viewform?usp=dialog" target="_blank" rel="noopener" data-track="exit_survey_top">Exit survey</a>
+        <a class="css-deck__btn" href="nyc-ai-traffic-light.html" data-track="traffic_light_top">NYCPS AI Traffic Light game</a>
       </div>
 
-      <a class="css-deck__cheatsheet" href="css-ai-cheatsheet.pdf" target="_blank" rel="noopener">
+      <a class="css-deck__cheatsheet" href="css-ai-cheatsheet.pdf" target="_blank" rel="noopener" data-track="cheatsheet_pdf">
         <span class="css-deck__cheatsheet-kicker">Print + pin in the staff room</span>
         <span class="css-deck__cheatsheet-title">The one-page AI cheat sheet →</span>
         <span class="css-deck__cheatsheet-desc">The four core ideas from the session on a single sheet. Designed to print on landscape Letter.</span>
@@ -815,13 +780,10 @@
       <p class="css-deck__note">If the deck doesn't load, make sure it's published to web in Google Slides (File → Share → Publish to web).</p>
     </section>
 
-    <!-- ======== Personas + Survey snapshot ======== -->
+    <!-- ======== Personas ======== -->
     <section class="css-section" id="personas">
       <p class="css-section__kicker">Where you're starting from</p>
       <h2 class="css-section__title">Which kind of AI user are you, right now?</h2>
-      <p>
-        Four postures came up in the pre-workshop survey and in conversation. Most people are a blend. The point isn't to pick a box — it's to have language for the way you tend to reach for AI today, and the places you haven't reached yet.
-      </p>
 
       <div class="persona-grid">
         <div class="persona">
@@ -846,25 +808,6 @@
         </div>
       </div>
 
-      <div class="survey" aria-label="Pre-workshop self-assessment breakdown">
-        <div class="survey__cell">
-          <p class="survey__num">4</p>
-          <p class="survey__label">Novice</p>
-        </div>
-        <div class="survey__cell">
-          <p class="survey__num">9</p>
-          <p class="survey__label">Developing</p>
-        </div>
-        <div class="survey__cell">
-          <p class="survey__num">3</p>
-          <p class="survey__label">Competent</p>
-        </div>
-        <div class="survey__cell">
-          <p class="survey__num">0</p>
-          <p class="survey__label">Advanced</p>
-        </div>
-      </div>
-      <p class="survey__caption">Where 16 of you placed yourselves on the curve. Right where I'd expect a thoughtful team to be in mid-2026 — poking and exploring.</p>
     </section>
 
     <!-- ======== How AI works ======== -->
@@ -920,7 +863,7 @@
         <figcaption class="slide-img__cap">Anatomy of an agent. The model has memory, picks up tools, holds a goal, takes actions in an environment, and observes the result — looping until it decides the work is ready for review.</figcaption>
       </figure>
 
-      <a class="artifact-link" href="https://claude.ai/public/artifacts/d347d71a-6a00-4509-8d10-5f3237526825" target="_blank" rel="noopener">
+      <a class="artifact-link" href="https://claude.ai/public/artifacts/d347d71a-6a00-4509-8d10-5f3237526825" target="_blank" rel="noopener" data-track="animal_farm_artifact">
         <span class="artifact-link__kicker">From the live demo</span>
         <span class="artifact-link__title">The Animal Farm study guide artifact →</span>
         <span class="artifact-link__desc">The actual agent-generated study guide from our session. Frighteningly polished, with a broken multiple-choice game, a fun-fact about Scotch garnishes I wouldn't show to ninth-graders, and everything in between. A useful window into what these tools can do — and where they still need a human in the loop.</span>
@@ -1094,7 +1037,7 @@
         </figure>
       </div>
 
-      <a class="problems-link" href="https://ai-problems-index.vercel.app/" target="_blank" rel="noopener">
+      <a class="problems-link" href="https://ai-problems-index.vercel.app/" target="_blank" rel="noopener" data-track="ai_problems_index">
         <span class="problems-link__kicker">Keep digging</span>
         <span class="problems-link__title">The AI Problems Index →</span>
         <span class="problems-link__desc">An ongoing index that sorts real AI problems from overstated ones, with sources. Good place to research a specific concern before raising it in a meeting.</span>
@@ -1184,8 +1127,8 @@
         <p>Based on what came up — especially the request to talk about how this lands in schools — here's where I'm pointing Session 2:</p>
         <ul>
           <li><strong>How to coach teachers and students on AI use.</strong> What to actually say in a faculty meeting or to a student who's overusing it. This is the question I want to anchor.</li>
-          <li><strong>Specific use cases in your role.</strong> The field-trip pre-approval gem walkthrough we partially saw, the maternity-leave email build, communications drafting — done end to end, with the prompting choices visible.</li>
-          <li><strong>Custom GPTs / gems / projects.</strong> Building one of your own. The piece I didn't get to fully demo.</li>
+          <li><strong>Prompting challenges, with live support.</strong> We'll work through prompting exercises together, and you'll get to ask for individual support on the specific tasks you're trying to use AI for.</li>
+          <li><strong>Custom GPTs / gems / projects.</strong> Building one of your own, with Connor's best practices. The piece I didn't get to fully demo.</li>
           <li><strong>Data, privacy, and the CSS-laptop point.</strong> What's safe to put into which tool, and where the institutional guardrails actually are.</li>
           <li><strong>The equity question.</strong> Lower-income students using AI more without the scaffolding to evaluate its output. What to do about it.</li>
         </ul>
@@ -1202,14 +1145,14 @@
       </p>
 
       <div class="resources">
-        <a class="resource" href="nyc-ai-traffic-light.html">
+        <a class="resource" href="nyc-ai-traffic-light.html" data-track="traffic_light_resource">
           <p class="resource__kicker">Interactive · 5 minutes</p>
           <p class="resource__title">NYCPS AI Traffic Light game</p>
           <p class="resource__desc">Sort 18 real classroom and school-leader AI uses into Red, Yellow, or Green based on official NYCPS guidance. Good for a faculty meeting warm-up.</p>
           <p class="resource__arrow">Play the game →</p>
         </a>
 
-        <a class="resource" href="https://docs.google.com/forms/d/e/1FAIpQLScvIOy3913rgkhK9Q7cqKGHCsv1jcxK8lUtjTHZuRnpT5xPWw/viewform?usp=dialog" target="_blank" rel="noopener">
+        <a class="resource" href="https://docs.google.com/forms/d/e/1FAIpQLScvIOy3913rgkhK9Q7cqKGHCsv1jcxK8lUtjTHZuRnpT5xPWw/viewform?usp=dialog" target="_blank" rel="noopener" data-track="exit_survey_resource">
           <p class="resource__kicker">Homework · 3 minutes</p>
           <p class="resource__title">Session 1 exit survey</p>
           <p class="resource__desc">Tell me what landed, what didn't, and what you want Session 2 to focus on. Clarice's question about how to coach teachers and students will probably anchor part of it.</p>
@@ -1221,13 +1164,13 @@
           <p class="resource__title">Set your custom instructions</p>
           <p class="resource__desc">The single highest-leverage change you can make. Tell the model to be research-backed, to push back, to not act human. Every chat after that gets better. Set it once on whichever tool you actually use.</p>
           <div class="resource__btns">
-            <a class="resource__btn" href="https://help.openai.com/en/articles/8096356-custom-instructions-for-chatgpt" target="_blank" rel="noopener">ChatGPT guide →</a>
-            <a class="resource__btn" href="https://support.anthropic.com/en/articles/10185728-understanding-claude-s-personalization-features" target="_blank" rel="noopener">Claude guide →</a>
-            <a class="resource__btn" href="https://support.google.com/gemini/answer/15637730" target="_blank" rel="noopener">Gemini guide →</a>
+            <a class="resource__btn" href="https://help.openai.com/en/articles/8096356-custom-instructions-for-chatgpt" target="_blank" rel="noopener" data-track="custom_instructions_chatgpt">ChatGPT guide →</a>
+            <a class="resource__btn" href="https://support.anthropic.com/en/articles/10185728-understanding-claude-s-personalization-features" target="_blank" rel="noopener" data-track="custom_instructions_claude">Claude guide →</a>
+            <a class="resource__btn" href="https://support.google.com/gemini/answer/15637730" target="_blank" rel="noopener" data-track="custom_instructions_gemini">Gemini guide →</a>
           </div>
         </div>
 
-        <a class="resource" href="/ideas.html">
+        <a class="resource" href="/ideas.html" data-track="ideas_page">
           <p class="resource__kicker">More writing</p>
           <p class="resource__title">My ongoing writing on AI in learning</p>
           <p class="resource__desc">More long-form pieces on how I think about these tools in education and learning design. Some of this is one or two layers deeper than today's session went.</p>
@@ -1242,9 +1185,9 @@
       <p>If anything in the presentation sparked a question — or a concern about how AI is showing up in your school or your work — I'd genuinely like to hear it. The group questions tend to be better than the ones I prepare for, so send them.</p>
       <p>I'd rather answer them for everyone in Session 2 than have them sit unanswered. See you June 1.</p>
       <p class="closer__contact">
-        <a href="mailto:connor@cbklearning.com">connor@cbklearning.com</a>
+        <a href="mailto:connor@cbklearning.com" data-track="email_closer">connor@cbklearning.com</a>
         <span aria-hidden="true">·</span>
-        <a href="https://www.linkedin.com/in/connor-koblinski/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/connor-koblinski/" target="_blank" rel="noopener" data-track="linkedin_closer">LinkedIn</a>
       </p>
     </section>
 
@@ -1271,6 +1214,23 @@
   <script src="../js/main.js"></script>
 
   <script>
+    // Click tracking: push to GTM dataLayer for each tagged link.
+    // Configure in GTM dashboard: Trigger on event "css_link_click",
+    // forward link_name + link_url to GA4 (or wherever) as event params.
+    (function () {
+      window.dataLayer = window.dataLayer || [];
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[data-track]');
+        if (!a) return;
+        window.dataLayer.push({
+          event: 'css_link_click',
+          link_name: a.getAttribute('data-track'),
+          link_url: a.href,
+          link_text: (a.textContent || '').trim().slice(0, 80)
+        });
+      }, true);
+    })();
+
     // Sticky TOC: show after scrolling past the deck, highlight active section
     (function () {
       const toc = document.querySelector('.toc');
