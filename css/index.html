@@ -1216,15 +1216,15 @@
 
   <script>
     // Click tracking: push to GTM dataLayer for each tagged link.
-    // Configure in GTM dashboard: Trigger on event "css_link_click",
-    // forward link_name + link_url to GA4 (or wherever) as event params.
+    // Shared across all client landing pages — filter by page_path in GA4
+    // to break down engagement per client. GTM trigger listens for "cta_click".
     (function () {
       window.dataLayer = window.dataLayer || [];
       document.addEventListener('click', function (e) {
         var a = e.target.closest && e.target.closest('a[data-track]');
         if (!a) return;
         window.dataLayer.push({
-          event: 'css_link_click',
+          event: 'cta_click',
           link_name: a.getAttribute('data-track'),
           link_url: a.href,
           link_text: (a.textContent || '').trim().slice(0, 80)
