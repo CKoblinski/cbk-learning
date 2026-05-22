@@ -1,0 +1,489 @@
+/* ============================================
+   Corps Africa — bespoke landing
+   Layered on top of /css/style.css. Scoped under
+   body.corps-africa-page so nothing leaks to the
+   public site.
+   ============================================ */
+
+body.corps-africa-page {
+  --ca-blue:    #1f4988;       /* CORPS text */
+  --ca-blue-dim:#173768;
+  --ca-blue-soft:#eaf0fa;
+  --ca-green:   #1f3d2c;       /* AFRICA text */
+  --ca-green-dim:#15291d;
+  --ca-green-soft:#ecf2ee;
+  --ca-gold:    #e5b834;       /* figure inside Africa */
+  --ca-gold-soft:#fbf2d6;
+  --ca-cream:   #faf9f7;
+  --ca-white:   #ffffff;
+  --ca-ink:     #1a1a1a;
+  --ca-text-dim:#4a4540;
+  --ca-text-muted:#6b6560;
+  --ca-rule:    rgba(0,0,0,0.08);
+
+  background: var(--ca-cream);
+  color: var(--ca-ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body.corps-africa-page a { color: var(--ca-blue); }
+body.corps-africa-page a:hover { color: var(--ca-blue-dim); }
+
+/* ---------- top nav ---------- */
+body.corps-africa-page .ca-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 249, 247, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--ca-rule);
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+body.corps-africa-page .ca-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ca-text-muted);
+  text-decoration: none;
+}
+body.corps-africa-page .ca-nav__brand-mark {
+  height: 30px;
+  width: auto;
+}
+body.corps-africa-page .ca-nav__brand-sep {
+  color: var(--ca-text-muted);
+  opacity: 0.5;
+}
+body.corps-africa-page .ca-nav__cbk {
+  color: var(--ca-ink);
+}
+body.corps-africa-page .ca-nav__cta {
+  display: inline-block;
+  background: var(--ca-blue);
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+body.corps-africa-page .ca-nav__cta:hover {
+  background: var(--ca-blue-dim);
+  color: #fff;
+}
+
+/* ---------- shared layout ---------- */
+body.corps-africa-page .ca-section {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+body.corps-africa-page .ca-section--wide {
+  max-width: 1080px;
+}
+body.corps-africa-page .ca-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ca-blue);
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+body.corps-africa-page h1,
+body.corps-africa-page h2,
+body.corps-africa-page h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--ca-ink);
+  line-height: 1.2;
+}
+body.corps-africa-page h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+body.corps-africa-page h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  margin: 0 0 1.25rem;
+}
+body.corps-africa-page h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+body.corps-africa-page p {
+  color: var(--ca-text-dim);
+  font-size: 1.04rem;
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+body.corps-africa-page strong { color: var(--ca-ink); font-weight: 600; }
+
+/* ---------- hero ---------- */
+body.corps-africa-page .ca-hero {
+  background: linear-gradient(180deg, var(--ca-blue-soft) 0%, var(--ca-cream) 80%);
+  border-bottom: 1px solid var(--ca-rule);
+}
+body.corps-africa-page .ca-hero__inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+}
+body.corps-africa-page .ca-hero__logo {
+  height: 60px;
+  width: auto;
+  margin-bottom: 1.75rem;
+}
+body.corps-africa-page .ca-hero__title {
+  margin: 0 0 1.25rem;
+}
+body.corps-africa-page .ca-hero__lede {
+  font-size: 1.18rem;
+  color: var(--ca-text-dim);
+  max-width: 640px;
+}
+body.corps-africa-page .ca-hero__meta {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--ca-text-muted);
+}
+body.corps-africa-page .ca-hero__meta span::before {
+  content: "·";
+  margin-right: 0.5rem;
+  opacity: 0.5;
+}
+body.corps-africa-page .ca-hero__meta span:first-child::before {
+  display: none;
+}
+
+/* ---------- slide embed ---------- */
+body.corps-africa-page .ca-slides {
+  margin-top: 1.25rem;
+  aspect-ratio: 960 / 569;
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid var(--ca-rule);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+body.corps-africa-page .ca-slides iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+/* ---------- intro / personal note ---------- */
+body.corps-africa-page .ca-note {
+  background: var(--ca-white);
+  border: 1px solid var(--ca-rule);
+  border-left: 4px solid var(--ca-gold);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+}
+body.corps-africa-page .ca-note p:last-child { margin-bottom: 0; }
+
+/* ---------- AI disclaimer ---------- */
+body.corps-africa-page .ca-disclaimer {
+  border: 1px dashed var(--ca-rule);
+  border-radius: 8px;
+  padding: 1.1rem 1.4rem;
+  background: transparent;
+}
+body.corps-africa-page .ca-disclaimer__label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ca-text-muted);
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+body.corps-africa-page .ca-disclaimer p:last-child {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ca-text-dim);
+  line-height: 1.6;
+}
+
+/* ---------- concept map ---------- */
+body.corps-africa-page .ca-concept-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+}
+@media (max-width: 640px) {
+  body.corps-africa-page .ca-concept-grid { grid-template-columns: 1fr; }
+}
+body.corps-africa-page .ca-concept {
+  background: var(--ca-white);
+  border: 1px solid var(--ca-rule);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+}
+body.corps-africa-page .ca-concept__step {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--ca-blue);
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+body.corps-africa-page .ca-concept h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+body.corps-africa-page .ca-concept p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+  color: var(--ca-text-dim);
+}
+
+/* ---------- use cases (named by person) ---------- */
+body.corps-africa-page .ca-usecases {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+body.corps-africa-page .ca-usecase {
+  background: var(--ca-white);
+  border: 1px solid var(--ca-rule);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1.1rem;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  body.corps-africa-page .ca-usecase {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+body.corps-africa-page .ca-usecase__who {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ca-green);
+}
+body.corps-africa-page .ca-usecase__who small {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--ca-text-muted);
+  margin-top: 0.15rem;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+body.corps-africa-page .ca-usecase h3 {
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+body.corps-africa-page .ca-usecase p {
+  font-size: 0.93rem;
+  margin-bottom: 0.7rem;
+}
+body.corps-africa-page .ca-usecase__prompt {
+  background: var(--ca-blue-soft);
+  border-left: 3px solid var(--ca-blue);
+  border-radius: 4px;
+  padding: 0.65rem 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--ca-ink);
+}
+body.corps-africa-page .ca-usecase__prompt::before {
+  content: "TRY";
+  display: inline-block;
+  background: var(--ca-blue);
+  color: #fff;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+  vertical-align: 1px;
+  font-weight: 700;
+}
+
+/* ---------- red/yellow/green guardrails ---------- */
+body.corps-africa-page .ca-stoplight {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+@media (max-width: 720px) {
+  body.corps-africa-page .ca-stoplight { grid-template-columns: 1fr; }
+}
+body.corps-africa-page .ca-light {
+  background: var(--ca-white);
+  border: 1px solid var(--ca-rule);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem 1.25rem;
+  border-top: 5px solid;
+}
+body.corps-africa-page .ca-light--green { border-top-color: #2d8651; }
+body.corps-africa-page .ca-light--yellow { border-top-color: var(--ca-gold); }
+body.corps-africa-page .ca-light--red { border-top-color: #b13a2f; }
+body.corps-africa-page .ca-light h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.04em;
+}
+body.corps-africa-page .ca-light--green h3 { color: #2d8651; }
+body.corps-africa-page .ca-light--yellow h3 { color: #a0810f; }
+body.corps-africa-page .ca-light--red h3 { color: #b13a2f; }
+body.corps-africa-page .ca-light ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+  color: var(--ca-text-dim);
+  line-height: 1.55;
+}
+body.corps-africa-page .ca-light li { margin-bottom: 0.35rem; }
+
+/* ---------- 2x2 image figure ---------- */
+body.corps-africa-page .ca-figure {
+  margin: 1.5rem 0 0;
+  background: var(--ca-white);
+  border: 1px solid var(--ca-rule);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+body.corps-africa-page .ca-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+body.corps-africa-page .ca-figure figcaption {
+  font-size: 0.85rem;
+  color: var(--ca-text-muted);
+  margin-top: 0.85rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ---------- resources / homework ---------- */
+body.corps-africa-page .ca-resources {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+@media (max-width: 640px) {
+  body.corps-africa-page .ca-resources { grid-template-columns: 1fr; }
+}
+body.corps-africa-page .ca-resource {
+  background: var(--ca-white);
+  border: 1px solid var(--ca-rule);
+  border-radius: 10px;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: var(--ca-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+body.corps-africa-page .ca-resource:hover {
+  border-color: var(--ca-blue);
+  transform: translateY(-2px);
+  color: var(--ca-ink);
+}
+body.corps-africa-page .ca-resource__kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ca-blue);
+  font-weight: 700;
+}
+body.corps-africa-page .ca-resource h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+body.corps-africa-page .ca-resource p {
+  font-size: 0.88rem;
+  margin: 0;
+  color: var(--ca-text-dim);
+}
+body.corps-africa-page .ca-resource__cta {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  color: var(--ca-blue);
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* ---------- next session ---------- */
+body.corps-africa-page .ca-next {
+  background: var(--ca-green);
+  color: #fff;
+  margin-top: 0;
+}
+body.corps-africa-page .ca-next .ca-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+body.corps-africa-page .ca-next h2,
+body.corps-africa-page .ca-next h3 { color: #fff; }
+body.corps-africa-page .ca-next p { color: rgba(255,255,255,0.85); }
+body.corps-africa-page .ca-next .ca-kicker { color: var(--ca-gold); }
+body.corps-africa-page .ca-next__cta {
+  display: inline-block;
+  background: var(--ca-gold);
+  color: var(--ca-green);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  transition: background 0.15s ease;
+}
+body.corps-africa-page .ca-next__cta:hover {
+  background: #f4ce5f;
+  color: var(--ca-green);
+}
+body.corps-africa-page .ca-next__cta--secondary {
+  background: transparent;
+  color: var(--ca-gold);
+  border: 1.5px solid var(--ca-gold);
+  margin-left: 0.75rem;
+}
+body.corps-africa-page .ca-next__cta--secondary:hover {
+  background: var(--ca-gold);
+  color: var(--ca-green);
+}
+
+/* ---------- footer ---------- */
+body.corps-africa-page .ca-footer {
+  text-align: center;
+  padding: 2.25rem 1.5rem 2.75rem;
+  background: var(--ca-cream);
+  border-top: 1px solid var(--ca-rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--ca-text-muted);
+  letter-spacing: 0.04em;
+}
+body.corps-africa-page .ca-footer a { color: var(--ca-blue); }
