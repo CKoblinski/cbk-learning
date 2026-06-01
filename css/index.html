@@ -11,7 +11,7 @@
   })(window,document,'script','dataLayer','GTM-MXZ777ZT');</script>
   <!-- End Google Tag Manager -->
   <title>How AI is Different in 2026 — for the Center for Supportive Schools</title>
-  <meta name="description" content="Resources and concepts from Connor Koblinski's May 19 AI literacy workshop with the Center for Supportive Schools — the slides, the deeper writing, and the homework." />
+  <meta name="description" content="Resources and concepts from Connor Koblinski's two-session AI literacy workshop (May 19 + June 1) with the Center for Supportive Schools — the slides, the deeper writing, and the dexterity-challenge takeaways." />
 
   <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
   <link rel="canonical" href="https://cbklearning.com/css/" />
@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CBK Learning" />
   <meta property="og:title" content="How AI is Different in 2026 — for the Center for Supportive Schools" />
-  <meta property="og:description" content="The slides, the concepts, and the homework from our May 19 AI literacy session." />
+  <meta property="og:description" content="The slides, the concepts, and the takeaways from our two-session AI literacy workshop." />
   <meta property="og:url" content="https://cbklearning.com/css/" />
   <meta property="og:image" content="https://cbklearning.com/css/slides/slide-01.png" />
   <meta property="og:image:width" content="1100" />
@@ -30,7 +30,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="How AI is Different in 2026 — for the Center for Supportive Schools" />
-  <meta name="twitter:description" content="The slides, the concepts, and the homework from our May 19 AI literacy session." />
+  <meta name="twitter:description" content="The slides, the concepts, and the takeaways from our two-session AI literacy workshop." />
   <meta name="twitter:image" content="https://cbklearning.com/css/slides/slide-01.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -113,6 +113,32 @@
       text-align: left;
     }
     .css-hero__disclosure strong { font-style: normal; }
+    .css-hero__skip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 auto 1.5rem;
+      padding: 0.7rem 1.3rem;
+      background: var(--color-accent-ai);
+      color: white;
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      border-radius: 999px;
+      box-shadow: 0 12px 28px -16px var(--color-accent-ai-glow);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .css-hero__skip:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px -16px var(--color-accent-ai-glow);
+    }
+    .css-hero__skip span {
+      display: inline-block;
+      transition: transform 0.15s ease;
+    }
+    .css-hero__skip:hover span { transform: translateY(2px); }
 
     /* ---------- Slides embed ---------- */
     .css-deck {
@@ -503,6 +529,254 @@
       line-height: 1.55;
     }
 
+    /* ---------- Session 2 recap ---------- */
+    .recap {
+      list-style: none;
+      padding: 0;
+      margin: 1.8rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .recap__item {
+      position: relative;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-accent-ai);
+      border-radius: 12px;
+      padding: 1.3rem 1.5rem 1.4rem;
+    }
+    .recap__num {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent-ai);
+      margin: 0 0 0.45rem;
+      font-weight: 700;
+    }
+    .recap__title {
+      font-family: var(--font-heading);
+      font-size: 1.18rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0 0 0.65rem;
+      color: var(--color-text);
+    }
+    .recap__item p {
+      font-size: 0.96rem;
+      line-height: 1.6;
+      margin: 0 0 0.65rem;
+    }
+    .recap__item p:last-child { margin-bottom: 0; }
+    .recap__aside {
+      margin-top: 0.85rem !important;
+      padding: 0.85rem 1rem;
+      background: var(--color-accent-ai-light);
+      border-radius: 8px;
+      font-size: 0.9rem !important;
+      line-height: 1.55 !important;
+      color: var(--color-text);
+    }
+    .recap__aside strong {
+      color: var(--color-accent-ai);
+      font-weight: 700;
+    }
+    .recap__shot {
+      margin: 1rem 0 0;
+      padding: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      overflow: hidden;
+      max-width: 360px;
+    }
+    .recap__shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .recap__shot-cap {
+      font-size: 0.83rem !important;
+      line-height: 1.5 !important;
+      color: var(--color-text-muted);
+      padding: 0.7rem 0.95rem 0.85rem;
+      margin: 0 !important;
+      border-top: 1px solid var(--color-border);
+      background: #fafaf8;
+    }
+
+    /* Recording embed */
+    .recording {
+      margin: 1.8rem 0 0;
+      padding: 1.3rem 1.4rem 1.4rem;
+      background: var(--color-accent-ai-light);
+      border: 1px solid rgba(108, 99, 255, 0.18);
+      border-radius: 14px;
+    }
+    .recording__label {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-ai);
+      margin: 0 0 0.7rem;
+      font-weight: 700;
+    }
+    .recording__frame {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+    .recording__frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .recording__caption {
+      font-size: 0.86rem;
+      color: var(--color-text-muted);
+      margin: 0.7rem 0 0;
+      line-height: 1.5;
+    }
+    .recording__caption a {
+      color: var(--color-accent-ai);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-accent-ai);
+    }
+
+    /* "Before any moves — where do I start?" intro tip */
+    .recap-start {
+      margin: 2rem 0 0.5rem;
+      padding: 1.4rem 1.5rem 1.5rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+    }
+    .recap-start__label {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-ai);
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+    .recap-start h3 {
+      font-family: var(--font-heading);
+      font-size: 1.18rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0 0 0.6rem;
+    }
+    .recap-start p {
+      font-size: 0.96rem;
+      line-height: 1.6;
+      margin: 0 0 0.65rem;
+    }
+    .recap-start p:last-child { margin: 0; }
+
+    /* Side-by-side screenshots (edit + branch) inside a tip card */
+    .recap__shots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.9rem;
+      margin: 1rem 0 0;
+    }
+    .recap__shots .recap__shot {
+      margin: 0;
+      max-width: 100%;
+    }
+
+    /* Session 2 visual divider — makes it obvious the new section starts */
+    .session-break {
+      max-width: 920px;
+      margin: 3.5rem auto 1.8rem;
+      padding: 0 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .session-break::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 1.5rem;
+      right: 1.5rem;
+      height: 1px;
+      background: var(--color-border);
+      z-index: 0;
+    }
+    .session-break__pill {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 1.2rem;
+      background: var(--color-accent-ai);
+      color: white;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px -14px var(--color-accent-ai-glow);
+    }
+    .session-break__pill::before {
+      content: "";
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: white;
+      opacity: 0.9;
+    }
+
+    .recap-framings {
+      margin-top: 2.2rem;
+      padding: 1.6rem 1.7rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+    }
+    .recap-framings__label {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-ai);
+      margin: 0 0 1rem;
+    }
+    .recap-framings__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+    .recap-framing h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 0.55rem;
+      color: var(--color-text);
+    }
+    .recap-framing p {
+      font-size: 0.94rem;
+      line-height: 1.6;
+      margin: 0;
+      color: var(--color-text);
+    }
+    .recap-framing strong {
+      color: var(--color-text);
+      font-weight: 700;
+    }
+
     /* ---------- Resource cards ---------- */
     .resources {
       display: grid;
@@ -742,12 +1016,14 @@
       <p class="css-hero__kicker">For the Center for Supportive Schools</p>
       <h1 class="css-hero__title">How AI is different in 2026.</h1>
       <p class="css-hero__sub">
-        A place to revisit what we covered on May 19 — the slides, the concepts, and a handful of resources to take with you into your work.
+        A place to revisit what we covered on May 19 and June 1 — the slides, the concepts, and a handful of resources to take with you into your work.
       </p>
+      <a class="css-hero__skip" href="#recap">
+        Skip to Session 2 insights
+        <span aria-hidden="true">↓</span>
+      </a>
       <p class="css-hero__meta">
         <span><strong>Session 1</strong> · May 19, 2026</span>
-        <span class="dot"></span>
-        <span><strong>Session 2</strong> · June 1, 9:30 AM</span>
       </p>
 
       <p class="css-hero__disclosure">
@@ -1070,12 +1346,12 @@
       </p>
     </section>
 
-    <!-- ======== What I heard from you / Session 2 preview ======== -->
+    <!-- ======== What I heard from you (Session 1 reflections) ======== -->
     <section class="css-section" id="heard">
       <p class="css-section__kicker">From the chat and the conversation</p>
-      <h2 class="css-section__title">What I heard from you.</h2>
+      <h2 class="css-section__title">What I heard from you in Session 1.</h2>
       <p>
-        Some of the threads that came up during the session — anonymized, lightly trimmed. These are mostly verbatim from the chat and our recording. Most of them are anchoring what I'm building for Session 2.
+        Some of the threads that came up during the May 19 session — anonymized, lightly trimmed. These are mostly verbatim from the chat and our recording. A lot of what we returned to in Session 2 came directly from these.
       </p>
 
       <div class="heard">
@@ -1121,19 +1397,110 @@
         </div>
       </div>
 
-      <div class="session2">
-        <p class="session2__label">Next time we'll focus on</p>
-        <h3 class="session2__title">Session 2 · June 1, 9:30 AM</h3>
-        <p>Based on what came up — especially the request to talk about how this lands in schools — here's where I'm pointing Session 2:</p>
-        <ul>
-          <li><strong>How to coach teachers and students on AI use.</strong> What to actually say in a faculty meeting or to a student who's overusing it. This is the question I want to anchor.</li>
-          <li><strong>Prompting challenges, with live support.</strong> We'll work through prompting exercises together, and you'll get to ask for individual support on the specific tasks you're trying to use AI for.</li>
-          <li><strong>Custom GPTs / gems / projects.</strong> Building one of your own, with Connor's best practices. The piece I didn't get to fully demo.</li>
-          <li><strong>Data, privacy, and the CSS-laptop point.</strong> What's safe to put into which tool, and where the institutional guardrails actually are.</li>
-          <li><strong>The equity question.</strong> Lower-income students using AI more without the scaffolding to evaluate its output. What to do about it.</li>
-        </ul>
-        <p style="margin-top: 0.9rem; font-size: 0.92rem; color: var(--color-text-muted);">If you have a question or a use case you want me to demo on June 1, send it. I'd rather build the session around what you actually need than what I assume you need.</p>
+    </section>
+
+    <!-- ======== Session 2 recap ======== -->
+    <div class="session-break" aria-hidden="true">
+      <span class="session-break__pill">Session 2 starts here</span>
+    </div>
+
+    <section class="css-section" id="recap">
+      <p class="css-section__kicker">From Session 2 · the dexterity challenge</p>
+      <h2 class="css-section__title">A few moves to take back to your schools.</h2>
+      <p>
+        Session 2 was hands-on. We worked through real tasks — meeting notes into action items, a tough principal email, a homeroom survey from a roster of student data. A few moves came up over and over and got the most "oh, that's useful" reactions. Steal them for your own work, and pass them along to the teachers, principals, and students you support.
+      </p>
+
+      <!-- Recording embed -->
+      <div class="recording">
+        <p class="recording__label">Want the whole session?</p>
+        <div class="recording__frame">
+          <iframe
+            src="https://drive.google.com/file/d/1HWTPiYajdh7Eci41Drc4LpBA9wz5N1M9/preview"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="Session 2 recording — AI Dexterity Challenge"
+          ></iframe>
+        </div>
+        <p class="recording__caption">
+          The full June 1 recording (~90 min). <a href="https://drive.google.com/file/d/1HWTPiYajdh7Eci41Drc4LpBA9wz5N1M9/view?usp=sharing" target="_blank" rel="noopener">Open in Google Drive →</a>
+        </p>
       </div>
+
+      <!-- "Where do I even start?" intro tip -->
+      <div class="recap-start">
+        <p class="recap-start__label">Before any of these moves · where do I even start?</p>
+        <h3>Start in something you already know cold.</h3>
+        <p>If you're new to this, don't aim AI at the hardest part of your job. Aim it at something you have expertise in and a lot of attention for — a hobby, a side project, the part of your work you could already teach. For me that's Dungeons &amp; Dragons. For you it might be cooking, gardening, your reading list, the parenting question you can't stop thinking about.</p>
+        <p>That's how you build a <em>radar</em> — a felt sense of when AI is good at something and when it's just sounding good. You can't develop that radar on tasks you don't already understand, because you can't catch what it's getting wrong.</p>
+      </div>
+
+      <ol class="recap">
+
+        <li class="recap__item">
+          <p class="recap__num">01</p>
+          <h3 class="recap__title">You can edit your last prompt — don't start over.</h3>
+          <p>If the AI's first answer isn't what you needed, hover over the prompt you sent and click to edit it. Add the missing context, then send again. It rewrites the response from there. Most people don't realize this exists, and it was the single biggest "wait, what?" moment of the session.</p>
+          <p class="recap__aside"><strong>Try this combo.</strong> Edit the prompt and add: <em>"Before you draft this, ask me clarifying questions to make sure you have the right context. Make sure I'm asking the right questions too."</em> The model interviews you, surfaces what you hadn't thought through, and only then writes.</p>
+          <div class="recap__shots">
+            <figure class="recap__shot">
+              <img src="edit-prompt-screenshot.png" alt="ChatGPT interface showing an Edit button hovering over a previously sent prompt, alongside resend and copy icons." />
+              <figcaption class="recap__shot-cap">The pencil icon on your last prompt lets you edit it in place. ChatGPT, Claude, and Gemini all have it.</figcaption>
+            </figure>
+            <figure class="recap__shot">
+              <img src="branch-chat-screenshot.png" alt="ChatGPT interface showing a Branch in new chat option in a response menu." />
+              <figcaption class="recap__shot-cap"><strong>Sister move — branch the chat.</strong> If you don't want to lose the current answer but you want to try a different direction, click "branch in a new chat." It copies the conversation so far and gives you a parallel thread.</figcaption>
+            </figure>
+          </div>
+        </li>
+
+        <li class="recap__item">
+          <p class="recap__num">02</p>
+          <h3 class="recap__title">Clean the data before you paste it. Then clean it again.</h3>
+          <p>Before any spreadsheet of student info goes anywhere near an AI tool: delete every column with names, IDs, addresses, contact info. Check for hidden columns. Check the other tabs in the workbook. Export the cleaned version as a fresh CSV. <strong>Then</strong> upload.</p>
+          <p class="recap__aside"><strong>From the session:</strong> I almost shared a column with everyone's full names during the live demo. This is the step where you go slow.</p>
+        </li>
+
+        <li class="recap__item">
+          <p class="recap__num">03</p>
+          <h3 class="recap__title">Let it talk to the other software for you.</h3>
+          <p>Courtney had a list of dates she needed in her calendar. She asked Gemini to turn them into an ICS file and walk her through importing it. It worked, it took two minutes, and she didn't need to learn what an ICS file is.</p>
+          <p>That's the right shape of broad offloading: hand AI the <em>technical</em> friction — formatting a CSV, building a Google Form, writing a Sheets formula, talking to one program from another — and keep your attention on the human decisions. If something is technical and tedious and you'd rather not learn it, it's a great candidate.</p>
+        </li>
+
+        <li class="recap__item">
+          <p class="recap__num">04</p>
+          <h3 class="recap__title">Keep a pen and paper next to the chat.</h3>
+          <p>When you brainstorm with an AI, your thinking lives inside the chat. If you don't write the threads that matter to you down somewhere else, they get stuck in Gemini — and if the draft it produces doesn't include them, they quietly disappear.</p>
+          <p>Sketch the parts you want to hold onto: the question you'd actually ask the student, the line in the email that has to stay yours, the worry you don't want to lose. The pen keeps your judgment in the room.</p>
+        </li>
+
+      </ol>
+
+      <div class="recap-framings">
+        <p class="recap-framings__label">Two bigger ideas to carry across all of it</p>
+        <div class="recap-framings__grid">
+
+          <div class="recap-framing">
+            <h3>Offload the technology, not the thinking.</h3>
+            <p>
+              "Make this into a Google Form." "Format these notes as action items." "Turn this list into a calendar file." Great — those are the parts of your day you'd rather not learn. But never offload the <em>questions you'd ask a student</em>, or the <em>judgment in how you respond to a teacher</em>. That part is the actual work, and it's what schools are paying CSS to bring. Hand AI the formatting; keep the discernment.
+            </p>
+          </div>
+
+          <div class="recap-framing">
+            <h3>Your principles will shift — that's healthy.</h3>
+            <p>
+              At the end of Session 2 we drafted personal "laws of AI" — and a couple of you said you weren't sure yours would hold up. Good. They shouldn't. There's a 30-year-old chart from Gartner that maps how every technology gets adopted: a peak of inflated expectations, then a trough of disillusionment when it doesn't do everything we'd hoped, then a slow slope of figuring out what it's actually for, then a plateau of useful productivity.
+            </p>
+            <p>
+              You'll move through all of that with AI. Some uses you commit to today will embarrass you in a year, and some things you swore off will turn out to be fine. The point isn't to land on the right rules. It's to keep noticing where you land and adjusting on purpose.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
     </section>
 
     <!-- ======== Resources ======== -->
@@ -1141,7 +1508,7 @@
       <p class="css-section__kicker">Take with you</p>
       <h2 class="css-section__title">Resources & homework.</h2>
       <p>
-        A short list — what to play with, where to keep learning, and what to send back to me before Session 2.
+        A short list — what to play with, where to keep learning, and what to send back to me from either session.
       </p>
 
       <div class="resources">
@@ -1181,9 +1548,9 @@
 
     <!-- ======== Closer ======== -->
     <section class="closer">
-      <h2>Thank you for having me.</h2>
-      <p>If anything in the presentation sparked a question — or a concern about how AI is showing up in your school or your work — I'd genuinely like to hear it. The group questions tend to be better than the ones I prepare for, so send them.</p>
-      <p>I'd rather answer them for everyone in Session 2 than have them sit unanswered. See you June 1.</p>
+      <h2>Thank you for having me — both times.</h2>
+      <p>If anything from either session sparked a question — or a concern about how AI is showing up in your school or your work — I'd genuinely like to hear it. The group questions tend to be better than the ones I prepare for, so send them.</p>
+      <p>And if you hit up against a problem and want 15 minutes of my thinking, I'm always happy to chat with people about the conflicts or problems they're working through, especially in education.</p>
       <p class="closer__contact">
         <a href="mailto:connor@cbklearning.com" data-track="email_closer">connor@cbklearning.com</a>
         <span aria-hidden="true">·</span>
