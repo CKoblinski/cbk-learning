@@ -4,122 +4,229 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UT Martin AI Leadership Academy — Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1c2230; --ink-soft:#41495c; --paper:#f7f4ee; --card:#ffffff;
-    --line:#e4ded2; --accent:#b8552e; --accent-soft:#f3e0d6; --gold:#c9971f;
-    --blue:#2f5d7c; --green:#4a7a4a; --purple:#6a4c8c; --teal:#2f6f7c;
-    --shadow:0 1px 3px rgba(28,34,48,.06),0 8px 24px rgba(28,34,48,.06);
+    --navy:#002a5b; --navy-deep:#001734; --navy-soft:#0a3a6b; --navy-line:#15406f;
+    --orange:#f79728; --orange-deep:#b9620a; --orange-tint:#fff3e0;
+    --ink:#11233d; --ink-soft:#54627a; --ink-faint:#8995ab;
+    --paper:#f2f6fc; --card:#ffffff; --line:#dce4f0; --line-soft:#eaf0f8;
+    --on-navy:#e8eef7; --on-navy-soft:#a6b6cf; --on-navy-faint:#74859f;
+    --shadow:0 1px 2px rgba(0,42,91,.05),0 10px 30px rgba(0,42,91,.06);
     --radius:14px;
+    --serif:'Spectral',Georgia,'Times New Roman',serif;
+    --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--paper);color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.6;-webkit-font-smoothing:antialiased;}
-  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;letter-spacing:-.01em}
-  a{color:var(--accent);text-decoration:none}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:var(--serif);line-height:1.16;letter-spacing:-.01em;font-weight:600}
+  a{color:var(--orange-deep);text-decoration:none}
   a:hover{text-decoration:underline}
+  ::selection{background:var(--orange);color:#fff}
+  mark{background:var(--orange);color:#fff;border-radius:3px;padding:0 2px}
 
-  header{background:var(--ink);color:#fff;padding:42px 22px 30px}
-  .head-wrap{max-width:1080px;margin:0 auto}
-  header .eyebrow{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
-  header h1{font-size:clamp(28px,4.4vw,46px);margin:0 0 12px;color:#fff}
-  header p{max-width:700px;color:#cdd2dc;font-size:17px;margin:0}
+  /* header */
+  header.site{position:sticky;top:0;z-index:60;background:rgba(242,246,252,.86);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--line)}
+  .head-wrap{max-width:1120px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:18px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+  .brand .badge{width:31px;height:31px;border-radius:8px;background:var(--navy);color:var(--orange);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:18px}
+  .brand .word{font-weight:600;font-size:14.5px;letter-spacing:-.01em;color:var(--ink)}
+  .brand .word span{color:var(--ink-faint);font-weight:500}
+  .search{margin-left:auto;position:relative;display:flex;align-items:center}
+  .search svg{position:absolute;left:11px;pointer-events:none}
+  .search input{width:230px;max-width:46vw;padding:9px 12px 9px 33px;border:1px solid var(--line);border-radius:9px;background:#fff;font-family:inherit;font-size:13.5px;color:var(--ink);outline:none}
+  .search input::placeholder{color:var(--ink-faint)}
+  .search input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(247,151,40,.18)}
 
-  nav{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav-wrap{max-width:1080px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-  .tabs{display:flex;flex-wrap:wrap;gap:6px;flex:1;min-width:260px}
-  .tab{border:1px solid transparent;background:transparent;color:var(--ink-soft);padding:8px 13px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:.15s}
-  .tab:hover{background:var(--accent-soft);color:var(--accent)}
-  .tab.active{background:var(--ink);color:#fff}
-  .search-box{position:relative;min-width:210px}
-  .search-box input{width:100%;padding:9px 14px 9px 36px;border:1px solid var(--line);border-radius:999px;font-size:14px;background:#fff;color:var(--ink)}
-  .search-box input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-  .search-box svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.5}
+  /* tabs */
+  .tabs{position:sticky;top:55px;z-index:55;background:rgba(242,246,252,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .tabs-wrap{max-width:1120px;margin:0 auto;padding:7px 16px;display:flex;gap:3px;overflow-x:auto;scrollbar-width:thin}
+  .tab{flex-shrink:0;border:0;background:none;font-family:inherit;font-size:13.5px;font-weight:500;color:var(--ink-soft);padding:8px 13px;border-radius:9px;cursor:pointer;white-space:nowrap}
+  .tab:hover{background:#e3ebf7;color:var(--ink)}
+  .tab.active{background:var(--navy);color:#fff}
 
-  main{max-width:1080px;margin:0 auto;padding:32px 22px 80px}
-  .section-intro{margin:6px 0 22px}
-  .section-intro h2{font-size:clamp(22px,3vw,30px);margin:0 0 8px}
-  .section-intro p{color:var(--ink-soft);max-width:740px;margin:0;font-size:16px}
-  .deck-strip{margin:0 0 26px}
-  .deck-embed{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#111;box-shadow:var(--shadow)}
-  .deck-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .deck-cap{font-size:12.5px;color:var(--ink-soft);margin-top:7px}
-  .results-note{font-size:14px;color:var(--ink-soft);margin:0 0 20px;padding:10px 14px;background:var(--accent-soft);border-radius:10px;display:none}
+  /* hero */
+  .hero-band{background:var(--navy);color:var(--on-navy)}
+  .hero-wrap{max-width:1120px;margin:0 auto;padding:56px 22px 54px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:22px}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+  .hero-wrap h1{font-size:clamp(33px,5vw,57px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;max-width:18ch;color:#fff;font-weight:600}
+  .hero-wrap .lede{font-size:17px;line-height:1.6;color:var(--on-navy-soft);max-width:64ch;margin:0}
+  .doors{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1px;background:var(--navy-line);border:1px solid var(--navy-line);border-radius:16px;overflow:hidden;margin-top:34px}
+  .door{background:var(--navy);padding:20px 20px 18px;text-align:left;border:0;cursor:pointer;font-family:inherit;transition:background .15s;display:block}
+  .door:hover{background:var(--navy-soft)}
+  .door .drow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px}
+  .door .dnum{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--orange)}
+  .door .dcount{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--on-navy-faint)}
+  .door .dtitle{font-family:var(--serif);font-size:19px;font-weight:600;color:#fff;margin-bottom:5px;letter-spacing:-.01em}
+  .door .ddesc{font-size:13px;line-height:1.5;color:var(--on-navy-soft)}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;align-items:start}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:.18s}
+  main{max-width:1120px;margin:0 auto;padding:0 22px 90px}
+
+  /* section header */
+  .sec{padding-top:50px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 7px}
+  .sec-head .num{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--orange-deep)}
+  .sec-head h2{font-size:clamp(25px,3.3vw,36px);letter-spacing:-.02em;margin:0}
+  .sec-intro{color:var(--ink-soft);font-size:16.5px;line-height:1.6;max-width:64ch;margin:8px 0 30px}
+
+  /* results banner */
+  .results-note{padding:24px 0 4px;display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
+  .results-note .rc{font-family:var(--serif);font-size:24px;font-weight:600}
+  .results-note .rq{color:var(--ink-soft);font-size:14.5px}
+  .clear-btn{margin-left:auto;background:none;border:1px solid var(--line);color:var(--ink-soft);padding:7px 14px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:500;cursor:pointer}
+  .clear-btn:hover{border-color:var(--orange);color:var(--orange-deep)}
+
+  /* cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(335px,1fr));gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px;box-shadow:var(--shadow)}
   .card.wide{grid-column:1/-1}
-  .card:hover{transform:translateY(-2px);box-shadow:0 2px 6px rgba(28,34,48,.08),0 14px 34px rgba(28,34,48,.10)}
-  .card .kicker{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:3px 9px;border-radius:6px;margin-bottom:11px}
-  .k-overview,.k-day1{background:#e9eef2;color:var(--blue)}
-  .k-day2{background:#f3e0d6;color:var(--accent)}
-  .k-day3{background:#e7f0e7;color:var(--green)}
-  .k-day4{background:#f6eccf;color:#9a7414}
-  .k-frameworks{background:#ece6f2;color:var(--purple)}
-  .k-glossary{background:#e7eef0;color:var(--teal)}
-  .k-voices{background:#f0e6e2;color:var(--accent)}
-  .k-resources{background:#e2eef0;color:var(--teal)}
-  .card h3{font-size:19px;margin:0 0 9px}
-  .card p{margin:0 0 10px;font-size:15px;color:var(--ink-soft)}
-  .card p:last-child{margin-bottom:0}
-  .card ul{margin:0 0 10px;padding-left:18px;color:var(--ink-soft);font-size:15px}
-  .card li{margin-bottom:5px}
-  .quote{border-left:3px solid var(--accent);padding:4px 0 4px 14px;font-style:italic;color:var(--ink);margin:12px 0;font-size:15px}
-  .who{display:block;font-style:normal;font-weight:600;font-size:13px;color:var(--ink-soft);margin-top:6px}
-  .figure{margin:4px 0 14px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px}
-  .figure svg{display:block;width:100%;height:auto}
-  .figure img{display:block;width:100%;height:auto;border-radius:6px}
-  .figcap{font-size:12px;color:var(--ink-soft);margin-top:8px;text-align:center;font-style:italic}
-  .qa{font-size:14px;color:var(--ink-soft);margin:0 0 8px}
-  .qa b{color:var(--ink)}
-  .reslink{display:flex;align-items:baseline;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
-  .reslink:last-child{border-bottom:none}
-  .reslink .dot{color:var(--accent);font-weight:700}
-  .reslink small{display:block;color:var(--ink-soft);font-size:13px}
-  .note-flag{font-size:13px;color:#9a7414;background:#f6eccf;border-radius:8px;padding:8px 12px;margin-top:12px}
-  .pill{display:inline-block;font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:2px 9px;border-radius:999px;margin-top:10px;cursor:pointer}
-  .no-results{display:none;text-align:center;padding:60px 20px;color:var(--ink-soft)}
-  mark{background:#ffe7a8;padding:0 2px;border-radius:3px}
-  footer{max-width:1080px;margin:0 auto;padding:0 22px 60px;color:var(--ink-soft);font-size:13.5px}
-  footer hr{border:none;border-top:1px solid var(--line);margin:0 0 18px}
-  @media(max-width:560px){.grid{grid-template-columns:1fr}header{padding:32px 18px 24px}}
+  .kicker{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:9px}
+  .card h3{font-size:20px;margin:0 0 9px}
+  .card p{margin:0 0 11px;font-size:15px}
+  .card ul,.card ol{margin:0 0 11px;padding-left:18px;font-size:15px}
+  .card li{margin:5px 0}
+  .card b{color:var(--ink)}
+  .card .quote{border-left:3px solid var(--orange);background:var(--orange-tint);padding:13px 15px;border-radius:0 10px 10px 0;font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink);margin:13px 0 4px}
+  .card .quote .who{display:block;font-style:normal;font-family:var(--sans);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--orange-deep);margin-top:9px}
+  .figure{margin:2px 0 14px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .figure img{display:block;width:100%}
+  .figure svg{display:block;width:100%;height:auto;background:#fff}
+  .figcap{font-size:12px;color:var(--ink-faint);padding:7px 12px;border-top:1px solid var(--line-soft)}
+  .note-flag{margin-top:10px;font-size:13px;color:var(--ink-soft);background:#eef3fa;border:1px dashed var(--line);border-radius:8px;padding:9px 11px}
+  .pill{display:inline-block;margin-top:6px;font-size:12.5px;font-weight:600;color:var(--navy);background:#e7eef9;border:1px solid #d4e0f1;border-radius:999px;padding:5px 11px;cursor:pointer}
+  .pill:hover{background:var(--orange-tint);border-color:var(--orange);color:var(--orange-deep)}
+
+  /* glossary */
+  .gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(305px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .gcell{background:#fff;padding:18px 21px}
+  .gterm{font-family:var(--serif);font-size:17.5px;font-weight:600;color:var(--ink);margin-bottom:6px}
+  .gdef{color:var(--ink-soft);font-size:14px;line-height:1.58}
+
+  /* voices */
+  .voices{column-count:3;column-gap:26px}
+  .voice{break-inside:avoid;margin:0 0 24px;padding-left:16px;border-left:3px solid var(--orange)}
+  .voice blockquote{margin:0 0 9px;font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.4;color:var(--ink)}
+  .voice figcaption{font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--orange-deep)}
+  @media(max-width:900px){.voices{column-count:2}}
+  @media(max-width:600px){.voices{column-count:1}}
+
+  /* qa accordion */
+  .qa{border-top:1px solid var(--line)}
+  .qa-item{border-bottom:1px solid var(--line)}
+  .qa-q{width:100%;text-align:left;background:none;border:0;cursor:pointer;padding:17px 4px;display:flex;gap:15px;align-items:flex-start;font-family:inherit}
+  .qa-sign{flex-shrink:0;font-family:var(--serif);font-size:22px;line-height:1;color:var(--orange-deep);width:16px;margin-top:1px}
+  .qa-qt{font-size:16px;font-weight:600;line-height:1.45;color:var(--ink)}
+  .qa-a{padding:0 4px 20px 35px;color:var(--ink-soft);font-size:15px;line-height:1.65;max-width:74ch}
+
+  /* prompts */
+  .pgroup{margin-bottom:26px}
+  .pgroup-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--orange-deep);margin-bottom:11px}
+  .prow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 15px;margin-bottom:10px}
+  .prow p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink);font-family:var(--serif)}
+  .copy-btn{flex-shrink:0;background:var(--navy);color:#fff;border:0;padding:8px 14px;border-radius:8px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap;min-width:82px}
+  .copy-btn:hover{background:var(--orange-deep)}
+
+  /* resources */
+  .rgroup{margin-bottom:34px}
+  .rgroup-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--orange-deep);margin-bottom:4px}
+  .rlist{border-top:1px solid var(--line)}
+  .rrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:15px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+  .rrow:hover{background:#fff}
+  .rtitle{font-family:var(--serif);font-size:17.5px;font-weight:600;color:var(--ink)}
+  .rflag{font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#fff;background:var(--orange-deep);padding:2px 8px;border-radius:999px;margin-left:9px;vertical-align:middle}
+  .rdesc{color:var(--ink-soft);font-size:14px;line-height:1.5;margin-top:3px}
+  .rhost{color:var(--orange-deep);font-size:13.5px;font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:5px}
+
+  /* access */
+  .access-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:24px}
+  .acard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+  .acard .ico{font-size:22px;margin-bottom:12px}
+  .acard h3{font-size:18px;margin:0 0 9px;line-height:1.25}
+  .acard p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.6}
+  .access-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+  .apanel{border:1px solid var(--line);border-radius:14px;padding:25px;background:#fff}
+  .apanel h3{font-size:19px;margin:0 0 16px}
+  .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+  .steps li{display:flex;gap:12px;font-size:14px;line-height:1.5;color:var(--ink-soft)}
+  .steps .sn{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--navy);color:#fff;font-size:11.5px;font-weight:700;display:grid;place-items:center}
+  .steps b{color:var(--ink)}
+
+  /* no results */
+  .no-results{text-align:center;padding:70px 20px}
+  .no-results .nh{font-family:var(--serif);font-size:26px;font-weight:600;margin-bottom:8px}
+  .no-results p{color:var(--ink-soft);font-size:15px;margin:0 0 22px}
+  .no-results button{background:var(--navy);color:#fff;border:0;padding:11px 22px;border-radius:10px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}
+
+  /* footer */
+  footer.site{background:var(--navy);color:var(--on-navy)}
+  .foot-wrap{max-width:1120px;margin:0 auto;padding:56px 22px 52px}
+  .foot-eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:10px}
+  .foot-wrap h2{color:#fff;font-size:clamp(23px,3vw,33px);letter-spacing:-.02em;margin:0 0 13px;max-width:24ch}
+  .foot-lede{color:var(--on-navy-soft);font-size:15px;line-height:1.6;max-width:58ch;margin:0 0 30px}
+  .facils{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;border-top:1px solid var(--navy-line);padding-top:30px}
+  .facil .fname{font-family:var(--serif);font-size:20px;font-weight:600;color:#fff;margin-bottom:3px}
+  .facil .frole{color:var(--on-navy-soft);font-size:13px;margin-bottom:12px}
+  .facil a{display:block;color:var(--on-navy);font-size:14px;margin-bottom:6px;text-decoration:none}
+  .facil a:hover{color:#fff;text-decoration:underline}
+  .foot-note{color:var(--on-navy-faint);font-size:12.5px;margin:34px 0 0;line-height:1.6}
+
+  @media(max-width:760px){ .head-wrap{padding:11px 16px} main{padding:0 16px 70px} .hero-wrap{padding:44px 16px 42px} }
 </style>
 </head>
 <body>
-<header>
+
+<header class="site">
   <div class="head-wrap">
-    <div class="eyebrow">UT Martin · Dual Enrollment · Summer 2026</div>
-    <h1>AI Leadership Academy — Field Guide</h1>
-    <p>Your reference for everything we covered. Come back anytime with a question — search the whole academy, revisit a day, look up a term, hear what the cohort said, or grab the slides and tools. Facilitated by Connor Koblinski with AI Educators.</p>
+    <a class="brand" href="#" id="brandLink">
+      <span class="badge">U</span>
+      <span class="word">AI Field Guide<span> · UT Martin</span></span>
+    </a>
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8995ab" stroke-width="2.2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+      <input id="search" type="search" placeholder="Search everything…" autocomplete="off" aria-label="Search the field guide">
+    </div>
   </div>
 </header>
 
-<nav>
-  <div class="nav-wrap">
-    <div class="tabs" id="tabs"></div>
-    <div class="search-box">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="search" type="search" placeholder="Search the whole academy…" autocomplete="off">
-    </div>
-  </div>
-</nav>
+<div class="tabs"><div class="tabs-wrap" id="tabs"></div></div>
+
+<div id="hero"></div>
 
 <main>
-  <div class="section-intro" id="intro"></div>
-  <div class="deck-strip" id="deckStrip"></div>
-  <div class="results-note" id="resultsNote"></div>
-  <div class="grid" id="grid"></div>
-  <div class="no-results" id="noResults">
-    <h3>Nothing matched that search.</h3>
-    <p>Try a broader term — like <em>offloading</em>, <em>policy</em>, <em>hybrid</em>, or <em>NotebookLM</em>.</p>
-  </div>
+  <div id="content"></div>
 </main>
 
-<footer>
-  <hr>
-  <p><b>About this guide.</b> Built from the academy's slide decks, session transcripts, live chat, and the Day&nbsp;3 feedback survey. Slide images are pulled from the original decks; some concept diagrams are clean illustrations of the ideas as taught. Day&nbsp;4's showcase reflections can be folded in later. Materials by AI Educators.</p>
+<footer class="site">
+  <div class="foot-wrap">
+    <div class="foot-eyebrow">Your facilitators</div>
+    <h2>We're a message away — keep building.</h2>
+    <p class="foot-lede">The thing you asked for most was time and someone to ask. Reach out anytime — that's what we're here for.</p>
+    <div class="facils">
+      <div class="facil">
+        <div class="fname">Connor Koblinski</div>
+        <div class="frole">Facilitator · AI Educators</div>
+        <a href="https://www.linkedin.com/in/connor-koblinski/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://calendly.com/ckoblinski/catchup" target="_blank" rel="noopener">Book a catch-up ↗</a>
+      </div>
+      <div class="facil">
+        <div class="fname">Neesha Nanda</div>
+        <div class="frole">Facilitator · AI Educators</div>
+        <a href="mailto:Neesha@AIEducators.AI">Neesha@AIEducators.AI</a>
+        <a href="https://www.linkedin.com/in/neesha-nanda/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="facil">
+        <div class="fname">Samantha Gleisten</div>
+        <div class="frole">Facilitator · AI Educators</div>
+        <a href="mailto:Sam@AIEducators.AI">Sam@AIEducators.AI</a>
+        <a href="https://www.linkedin.com/in/samantha-gleisten/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <p class="foot-note">Built for the UT Martin AI Leadership Academy. Quotes and questions are drawn from the cohort's own session chats and transcripts, attributed by first name. A few items are worth confirming with OIT before sharing widely — whether PII is protected in Gemini-direct vs. UT Verse, and whether @utm.edu-only accounts get the premium tools. Colors are UT Martin navy (#002a5b) and orange (#f79728).</p>
+  </div>
 </footer>
 
 <script>
@@ -156,38 +263,6 @@ floor:`<svg viewBox="0 0 340 180" xmlns="http://www.w3.org/2000/svg" role="img" 
 </svg>`
 };
 
-/* Per-day slide-deck embeds. Paste a Google Drive /preview link as `embed`
-   and a normal share link as `link` to light these up. */
-const DECKS = {
-  day1:{title:"Day 1 — AI Literacy", embed:"", link:""},
-  day2:{title:"Day 2 — AI & Assessment", embed:"", link:""},
-  day3:{title:"Day 3 — Build with AI", embed:"", link:""},
-  day4:{title:"Day 4 — How Would You React", embed:"", link:""}
-};
-
-const SECTIONS = [
-  {id:"overview",   label:"Overview"},
-  {id:"day1",       label:"Day 1 · Literacy"},
-  {id:"day2",       label:"Day 2 · Assessment"},
-  {id:"day3",       label:"Day 3 · Build"},
-  {id:"day4",       label:"Day 4 · Showcase"},
-  {id:"frameworks", label:"Frameworks"},
-  {id:"glossary",   label:"Glossary"},
-  {id:"voices",     label:"Voices"},
-  {id:"resources",  label:"Resources"}
-];
-
-const INTROS = {
-  overview:{h:"Start here",p:"The academy moved from literacy, to assessment, to building, to showing the work. This guide keeps the ideas, vocabulary, frameworks, materials, and the cohort's own voices in one searchable place so you can pull on any of it later."},
-  day1:{h:"Day 1 — AI Literacy",p:"The shared vocabulary for what AI is and how it behaves, plus the moves that let you see what students see."},
-  day2:{h:"Day 2 — Assessment in the Age of AI",p:"Two questions run through the day: how do we protect the learning AI makes easy to skip — and what does the research actually show? Four assessment postures, three personal responses, and the evidence behind why grading has to change."},
-  day3:{h:"Day 3 — Build with AI",p:"Turning AI into something your students experience: the grid for deciding where to trust, and the kinds of things worth building."},
-  day4:{h:"Day 4 — Showcase + Policy",p:"Presenting the work, responding to peers, and leaving with your own laws and classroom policy."},
-  frameworks:{h:"The frameworks, in full",p:"The mental models that recur across the academy — drawn out so you can use them, not just remember them."},
-  glossary:{h:"Vocabulary",p:"The terms we used, in plain language. Search above to jump straight to one."},
-  voices:{h:"Voices from the cohort",p:"Real questions, answers, and reflections from the room — the things people actually asked and noticed."},
-  resources:{h:"Slides, tools & resources",p:"The session decks, the AI tools we used, UT policy, the keep-after resource pack, and people worth following."}
-};
 
 const ITEMS = [
   /* ---------- OVERVIEW ---------- */
@@ -554,80 +629,418 @@ const ITEMS = [
    tags:["people","follow","Tina Austin","unblooms","Jason Gulya","Leon Furze","linkedin"]}
 ];
 
-/* render + search */
-const grid=document.getElementById("grid");
-const tabsEl=document.getElementById("tabs");
-const intro=document.getElementById("intro");
-const deckStrip=document.getElementById("deckStrip");
-const note=document.getElementById("resultsNote");
-const noRes=document.getElementById("noResults");
-const searchEl=document.getElementById("search");
+
+/* ============================================================
+   Section model + intros
+   ============================================================ */
+const SECTIONS = [
+  {id:"overview", label:"Start"},
+  {id:"day1", label:"Day 1 · Literacy", n:"01"},
+  {id:"day2", label:"Day 2 · Assessment", n:"02"},
+  {id:"day3", label:"Day 3 · Build", n:"03"},
+  {id:"day4", label:"Day 4 · Showcase", n:"04"},
+  {id:"frameworks", label:"Frameworks", n:"05"},
+  {id:"evidence", label:"Evidence", n:"06"},
+  {id:"qa", label:"Q&A", n:"07"},
+  {id:"prompts", label:"Prompts", n:"08"},
+  {id:"glossary", label:"Glossary", n:"09"},
+  {id:"voices", label:"Voices", n:"10"},
+  {id:"resources", label:"Resources", n:"11"},
+  {id:"access", label:"Access", n:"12"}
+];
+
+const INTROS = {
+  day1:{h:"Day 1 — AI Literacy", p:"A working understanding of what AI is and how it behaves — the vocabulary and the moves that let you see what your students see."},
+  day2:{h:"Day 2 — Assessment in the Age of AI", p:"Two questions run through the day: how do we protect the learning AI makes easy to skip — and what does the evidence show? Four assessment postures, three personal responses, and why grading has to change."},
+  day3:{h:"Day 3 — Build with AI", p:"Turning AI into something your students experience — the grid for deciding where to trust it, and the kinds of things worth building."},
+  day4:{h:"Day 4 — Showcase + Policy", p:"Presenting the work, responding to peers, and leaving with your own laws and a classroom policy."},
+  frameworks:{h:"The frameworks, in full", p:"The mental models that recur across the academy — drawn out so you can use them, not just remember them."},
+  evidence:{h:"What the research shows", p:"The studies behind the stance — what actually happens to learning, productivity, and skill when AI enters the room."},
+  qa:{h:"Questions you actually asked", p:"Real questions from the chat, with the answers that came back. Tap any one to open it."},
+  prompts:{h:"Prompt starters", p:"Steal these and tweak them. The golden rule from the call: start basic, then narrow — add detail as you go. Tap Copy, then replace anything in [brackets]."},
+  glossary:{h:"Plain-English glossary", p:"Every term that flew by on the calls, defined the way we actually talked about it."},
+  voices:{h:"Voices from the cohort", p:"The lines worth keeping — what this room said to each other while figuring it out in real time."},
+  resources:{h:"Resource library", p:"Every link worth keeping — official UT tools, the apps we touched, the policies that govern this, and the people whose thinking is worth following."},
+  access:{h:"Access & setup", p:"Only need this once. The things people trip on, where to get unblocked, and how to get into UT Verse step by step."}
+};
+
+/* ============================================================
+   Hub data (from the reference design + session transcripts)
+   ============================================================ */
+const QA = [
+  {q:"Gemini is asking for my Social Security number — is that right?", a:"No. That request comes from gemini.com, a crypto-exchange site, not Google's AI. Use gemini.google.com/app and sign in with your tennessee.edu account. Never give any AI tool your SSN."},
+  {q:"Which login do I use — @utm.edu or @tennessee.edu?", a:"@tennessee.edu. The premium AI tiers are tied to that address; signing in with @utm.edu may quietly drop you to the free tier."},
+  {q:"Do students have access to the AI Hub?", a:"The AI Hub itself is for faculty and staff. But students do have access to Gemini and the wider Google Suite through their tennessee.edu accounts."},
+  {q:"Can AI pull real, direct quotes from sources — or does it make them up?", a:"Both. It can quote sources it's actually allowed to access — some facilitators put that instruction directly in their custom instructions. But it can also fabricate plausible-looking quotes and citations. Always verify a quote or source before you rely on it."},
+  {q:"We're a Microsoft campus, not Google — can I still see a 'paper trail' of a student's drafts?", a:"Yes. Brisk now works with Word, OneDrive, and Edge, and Word's built-in Version History and Track Changes show a document's evolution natively. On Google, a Doc's version history does the same."},
+  {q:"Can AI actually read a PDF now?", a:"Yes — it's much better at it than it used to be. If a model struggles, ask it directly what it can and can't read. (Claude's PDF-support doc is linked in Resources.)"},
+  {q:"Are there resources to help me write better prompts?", a:"Yes — see the Prompt starters section. The key tip from the call: start with a basic prompt, then narrow it by adding detail as you go. You don't need one giant, perfect prompt up front."},
+  {q:"Is there a more environmentally friendly model?", a:"Look at Thaura (thaura.ai). For the bigger picture, the MIT Technology Review piece on AI's energy footprint (in Resources) is a detailed, honest read."},
+  {q:"What's the difference between a Project, a GPT, and a Gem?", a:"Same idea on three platforms: a reusable setup for a task you do over and over in different contexts, so you don't have to re-explain it each time. Project = Claude, GPT = ChatGPT, Gem = Gemini."},
+  {q:"How do I get math output that isn't written in code?", a:"Tell the model how you want it shown. For example, ask Gemini to solve the problem 'using a TI-84 calculator,' or to format the steps in plain notation rather than code."},
+  {q:"Can I see student logs if I suspect an essay was AI-generated?", a:"On Google, use a Doc's version history. On Microsoft, use Word's Version History / Track Changes, or Brisk. None of this is proof on its own — treat it as one signal among several."},
+  {q:"Can I sell what I create on Teachers Pay Teachers?", a:"Yes. As Neesha put it: welcome to the creator economy — be audacious. If you spend the time to build something good, you can absolutely share or sell it."},
+  {q:"Does AI use count as an accommodation on a 504 or IEP?", a:"In various forms it already does — voice-to-text is a long-standing example. Expect this conversation to grow as tools mature."},
+  {q:"What does 'deep research' actually give me?", a:"Think of it as a PhD-level researcher you can point at almost anything: it works longer, digs deeper, and cites more than a normal chat. Just watch your monthly deep-research cap."},
+  {q:"Is it ethical to let AI grade from my rubric?", a:"The sharper move is to stay the grader and use AI to check your consistency: voice-to-text your feedback into the rubric, then hand all the rubrics to AI and ask 'where might I have been biased?' It flags drift — a 5 on one intro, a 7.5 on an equivalent one — including the first-paper-strict, last-paper-tired problem."}
+];
+
+const PROMPTS = [
+  {group:"Email & writing", text:"Write a routine email (“Thanks for attending…”) from these bullet-point notes: [paste notes]."},
+  {group:"Email & writing", text:"Summarize this into an abstract for [specific audience]: [paste text]."},
+  {group:"Email & writing", text:"Give me feedback on this document for tone, spelling, and content: [paste]."},
+  {group:"Email & writing", text:"Coach me on writing in a [plain / formal / persuasive] style — show me what to change and why."},
+  {group:"Documents & data", text:"Turn this transcript into a list of action items with owners: [paste or attach the file]."},
+  {group:"Documents & data", text:"Give me a spreadsheet that shows [the data or insight you want to see]."},
+  {group:"Documents & data", text:"What macro do I type to make this spreadsheet [do the thing you need]?"},
+  {group:"Documents & data", text:"Explain this in plain English for [your context]: [paste the jargon-heavy text]."},
+  {group:"Teaching & course prep", text:"Write 10 start-of-semester survey questions for dual-enrollment students to learn their background and how they feel about the course."},
+  {group:"Teaching & course prep", text:"Suggest readings about [topic] for my course that include more diverse perspectives."},
+  {group:"Teaching & course prep", text:"Summarize these articles and give me the main themes for a reading guide: [attach]."},
+  {group:"Teaching & course prep", text:"Build me a test bank of [n] questions on [topic] at [level], with answer keys."},
+  {group:"Make it specific (a model prompt)", text:"Give me four examples for a lecture on solving logarithmic equations. They must show the product, quotient, and power rules; at least one must have extraneous solutions; and include examples where solutions are negative, since students assume a negative x is automatically extraneous."}
+];
+const PROMPT_ORDER = ["Email & writing","Documents & data","Teaching & course prep","Make it specific (a model prompt)"];
+
+const RESOURCES = [
+  {group:"Course home", title:"AI Educators — Async Resource Hub", host:"aieducators.tools", url:"https://www.aieducators.tools/course/ut-martin-ai-leadership-academy-async-resource-hub", desc:"The academy's course home and keep-after materials. Click 'Register for Free' to enter."},
+  {group:"Official UT", title:"UT AI Hub", host:"aihub.tennessee.edu", url:"https://aihub.tennessee.edu", desc:"UT's official home for AI guides, tutorials, and workshops. Faculty & staff."},
+  {group:"Official UT", title:"UT AI Hub — direct login", host:"aihub.tennessee.edu/auth", url:"https://aihub.tennessee.edu/auth/jwt/login", desc:"The sign-in link if the hub doesn't log you straight in."},
+  {group:"Official UT", title:"UT Verse", host:"utverse.tennessee.edu", url:"https://utverse.tennessee.edu", desc:"UT's own AI platform — what you type stays inside UT. Chat directly, build agents, generate audio."},
+  {group:"AI tools", title:"Gemini", host:"gemini.google.com", url:"https://gemini.google.com/app", desc:"Google's model — you have access via your tennessee.edu account.", flag:"Not gemini.com"},
+  {group:"AI tools", title:"ChatGPT", host:"chatgpt.com", url:"https://chatgpt.com", desc:"OpenAI's model. A friendly first stop if another tool gives you trouble."},
+  {group:"AI tools", title:"Claude", host:"claude.ai", url:"https://claude.ai", desc:"Anthropic's model — strong at writing, reasoning, building artifacts, and reading PDFs. Some features live only in the downloaded app."},
+  {group:"AI tools", title:"NotebookLM", host:"notebooklm.google.com", url:"https://notebooklm.google.com", desc:"Turn your own sources into study guides, quizzes, and podcast-style audio. You stay in control of the sources; UT accounts get premium."},
+  {group:"AI tools", title:"Brisk Teaching", host:"briskteaching.com", url:"https://www.briskteaching.com", desc:"See a 'paper trail' of student drafts. Now works with Word, OneDrive, and Edge — not just Google Docs."},
+  {group:"AI tools", title:"SchoolAI", host:"schoolai.com", url:"https://schoolai.com", desc:"Classroom-focused AI spaces and assistants for students, with teacher oversight."},
+  {group:"AI tools", title:"Playlab", host:"playlab.ai", url:"https://www.playlab.ai", desc:"Build and share simple classroom AI apps without code."},
+  {group:"AI tools", title:"Thaura", host:"thaura.ai", url:"https://thaura.ai", desc:"A more environmentally friendly AI model — worth a look if energy footprint is a concern."},
+  {group:"Policy & guidance", title:"UT Policy BT0035 — Artificial Intelligence", host:"policy.tennessee.edu", url:"https://policy.tennessee.edu/policy/bt0035-policy-on-artificial-intelligence/", desc:"The UT System's governing policy on appropriate, compliant AI use."},
+  {group:"Policy & guidance", title:"OIT Guidance Chart for Using AI Tools", host:"oit.utk.edu/ai-matrix", url:"https://oit.utk.edu/ai-matrix", desc:"The 'AI matrix' — what's okay to put into which tool, at a glance."},
+  {group:"Policy & guidance", title:"OIT — AI at UT: what you need to know", host:"oit.utk.edu", url:"https://oit.utk.edu/news/artificial-intelligence-at-ut-what-you-need-to-know/", desc:"Plain-language guidance for using AI applications across UT."},
+  {group:"Policy & guidance", title:"Claude — PDF support docs", host:"platform.claude.com", url:"https://platform.claude.com/docs/en/build-with-claude/pdf-support", desc:"How Claude reads PDFs — useful if a model says it can't open your document."},
+  {group:"People worth following", title:"Jason Gulya", host:"linkedin.com", url:"https://www.linkedin.com/in/jason-gulya/", desc:"Process-focused assessment — rethinking how we grade in an AI world. Has a book in the works."},
+  {group:"People worth following", title:"Leon Furze", host:"linkedin.com", url:"https://www.linkedin.com/in/leonfurze/", desc:"Practical, ethics-forward writing on AI in education; creator of the AI Assessment Scale."},
+  {group:"People worth following", title:"Tina Austin", host:"tinaaustin.com", url:"https://tinaaustin.com/bio/", desc:"AI and learning design; author of the UnBlooms reworking of Bloom's Taxonomy."},
+  {group:"People worth following", title:"Paul Matthews", host:"linkedin.com", url:"https://www.linkedin.com/in/paulmatthewsai/", desc:"AI literacy and adoption for educators and teams."},
+  {group:"People worth following", title:"Joanna Penn — The Creative Penn", host:"thecreativepenn.com", url:"https://www.thecreativepenn.com/", desc:"A pro-AI but deeply ethical voice for writers. Her podcast covers AI in the writing craft."},
+  {group:"Worth a read", title:"MIT Technology Review — AI's energy footprint", host:"technologyreview.com", url:"https://www.technologyreview.com/", desc:"'We did the math on AI's energy footprint' — a detailed look at the cost, energy, and carbon behind everyday queries."}
+];
+const RES_ORDER = ["Course home","Official UT","AI tools","Policy & guidance","People worth following","Worth a read"];
+
+const VOICES = [
+  {quote:"The 10,000 hours don't disappear. AI just changes the gym.", who:"Matt"},
+  {quote:"It gives knowledge without wisdom.", who:"Roberto"},
+  {quote:"It feels like the Wild West right now, and we're really scrambling to put in fences.", who:"Lauren"},
+  {quote:"We're not only building the plane while we're flying — we're learning how to build the airplane, too.", who:"Roberto"},
+  {quote:"A framework gives us shared language and guardrails while we're all still learning to build the plane.", who:"Matt"},
+  {quote:"Expertise is still incredibly important.", who:"Sam"},
+  {quote:"Being willing to co-learn with our students is everything.", who:"Sam"},
+  {quote:"Discomfort is a hallmark of learning. A feature, not a bug.", who:"Neesha"},
+  {quote:"I explore every day. Like the Wanderer in the Sea of Fog.", who:"Matt"},
+  {quote:"You learn math by doing math. AI kind of switched that to people trying to learn math by watching math.", who:"John"},
+  {quote:"AI is creating creators. Welcome to the creator economy — be audacious.", who:"Neesha"},
+  {quote:"Still gotta know how to drive the forklift, though.", who:"Michael"},
+  {quote:"If you can't do it, you have to beat it.", who:"Matt's son"},
+  {quote:"What we do NOT want points us toward what we DO want.", who:"Neesha"},
+  {quote:"My students are afraid to use dashes now because they see AI uses them frequently.", who:"Kelly"},
+  {quote:"If I start reading something fair, balanced, and positive… it's likely AI.", who:"Shawn"},
+  {quote:"I'm looking for hooks to hang my hat on while navigating a language that doesn't come naturally to me.", who:"Natasha"},
+  {quote:"Writing is like quilting: you learn the basic machine first, before you trust a fancier one.", who:"Pamela"},
+  {quote:"Deep Research gives you a PhD-level researcher to research anything.", who:"Neesha"},
+  {quote:"This really seems like it's becoming a virtual Ship of Theseus.", who:"Roberto"},
+  {quote:"What we've broadly offloaded has directly affected our capacity for memory and attention.", who:"Lauren"},
+  {quote:"Don't build more AI slop they can find everywhere else — build what's unique to your class.", who:"Shawn"},
+  {quote:"You gotta be smarter than your calculator.", who:"Dana"},
+  {quote:"AI cannot doubt itself, and doubt is one of our greatest tools in this age of certainty.", who:"Connor"},
+  {quote:"'It's going to replace' is completely wrong. It's morphing it — like the telephone operator.", who:"April"},
+  {quote:"It never had that level of human touch. You still needed the human.", who:"Sam"},
+  {quote:"The algorithm pulls you toward the statistical mean — AI gives you the average expected next token.", who:"Connor"}
+];
+
+/* Glossary from the reference, merged below with the day-by-day glossary cards */
+const GLOSS_REF = [
+  {term:"Project / GPT / Gem", def:"A saved, reusable assistant for a task you repeat. Project (Claude), GPT (ChatGPT), Gem (Gemini) — all the same idea."},
+  {term:"Deep Research", def:"A mode where the model researches a question in depth and returns a sourced report. 'A PhD-level researcher for anything.'"},
+  {term:"NotebookLM", def:"Google tool that turns your own sources into summaries, study guides, quizzes, and podcast-style audio. You stay in control of what it draws from."},
+  {term:"TwinWave Studio", def:"UT Verse's audio studio: source material in, podcast-style audio out — UT's NotebookLM-style feature."},
+  {term:"UT Verse Direct", def:"Chat straight with a model (GPT, Claude, Gemini) inside UT, where your input stays private."},
+  {term:"AI Assistant", def:"UT Verse's guided, task-organized way in: Search & Research, Documents & Data, Create & Build."},
+  {term:"Token", def:"The unit of text a model reads and writes. Your monthly cap is counted in tokens, so long chats and big files use more."},
+  {term:"PII", def:"Personally Identifiable Information — names, IDs, grades, anything that identifies a student. Never paste it into a public AI tool."},
+  {term:"Atrophy vs. foreclosure", def:"Atrophy: an adult's existing skill weakening from disuse. Foreclosure: a child never building the skill in the first place."},
+  {term:"LLM", def:"Large Language Model — the kind of AI (GPT, Claude, Gemini) that predicts text. Great at language tasks; blind to anything outside its training or your sources."},
+  {term:"Claude Co-Work / Skills", def:"Claude features for running multi-step work and reusable capabilities. Some live only in the downloaded Claude app."}
+];
+
+/* ============================================================
+   Derive cards + merged glossary from the spliced ITEMS
+   ============================================================ */
+const CARD_SECTIONS = ["overview","day1","day2","day3","day4","frameworks","evidence"];
+const EVIDENCE_TITLES = new Set([
+  "What the research actually shows",
+  "The perception gap: feeling faster while going slower"
+]);
+ITEMS.forEach(it=>{ if(EVIDENCE_TITLES.has(it.t)) it.s="evidence"; });
+const CARDS = ITEMS.filter(it=>CARD_SECTIONS.includes(it.s));
+
+function stripTags(s){return (s||"").replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim();}
+const GLOSSARY = (function(){
+  const fromItems = ITEMS.filter(it=>it.s==="glossary").map(it=>({term:it.t, def:stripTags(it.body)}));
+  const seen={}, out=[];
+  GLOSS_REF.concat(fromItems).forEach(g=>{ const k=g.term.toLowerCase(); if(!seen[k]){seen[k]=1; out.push(g);} });
+  out.sort((a,b)=>a.term.toLowerCase().localeCompare(b.term.toLowerCase()));
+  return out;
+})();
+
+/* ============================================================
+   Search text per kind
+   ============================================================ */
+function cardText(it){ return [it.k,it.t,stripTags(it.body),(it.tags||[]).join(" ")].join(" ").toLowerCase(); }
+function qaText(x){ return (x.q+" "+x.a).toLowerCase(); }
+function promptText(x){ return (x.group+" "+x.text).toLowerCase(); }
+function glossText(x){ return (x.term+" "+x.def).toLowerCase(); }
+function voiceText(x){ return (x.quote+" "+x.who).toLowerCase(); }
+function resText(x){ return [x.group,x.title,x.desc,x.host,x.flag||""].join(" ").toLowerCase(); }
+const ACCESS_BLOB = "access setup login tennessee.edu utm.edu monthly usage limit token deep research pii private oit office of innovative technologies ai hub ut verse direct ai assistant agent twinwave duo gemini get unblocked".toLowerCase();
+
+/* ============================================================
+   Renderers
+   ============================================================ */
+function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");}
+function hl(html,q){ if(!q)return html; const re=new RegExp("("+esc(q)+")","ig");
+  return html.replace(/>([^<]+)</g,(m,t)=>">"+t.replace(re,"<mark>$1</mark>")+"<"); }
+
+function figHTML(it){
+  if(it.img && typeof IMG!=="undefined" && IMG[it.img])
+    return '<div class="figure"><img src="'+IMG[it.img]+'" alt="'+it.t+'"><div class="figcap">From the session slides</div></div>';
+  if(it.fig) return '<div class="figure">'+it.fig+'</div>';
+  return "";
+}
+function cardHTML(it,q){
+  let h='<div class="card'+(it.wide?" wide":"")+'">';
+  h+='<span class="kicker">'+it.k+'</span>';
+  h+='<h3>'+it.t+'</h3>';
+  h+='%%FIG%%';
+  if(it.body) h+=it.body;
+  if(it.note) h+='<div class="note-flag">'+it.note+'</div>';
+  h+='</div>';
+  if(q) h=hl(h,q);
+  h=h.replace("%%FIG%%", figHTML(it));
+  return h;
+}
+function glossHTML(list,q){
+  let h='<div class="gloss">';
+  list.forEach(g=>{ h+='<div class="gcell"><div class="gterm">'+g.term+'</div><div class="gdef">'+g.def+'</div></div>'; });
+  h+='</div>';
+  return q?hl(h,q):h;
+}
+function voicesHTML(list,q){
+  let h='<div class="voices">';
+  list.forEach(v=>{ h+='<figure class="voice"><blockquote>“'+v.quote+'”</blockquote><figcaption>'+v.who+'</figcaption></figure>'; });
+  h+='</div>';
+  return q?hl(h,q):h;
+}
+function qaHTML(list,q){
+  let h='<div class="qa">';
+  list.forEach(x=>{
+    const open=!!openQA[x._id];
+    h+='<div class="qa-item"><button class="qa-q" data-qa="'+x._id+'"><span class="qa-sign">'+(open?"–":"+")+'</span><span class="qa-qt">'+x.q+'</span></button>';
+    if(open) h+='<div class="qa-a">'+x.a+'</div>';
+    h+='</div>';
+  });
+  h+='</div>';
+  return q?hl(h,q):h;
+}
+function promptsHTML(list,q){
+  let h="";
+  PROMPT_ORDER.forEach(label=>{
+    const items=list.filter(p=>p.group===label);
+    if(!items.length) return;
+    h+='<div class="pgroup"><div class="pgroup-label">'+label+'</div>';
+    items.forEach(p=>{
+      const copied=copiedId===p._id;
+      h+='<div class="prow"><p>'+p.text+'</p><button class="copy-btn" data-copy="'+p._id+'">'+(copied?"Copied ✓":"Copy")+'</button></div>';
+    });
+    h+='</div>';
+  });
+  return q?hl(h,q):h;
+}
+function resourcesHTML(list,q){
+  let h="";
+  RES_ORDER.forEach(label=>{
+    const items=list.filter(r=>r.group===label);
+    if(!items.length) return;
+    h+='<div class="rgroup"><div class="rgroup-label">'+label+'</div><div class="rlist">';
+    items.forEach(r=>{
+      h+='<a class="rrow" href="'+r.url+'" target="_blank" rel="noopener"><div><div class="rtitle">'+r.title+(r.flag?'<span class="rflag">'+r.flag+'</span>':'')+'</div><div class="rdesc">'+r.desc+'</div></div><span class="rhost">'+r.host+' <span>↗</span></span></a>';
+    });
+    h+='</div></div>';
+  });
+  return q?hl(h,q):h;
+}
+function accessHTML(){
+  return ''+
+  '<div class="access-grid">'+
+    '<div class="acard"><div class="ico">🔑</div><h3>Log in with <span style="color:var(--orange-deep)">@tennessee.edu</span> — not @utm.edu</h3><p>You likely have two UT emails and they are <em>not</em> merged. The AI tools and their premium tiers are tied to the <b>@tennessee.edu</b> account. Sign in with @utm.edu and you may quietly drop to the free tier.</p></div>'+
+    '<div class="acard"><div class="ico">⏳</div><h3>Watch the monthly usage limit</h3><p>There\'s a monthly cap on <b>token usage</b> and on <b>deep-research requests</b> — and it likely applies across the models, not just one. Pace heavy use so you don\'t get locked out mid-task.</p></div>'+
+    '<div class="acard"><div class="ico">🛡️</div><h3>Why use UT\'s tools at all</h3><p>They behave like the public chat tools you already know — the point is that <b>private, sensitive information stays inside UT</b> instead of going to a public service. Never paste student PII into a public tool.</p></div>'+
+  '</div>'+
+  '<div class="access-two">'+
+    '<div class="apanel"><h3>Where to get unblocked</h3>'+
+      '<div style="font-weight:600;font-size:14.5px;margin-bottom:3px">The UT AI Hub</div><p style="color:var(--ink-soft);font-size:14px;line-height:1.55;margin:0 0 16px">UT\'s official home for AI guides, tutorials, and events. <a href="https://aihub.tennessee.edu" target="_blank" rel="noopener">aihub.tennessee.edu ↗</a> — faculty &amp; staff (students reach Gemini via tennessee.edu).</p>'+
+      '<div style="font-weight:600;font-size:14.5px;margin-bottom:3px">Ask a person at OIT</div><p style="color:var(--ink-soft);font-size:14px;line-height:1.55;margin:0">For access, login, or "is this safe to put in?" questions, contact the <b>Office of Innovative Technologies</b>.</p>'+
+    '</div>'+
+    '<div class="apanel"><h3>UT Verse, in six steps</h3><ol class="steps">'+
+      '<li><span class="sn">1</span><span><b>Log in.</b> Go to utverse.tennessee.edu, sign in with your UT email + password, approve the Duo prompt.</span></li>'+
+      '<li><span class="sn">2</span><span><b>Choose where to start.</b> For most people, <b>Direct</b> is the simplest way in.</span></li>'+
+      '<li><span class="sn">3</span><span><b>UT Verse Direct.</b> Chat straight with a model (GPT, Claude, Gemini, OneChat). Use the <b>+</b> for files, deep research, and skills. Run two side-by-side to compare.</span></li>'+
+      '<li><span class="sn">4</span><span><b>AI Assistant.</b> A guided experience by task — Search &amp; Research, Documents &amp; Data, or Create &amp; Build.</span></li>'+
+      '<li><span class="sn">5</span><span><b>Build a personal agent.</b> Your own reusable assistant (like a custom GPT or a Gem): Agents → Create → add a knowledge base → write a prompt → Try it.</span></li>'+
+      '<li><span class="sn">6</span><span><b>TwinWave Studio.</b> Turn source material into podcast-style audio — UT\'s version of NotebookLM\'s audio overviews.</span></li>'+
+    '</ol></div>'+
+  '</div>';
+}
+
+/* ---------- counts + hero ---------- */
+function sectionCount(id){
+  if(CARD_SECTIONS.includes(id)) return CARDS.filter(c=>c.s===id).length;
+  if(id==="qa") return QA.length;
+  if(id==="prompts") return PROMPTS.length;
+  if(id==="glossary") return GLOSSARY.length;
+  if(id==="voices") return VOICES.length;
+  if(id==="resources") return RESOURCES.length;
+  return 0;
+}
+function countLabel(id){
+  const n=sectionCount(id);
+  if(id==="access") return "Do once";
+  if(id==="qa") return n+" answers";
+  if(id==="prompts") return n+" prompts";
+  if(id==="glossary") return n+" terms";
+  if(id==="voices") return n+" quotes";
+  if(id==="resources") return n+" links";
+  return n+" cards";
+}
+function heroHTML(){
+  let doors="";
+  SECTIONS.filter(s=>s.id!=="overview").forEach(s=>{
+    const intro=INTROS[s.id];
+    doors+='<button class="door" data-go="'+s.id+'"><div class="drow"><span class="dnum">'+s.n+'</span><span class="dcount">'+countLabel(s.id)+'</span></div>'+
+      '<div class="dtitle">'+s.label.replace(/^Day \d+ · /,"")+'</div><div class="ddesc">'+(intro?intro.p:"").split(".")[0]+'.</div></button>';
+  });
+  return '<section class="hero-band"><div class="hero-wrap">'+
+    '<div class="eyebrow"><span class="dot"></span>AI Leadership Academy · Field Guide</div>'+
+    '<h1>Everything from the academy — go straight to what you need.</h1>'+
+    '<p class="lede">The four mornings, the frameworks, the evidence, the tools we used, the questions you asked, prompts to steal, the terms in plain English, and the lines this room wrote to each other. No set path — pick a door below, open a tab, or search for anything.</p>'+
+    '<div class="doors">'+doors+'</div></div></section>';
+}
+
+function secHeaderHTML(id){
+  const s=SECTIONS.find(x=>x.id===id), intro=INTROS[id];
+  if(!intro) return "";
+  return '<div class="sec-head"><span class="num">'+(s.n||"")+'</span><h2>'+intro.h+'</h2></div><p class="sec-intro">'+intro.p+'</p>';
+}
+
+/* render one section's body, filtered by q */
+function sectionBody(id,q){
+  if(CARD_SECTIONS.includes(id)){
+    let list=CARDS.filter(c=>c.s===id);
+    if(q) list=list.filter(c=>cardText(c).includes(q));
+    if(!list.length) return "";
+    return '<div class="grid">'+list.map(c=>cardHTML(c,q)).join("")+'</div>';
+  }
+  if(id==="qa"){ let l=QA.filter(x=>!q||qaText(x).includes(q)); return l.length?qaHTML(l,q):""; }
+  if(id==="prompts"){ let l=PROMPTS.filter(x=>!q||promptText(x).includes(q)); return l.length?promptsHTML(l,q):""; }
+  if(id==="glossary"){ let l=GLOSSARY.filter(x=>!q||glossText(x).includes(q)); return l.length?glossHTML(l,q):""; }
+  if(id==="voices"){ let l=VOICES.filter(x=>!q||voiceText(x).includes(q)); return l.length?voicesHTML(l,q):""; }
+  if(id==="resources"){ let l=RESOURCES.filter(x=>!q||resText(x).includes(q)); return l.length?resourcesHTML(l,q):""; }
+  if(id==="access"){ return (!q||ACCESS_BLOB.includes(q))?accessHTML():""; }
+  return "";
+}
+function sectionMatches(id,q){
+  if(CARD_SECTIONS.includes(id)) return CARDS.filter(c=>c.s===id&&cardText(c).includes(q)).length;
+  if(id==="qa") return QA.filter(x=>qaText(x).includes(q)).length;
+  if(id==="prompts") return PROMPTS.filter(x=>promptText(x).includes(q)).length;
+  if(id==="glossary") return GLOSSARY.filter(x=>glossText(x).includes(q)).length;
+  if(id==="voices") return VOICES.filter(x=>voiceText(x).includes(q)).length;
+  if(id==="resources") return RESOURCES.filter(x=>resText(x).includes(q)).length;
+  if(id==="access") return ACCESS_BLOB.includes(q)?1:0;
+  return 0;
+}
+
+/* ============================================================
+   State + wiring
+   ============================================================ */
 let active="overview";
+let openQA={};
+let copiedId=null;
+const tabsEl=document.getElementById("tabs");
+const heroEl=document.getElementById("hero");
+const contentEl=document.getElementById("content");
+const searchEl=document.getElementById("search");
 
 SECTIONS.forEach(s=>{
   const b=document.createElement("button");
   b.className="tab"+(s.id===active?" active":"");
-  b.textContent=s.label;b.dataset.id=s.id;
-  b.onclick=()=>{searchEl.value="";active=s.id;syncTabs();render();window.scrollTo({top:0,behavior:"smooth"});};
+  b.textContent=s.label; b.dataset.id=s.id;
+  b.onclick=()=>{ searchEl.value=""; active=s.id; render(); window.scrollTo({top:0,behavior:"smooth"}); };
   tabsEl.appendChild(b);
 });
-function syncTabs(){[...tabsEl.children].forEach(b=>b.classList.toggle("active",b.dataset.id===active));}
-
-function strip(h){const d=document.createElement("div");d.innerHTML=h;return d.textContent||"";}
-function searchText(it){
-  return [it.t,it.k,strip(it.body||""),(it.tags||[]).join(" "),
-    (it.links||[]).map(l=>l.l+" "+l.d+" "+l.u).join(" "),it.note||""].join(" ").toLowerCase();
-}
-function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");}
-
-function figHTML(it){
-  if(it.img && typeof IMG!=="undefined" && IMG[it.img])
-    return `<div class="figure"><img src="${IMG[it.img]}" alt="${it.t}"><div class="figcap">From the session slides</div></div>`;
-  if(it.fig) return `<div class="figure">${it.fig}</div>`;
-  return "";
-}
-function cardHTML(it,q){
-  let h=`<div class="card${it.wide?" wide":""}">`;
-  h+=`<span class="kicker k-${it.s}">${it.k}</span>`;
-  h+=`<h3>${it.t}</h3>`;
-  h+=`%%FIG%%`;
-  if(it.body)h+=it.body;
-  if(it.links){h+="<div>";it.links.forEach(l=>{h+=`<div class="reslink"><span class="dot">→</span><span><a href="${l.u}" target="_blank" rel="noopener">${l.l}</a><small>${l.d}</small></span></div>`;});h+="</div>";}
-  if(it.note)h+=`<div class="note-flag">${it.note}</div>`;
-  h+="</div>";
-  if(q){const re=new RegExp("("+esc(q)+")","ig");
-    h=h.replace(/>([^<]+)</g,(m,t)=>">"+t.replace(re,"<mark>$1</mark>")+"<");}
-  h=h.replace("%%FIG%%", figHTML(it));
-  return h;
-}
-
-function deckHTML(id){
-  const d=DECKS[id]; if(!d||(!d.embed&&!d.link))return "";
-  let h="";
-  if(d.embed)h+=`<div class="deck-embed"><iframe src="${d.embed}" allow="autoplay" allowfullscreen></iframe></div>`;
-  h+=`<div class="deck-cap">${d.title} deck${d.link?` — <a href="${d.link}" target="_blank" rel="noopener">open in Google Drive</a>`:""}</div>`;
-  return h;
-}
+function syncTabs(){ [...tabsEl.children].forEach(b=>b.classList.toggle("active", b.dataset.id===active && !searchEl.value.trim())); }
 
 function render(){
   const q=searchEl.value.trim().toLowerCase();
-  let list,showIntro=true;
-  if(q){
-    list=ITEMS.filter(it=>searchText(it).includes(q));
-    showIntro=false;note.style.display="block";deckStrip.innerHTML="";
-    note.innerHTML=`<b>${list.length}</b> result${list.length===1?"":"s"} across the academy for "<b>${searchEl.value.trim()}</b>" — <a href="#" id="clr">clear</a>`;
-  }else{
-    list=ITEMS.filter(it=>it.s===active);note.style.display="none";
-    deckStrip.innerHTML=deckHTML(active);
+  const searching=q!=="";
+  heroEl.innerHTML=(active==="overview" && !searching)?heroHTML():"";
+  let html="";
+  if(searching){
+    const ids=SECTIONS.map(s=>s.id);
+    let total=0;
+    ids.forEach(id=>{ total+=sectionMatches(id,q); });
+    html+='<div class="results-note"><span class="rc">'+total+' match'+(total===1?"":"es")+'</span><span class="rq">for “'+searchEl.value.trim()+'”</span><button class="clear-btn" id="clr">Clear search</button></div>';
+    if(total===0){
+      html+='<div class="no-results"><div class="nh">Nothing matched “'+searchEl.value.trim()+'”</div><p>Try a tool name, a topic, or a person — or clear the search to browse everything.</p><button id="clr2">Clear search</button></div>';
+    } else {
+      ids.forEach(id=>{
+        const body=sectionBody(id,q);
+        if(body){ html+='<section class="sec">'+secHeaderHTML(id)+body+'</section>'; }
+      });
+    }
+  } else {
+    if(active==="overview"){
+      html+='<section class="sec" style="padding-top:46px">'+
+        '<div class="sec-head"><span class="num">★</span><h2>What you walked away with</h2></div>'+
+        '<p class="sec-intro">A quick map of the guide and the things you leave the academy holding.</p>'+
+        '<div class="grid">'+CARDS.filter(c=>c.s==="overview").map(c=>cardHTML(c,"")).join("")+'</div></section>';
+    } else {
+      html+='<section class="sec">'+secHeaderHTML(active)+sectionBody(active,"")+'</section>';
+    }
   }
-  if(showIntro){const i=INTROS[active];intro.innerHTML=`<h2>${i.h}</h2><p>${i.p}</p>`;intro.style.display="block";}
-  else intro.style.display="none";
-  grid.innerHTML=list.map(it=>cardHTML(it,q)).join("");
-  noRes.style.display=list.length?"none":"block";
-  const clr=document.getElementById("clr");
-  if(clr)clr.onclick=e=>{e.preventDefault();searchEl.value="";render();};
-  grid.querySelectorAll(".pill[data-go]").forEach(p=>p.onclick=()=>{searchEl.value="";active=p.dataset.go;syncTabs();render();window.scrollTo({top:0,behavior:"smooth"});});
+  contentEl.innerHTML=html;
+  syncTabs();
+  wire();
 }
+
+function wire(){
+  const clr=document.getElementById("clr"); if(clr) clr.onclick=()=>{ searchEl.value=""; render(); };
+  const clr2=document.getElementById("clr2"); if(clr2) clr2.onclick=()=>{ searchEl.value=""; render(); };
+  document.querySelectorAll(".door").forEach(d=>d.onclick=()=>{ searchEl.value=""; active=d.dataset.go; render(); window.scrollTo({top:0,behavior:"smooth"}); });
+  document.querySelectorAll(".pill[data-go]").forEach(p=>p.onclick=()=>{ searchEl.value=""; active=p.dataset.go; render(); window.scrollTo({top:0,behavior:"smooth"}); });
+  document.querySelectorAll("[data-qa]").forEach(b=>b.onclick=()=>{ const id=b.getAttribute("data-qa"); openQA[id]=!openQA[id]; render(); });
+  document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>{
+    const id=b.getAttribute("data-copy"); const p=PROMPTS.find(x=>x._id===id);
+    try{ navigator.clipboard && navigator.clipboard.writeText(p.text); }catch(e){}
+    copiedId=id; render();
+    setTimeout(()=>{ if(copiedId===id){ copiedId=null; render(); } },1500);
+  });
+}
+
+/* assign stable ids for stateful items */
+QA.forEach((x,i)=>x._id="qa-"+i);
+PROMPTS.forEach((x,i)=>x._id="pr-"+i);
+
+document.getElementById("brandLink").onclick=(e)=>{ e.preventDefault(); searchEl.value=""; active="overview"; render(); window.scrollTo({top:0,behavior:"smooth"}); };
 searchEl.addEventListener("input",render);
 render();
 </script>
