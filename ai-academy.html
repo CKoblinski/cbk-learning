@@ -119,7 +119,7 @@
 
 <footer>
   <hr>
-  <p><b>About this guide.</b> Built from the academy's slide decks, session transcripts, live chat, and the Day&nbsp;3 feedback survey. Slide images are pulled from the original decks; some concept diagrams are clean illustrations of the ideas as taught. Day&nbsp;2's spoken transcript and Day&nbsp;4's showcase reflections can be folded in later. Materials by AI Educators.</p>
+  <p><b>About this guide.</b> Built from the academy's slide decks, session transcripts, live chat, and the Day&nbsp;3 feedback survey. Slide images are pulled from the original decks; some concept diagrams are clean illustrations of the ideas as taught. Day&nbsp;4's showcase reflections can be folded in later. Materials by AI Educators.</p>
 </footer>
 
 <script>
@@ -180,7 +180,7 @@ const SECTIONS = [
 const INTROS = {
   overview:{h:"Start here",p:"The academy moved from literacy, to assessment, to building, to showing the work. This guide keeps the ideas, vocabulary, frameworks, materials, and the cohort's own voices in one searchable place so you can pull on any of it later."},
   day1:{h:"Day 1 — AI Literacy",p:"The shared vocabulary for what AI is and how it behaves, plus the moves that let you see what students see."},
-  day2:{h:"Day 2 — Assessment in the Age of AI",p:"Four ways to meet the moment — Ignore, Resist, Hybrid, Embrace — and the learning science behind why assessment has to change."},
+  day2:{h:"Day 2 — Assessment in the Age of AI",p:"Two questions run through the day: how do we protect the learning AI makes easy to skip — and what does the research actually show? Four assessment postures, three personal responses, and the evidence behind why grading has to change."},
   day3:{h:"Day 3 — Build with AI",p:"Turning AI into something your students experience: the grid for deciding where to trust, and the kinds of things worth building."},
   day4:{h:"Day 4 — Showcase + Policy",p:"Presenting the work, responding to peers, and leaving with your own laws and classroom policy."},
   frameworks:{h:"The frameworks, in full",p:"The mental models that recur across the academy — drawn out so you can use them, not just remember them."},
@@ -279,10 +279,102 @@ const ITEMS = [
   {s:"day2",k:"Try this",t:"Draft your classroom AI policy",
    body:`<p>Start with one paragraph: where AI is <b>off</b>, where it's <b>allowed with disclosure</b>, and where it's <b>encouraged</b> — tied to <i>why</i> for each. Furze's scale gives you the levels; keeping it short makes it something students actually read.</p>`,
    tags:["policy","classroom policy","disclosure","try this"]},
-  {s:"day2",k:"Source note",t:"More from Day 2 coming",
-   body:`<p>This day is reconstructed from the slide deck and live chat.</p>`,
-   note:"The June 17 spoken transcript isn't captured yet — it can be folded in to deepen this section.",
-   tags:["pending","transcript"]},
+  {s:"day2",k:"The big idea",t:"Not all offloading is equal",
+   body:`<p>Some offloading is freeing. <b>Broad offloading</b>: phone numbers, directions, song lyrics, balancing a checkbook. <b>Narrow offloading</b>: the calculator, autopilot, power tools, a recipe app. The danger is offloading the <i>experience that was supposed to build your expertise.</i></p>
+   <p>The image: don't bench-press with a forklift — substitution kills the workout — but do reach for a <b>Dolly</b>, a tool that helps you move the load while you still do the lifting. For every task, ask: <b>am I augmenting this experience, or offloading the thing that makes me trustworthy?</b></p>
+   <div class="quote">"Time and tension is how we build muscle. AI provides infinite shortcuts that make us choose between learning and performance under pressure."</div>`,
+   tags:["cognitive offloading","broad","narrow","forklift","dolly","augment","big idea"]},
+  {s:"day2",k:"Framework",t:"Three ways to answer AI: DIY, Substitute, Collaborate",
+   body:`<p>Faced with any task, you have three moves — each with a trade-off:</p>
+   <ul>
+     <li><b>Do it yourself</b> — the old way. The widest range of outcomes, a 1 or a 10. Keeps the learning; the quality is all on you.</li>
+     <li><b>Substitute with AI</b> — hand the whole thing over. Far less time and effort, but you sacrifice the learning and <b>cap your ceiling</b> — AI pulls toward the statistical mean.</li>
+     <li><b>Collaborate with AI</b> — drafts, feedback, a gut-check on your sources. Raises your <b>floor</b> so you won't embarrass yourself, but you're unlikely to produce genius work.</li>
+   </ul>
+   <p>The room's question: <b>which of these does today's assessment actually reward?</b> The honest answer split between long-term learning (DIY still wins) and the grade.</p>
+   <div class="quote">"The algorithm pulls you toward the statistical mean of what is produced — AI gives you the average expected next token."</div>`,
+   tags:["do it yourself","substitute","collaborate","three responses","ceiling","floor","framework","assessment"]},
+  {s:"day2",k:"Framework",t:"Strategic vs. reactionary use",
+   body:`<p>A cleaner cut than "good vs. bad" AI use:</p>
+   <ul>
+     <li><b>Strategic</b> — "I know exactly which part of this process I'm handing to the tool, and <i>why.</i>" You stay in charge of the whole.</li>
+     <li><b>Reactionary</b> — "I need this output as fast as possible, with as little friction as possible." Reaching for AI to kill the tension of being overwhelmed.</li>
+   </ul>
+   <p>People reach for AI in the same moment students do: a real need plus feeling overwhelmed. Naming which mode you're in is the first defense.</p>`,
+   tags:["strategic","reactionary","time under tension","framework","workflow"]},
+  {s:"day2",k:"The evidence",t:"What the research actually shows",
+   body:`<p>Five studies anchored the day. The through-line: <b>AI raises the floor</b> — it helps the least-experienced most — and <b>offloading feels productive even when it isn't.</b></p>
+   <ul>
+     <li><b>Bastani, Turkey — 100 high-school math students.</b> The raw-ChatGPT group did 50% more practice problems but scored <b>17% lower</b> on the test. A guardrailed "tutor" GPT doubled correct practice — yet scored <b>no better</b> than the no-AI group.</li>
+     <li><b>Harvard physics — ~200 students.</b> 60 minutes a week with a well-built AI tutor <b>beat</b> attending active lectures. Why: expert design, Socratic structure, focused content, motivated learners, a short intervention.</li>
+     <li><b>900 virtual math tutors</b> with a real-time AI suggestion box: +4% overall, but the <b>lowest-rated tutors gained most</b> — roughly 10% for the lowest-served students, at about $2,000 for the whole year.</li>
+     <li><b>5,000+ call-center agents</b> with an AI coach: +14% efficiency, <b>almost entirely for the newest agents</b> — because the model was trained on the <i>best</i> agents' transcripts, with expert feedback afterward.</li>
+   </ul>
+   <p>The pattern points to a <b>Dolly</b>, not a forklift: AI as a suggestor that lifts the floor, paired with real human expertise.</p>`,
+   tags:["research","evidence","Bastani","Harvard","tutors","call center","raises the floor"]},
+  {s:"day2",k:"The evidence",t:"The perception gap: feeling faster while going slower",
+   body:`<p>16 expert open-source developers, 246 real tasks. They predicted AI would make them <b>24% faster</b>. It actually made them <b>20% slower</b> — and afterward they still believed they'd been about 20% <i>faster.</i></p>
+   <p>That's the warning for educators: cognitive offloading <b>feels good and feels busy.</b> Completing double the practice problems, watching an AI run around doing your job — it reads as productivity even when no learning is happening.</p>
+   <div class="quote">"We are not always aware of our cognitive offloading because it feels good."</div>`,
+   tags:["perception gap","developers","offloading","productivity illusion","evidence"]},
+  {s:"day2",k:"Try this",t:"Use AI to catch your own grading bias",
+   body:`<p>The day opened with a real question — <i>is it ethical to let AI grade from my rubric?</i> A sharper version: keep <b>yourself</b> as the grader, and use AI to check <i>your</i> consistency.</p>
+   <p>One method from the room: read the paper, then <b>voice-to-text your feedback</b> into the rubric so the judgment stays yours. Once every student's rubric is done, hand them all to AI and ask: <b>"where might I have been biased?"</b> It flags drift — "you gave this intro a 5, but an equivalent one a 7.5" — including the classic first-paper-strict, last-paper-exhausted problem.</p>`,
+   tags:["grading","bias","rubric","voice-to-text","ethics","fairness","try this"]},
+  {s:"day2",k:"Scenario",t:"\"Throw a newsletter together with AI\"",
+   body:`<p>The role-play: your boss wants an AI-built internal newsletter of everyone's weekly priorities — <i>fast</i> — with limited tech-team help. What do you ask first? The cohort's best moves:</p>
+   <ul>
+     <li><b>Clarify the goal</b> — "what is this newsletter actually <i>for</i>?" shapes how you'd build it (Dana).</li>
+     <li><b>Whose job is this, and what's my time worth?</b> — and, as a writer, <b>your name is on it</b> (Jennifer).</li>
+     <li><b>Coordinate, don't author</b> — gather inputs and route them on (April).</li>
+     <li><b>Engineer the context</b> — skip the weekly data-collection grind; just record the department meeting and feed AI the transcript (April).</li>
+   </ul>
+   <p>Then the turn: students in internships <i>are</i> being asked this right now. The skill isn't "yes, boss" or "no thanks" — it's the <b>middle path</b> of asking the sharp questions while still moving the work forward.</p>`,
+   tags:["scenario","newsletter","workplace","internship","context engineering","questions"]},
+  {s:"day2",k:"From the room",t:"Sam: what students actually want",
+   body:`<p>Sam teaches middle-school Innovation &amp; Technology, so she gets to focus on digital citizenship head-on. Two things she's seen:</p>
+   <ul>
+     <li>When students debate their own AI policy through Socratic dialogue (using <b>Facing History &amp; Ourselves</b>), they land — two years running — on wanting <b>clear, explicit guidelines</b>: when AI is and isn't okay. A growing number also say <b>"I don't want to touch it at all."</b></li>
+     <li>The "You break it, you own it" Caitlin Clark ad: students tried to get <b>SchoolAI</b> (trained on marketing language, age-appropriate for 12–14s) to match that slogan. It helped them brainstorm — but never produced anything with that human, contextual spark.</li>
+   </ul>
+   <div class="quote">"It never had that level of human touch. You still needed the human."<span class="who">— Sam</span></div>`,
+   tags:["Sam","students","policy","SchoolAI","marketing","middle school","from the room"]},
+  {s:"day2",k:"From the room",t:"Show-and-tell: good uses people brought",
+   body:`<ul>
+     <li><b>Connor</b> — "Make me a website these professors can interact with" → Claude built one from the survey data (this guide's cousin). The trick was just a <b>thinking model on high effort.</b></li>
+     <li><b>Sean</b> — a biology active-learning exercise built with CoPilot. A year ago he had to describe every slide by hand; today's tools can read a PowerPoint directly — worth retrying.</li>
+     <li><b>Michael</b> — "Find the best band saw, verifiable sources not opinions, split by price point," and a WWE attendance-vs-earnings brief that filtered out the loudest online voices. Sources cited (even if one was Wikipedia).</li>
+     <li><b>Dana</b> — a Stitch birthday invite that came out tropical but <i>not</i> Disney's Stitch: a live lesson in <b>copyright.</b></li>
+     <li><b>Natasha</b> — Gemini output that kept vanishing: not signed in, so nothing saved (and Chrome tends to play nicer with Google's tools than Safari).</li>
+   </ul>`,
+   tags:["show and tell","examples","Claude","CoPilot","Gemini","band saw","WWE","from the room"]},
+  {s:"day2",k:"From the room",t:"The jobs aren't vanishing — they're morphing",
+   body:`<p>The fear that AI simply deletes careers didn't hold up in the room:</p>
+   <ul>
+     <li><b>Radiology</b> — "don't become a radiologist" was everywhere; instead, cheaper AI-assisted scans <b>raised demand</b>, so more radiologists are needed (April).</li>
+     <li><b>Coding</b> — "collaborate" is the only accepted path, but juniors still must pass a <b>basic, AI-free interview</b>; the "last mile" still needs real engineers, and more people now reach it.</li>
+     <li><b>Music</b> — you still have to know the language: notation, the Nashville Number System, lead sheets (Natasha).</li>
+   </ul>
+   <div class="quote">"'It's going to replace' is completely wrong. It's morphing it — like the telephone operator. The field still needs people who know what it involves to guide the change."<span class="who">— April, career counselor</span></div>
+   <p>And a redefinition worth keeping: <b>expertise</b> is shifting from "facts in your head" to having enough experience that ideas and connections fire the moment you see a situation.</p>`,
+   tags:["jobs","careers","radiology","coding","music","expertise","from the room"]},
+  {s:"day2",k:"Take-home",t:"Connor's own rules for using AI",
+   body:`<ul>
+     <li><b>Pen and paper first.</b> Capture your own thoughts before anything touches AI — or do a long voice-to-text brain-dump first.</li>
+     <li><b>Read every output.</b> Don't submit a prompt unless you're willing to read the whole answer; if it drifts, stop it and redirect.</li>
+     <li><b>Stay antagonistic.</b> "How do you know that? Show me your process. Find multiple sources. Steel-man the opposite." Even pit tools against each other — have one fact-check the other.</li>
+     <li><b>Beware premature convergence.</b> AI rushes to an answer; the creative slog ("it sucks, it's great, it sucks…") is the human part. <i>AI cannot doubt itself, and doubt is one of our greatest tools.</i></li>
+   </ul>`,
+   tags:["rules","habits","antagonistic","premature convergence","doubt","take-home"]},
+  {s:"day2",k:"Take-home",t:"Advice worth stealing for students",
+   body:`<p>Connor's closing slides for young people — yours to reuse:</p>
+   <ul>
+     <li><b>Judge AI, don't trust it.</b> Verify everything; ask for a list of options, not a substitute for your work.</li>
+     <li><b>Get real feedback from real people.</b> There's a coming <b>feedback crisis</b> — AI feedback is convenient, human feedback is better. The coffee with your professor is worth the inconvenience.</li>
+     <li><b>Invest in your lenses.</b> Go deep on one technical skill <i>and</i> a hobby or soft skill — WWE, D&amp;D, meal prep — each becomes a lens for judging AI's output.</li>
+     <li><b>AI literacy is mostly just literacy</b> — plus media literacy. That's 90% of the battle.</li>
+   </ul>`,
+   tags:["students","advice","judge","feedback crisis","lenses","literacy","take-home"]},
 
   /* ---------- DAY 3 ---------- */
   {s:"day3",k:"Framework",t:"Expertise × Attention: where to trust",img:"grid",
@@ -342,6 +434,9 @@ const ITEMS = [
    body:`<p>A framework worth knowing alongside ours: <b>Tina Austin's UnBlooms™</b> reworks Bloom's Taxonomy for the AI era — non-linear and non-hierarchical, centered on <b>human reasoning and judgment</b>, especially a student's ability to evaluate AI output. A useful lens when you're redesigning what "higher-order" means now.</p>
    <span class="pill" data-go="resources">→ Find Tina Austin under People to follow</span>`,
    tags:["unblooms","Tina Austin","Bloom's taxonomy","reasoning","judgment","framework"]},
+  {s:"frameworks",k:"From the cohort",t:"LAYER (a participant's framework)",
+   body:`<p>A cohort member — a UT Martin history professor — shared his own <b>LAYER</b> approach to AI literacy, built over a year of classroom study: <b>L</b>iteracy, <b>A</b>pplication, <b>I</b>nterpretation, <b>R</b>esponsibility. A systems-level model, grounded in 15 years of lectures and vetted open educational resources. In his history sections, about <b>80% of students reported they learned <i>with</i> AI</b> rather than letting it think for them — a deliberately strategic, not reactionary, design.</p>`,
+   tags:["LAYER","framework","history","AI literacy","cohort","strategic"]},
   {s:"frameworks",k:"Personal compass",t:"Your Three Laws of AI",
    body:`<p>The personal through-line: a short set of rules <i>you</i> write for how you'll use AI — drafted Day 1, finalized Day 4. Unlike any single tool, your laws travel with you as the technology changes.</p>`,
    tags:["three laws","principles","compass","framework"]},
@@ -367,6 +462,12 @@ const ITEMS = [
   {s:"glossary",k:"Term",t:"Raising the floor",body:`<p>The pattern that AI improves weak performance more than strong performance — lifting the baseline rather than the ceiling.</p>`,tags:["floor","glossary","asymmetry"]},
   {s:"glossary",k:"Term",t:"Expertise economy",body:`<p>The pre-AI model where publishing expertise online earned reader attention. AI answering in place disrupts who sees — and values — original work.</p>`,tags:["expertise economy","glossary","incentives"]},
   {s:"glossary",k:"Term",t:"UnBlooms",body:`<p>Tina Austin's reworking of Bloom's Taxonomy for the AI era: non-linear and centered on human reasoning, creativity, and the judgment to evaluate AI output.</p>`,tags:["unblooms","Tina Austin","Bloom's","glossary"]},
+  {s:"glossary",k:"Term",t:"Strategic vs. reactionary use",body:`<p>Strategic: you know which part of a task you're handing to AI and why. Reactionary: you want the output as fast and frictionlessly as possible. The same overwhelmed moment drives students to AI too.</p>`,tags:["strategic","reactionary","glossary","workflow"]},
+  {s:"glossary",k:"Term",t:"Perception gap",body:`<p>The mismatch between how much AI helps and how much we <i>think</i> it helps. In one study, developers felt 20% faster while actually working 20% slower — offloading feels productive even when it isn't.</p>`,tags:["perception gap","productivity illusion","glossary","offloading"]},
+  {s:"glossary",k:"Term",t:"Broad vs. narrow offloading",body:`<p>Broad: whole categories we've handed to tools (phone numbers, directions, lyrics, checkbook math). Narrow: a specific helper (calculator, autopilot, recipe app). The line to watch is offloading the experience that builds your expertise.</p>`,tags:["offloading","broad","narrow","glossary","augment"]},
+  {s:"glossary",k:"Term",t:"Premature convergence",body:`<p>Settling on an answer too soon. AI is built to converge fast and frictionlessly; the human edge is staying in the creative or design-thinking slog long enough to doubt and diverge.</p>`,tags:["premature convergence","creativity","design thinking","doubt","glossary"]},
+  {s:"glossary",k:"Term",t:"Antagonistic prompting",body:`<p>Treating AI like a clever friend who might be bluffing: "Are you sure? How do you know that? Prove it with a quote." Even having two tools fact-check each other. Skepticism is the workflow, not a flaw.</p>`,tags:["antagonistic","prompting","verify","glossary"]},
+  {s:"glossary",k:"Term",t:"Copyright & AI generation",body:`<p>After lawsuits and a collapsed Disney deal, mainstream image tools won't reproduce protected characters (ask for "Stitch" and you get a generic blue creature), and text tools won't reproduce copyrighted passages (e.g., the opening of Stephen King's <i>The Gunslinger</i>) — they'll approximate instead.</p>`,tags:["copyright","intellectual property","Disney","Stitch","glossary"]},
 
   /* ---------- VOICES ---------- */
   {s:"voices",k:"Q&A",t:"Can AI pull real quotes from sources?",
