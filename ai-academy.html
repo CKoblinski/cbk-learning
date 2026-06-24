@@ -43,7 +43,7 @@
 
   /* tabs */
   .tabs{position:sticky;top:55px;z-index:55;background:rgba(242,246,252,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .tabs-wrap{max-width:1120px;margin:0 auto;padding:7px 16px;display:flex;gap:3px;overflow-x:auto;scrollbar-width:thin}
+  .tabs-wrap{max-width:1120px;margin:0 auto;padding:8px 16px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
   .tab{flex-shrink:0;border:0;background:none;font-family:inherit;font-size:13.5px;font-weight:500;color:var(--ink-soft);padding:8px 13px;border-radius:9px;cursor:pointer;white-space:nowrap}
   .tab:hover{background:#e3ebf7;color:var(--ink)}
   .tab.active{background:var(--navy);color:#fff}
@@ -642,11 +642,10 @@ const SECTIONS = [
   {id:"frameworks", label:"Frameworks", n:"05"},
   {id:"evidence", label:"Evidence", n:"06"},
   {id:"qa", label:"Q&A", n:"07"},
-  {id:"prompts", label:"Prompts", n:"08"},
-  {id:"glossary", label:"Glossary", n:"09"},
-  {id:"voices", label:"Voices", n:"10"},
-  {id:"resources", label:"Resources", n:"11"},
-  {id:"access", label:"Access", n:"12"}
+  {id:"glossary", label:"Glossary", n:"08"},
+  {id:"voices", label:"Voices", n:"09"},
+  {id:"resources", label:"Resources", n:"10"},
+  {id:"access", label:"Access", n:"11"}
 ];
 
 const INTROS = {
@@ -932,7 +931,7 @@ function heroHTML(){
   return '<section class="hero-band"><div class="hero-wrap">'+
     '<div class="eyebrow"><span class="dot"></span>AI Leadership Academy · Field Guide</div>'+
     '<h1>Everything from the academy — go straight to what you need.</h1>'+
-    '<p class="lede">The four mornings, the frameworks, the evidence, the tools we used, the questions you asked, prompts to steal, the terms in plain English, and the lines this room wrote to each other. No set path — pick a door below, open a tab, or search for anything.</p>'+
+    '<p class="lede">The four mornings, the frameworks, the evidence, the tools we used, the questions you asked, the terms in plain English, and the lines this room wrote to each other. No set path — pick a door below, open a tab, or search for anything.</p>'+
     '<div class="doors">'+doors+'</div></div></section>';
 }
 
