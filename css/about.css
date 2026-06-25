@@ -289,10 +289,6 @@
     gap: 2rem;
   }
 
-  .about-hero__image {
-    order: -1;
-  }
-
   .about-hero__title {
     margin-bottom: 1.25rem;
   }
