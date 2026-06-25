@@ -89,7 +89,7 @@
   color: var(--color-accent-learn);
 }
 
-.idea-card:has(.idea-card__tag--learn):hover {
+.idea-card--learn:hover {
   border-color: var(--color-accent-learn);
   box-shadow: 0 4px 24px var(--color-accent-learn-glow),
               0 0 0 1px var(--color-accent-learn);
@@ -121,7 +121,7 @@
   transition: gap 0.3s var(--ease-out-expo);
 }
 
-.idea-card:has(.idea-card__tag--learn) .idea-card__link {
+.idea-card--learn .idea-card__link {
   color: var(--color-accent-learn);
 }
 
