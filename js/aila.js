@@ -139,27 +139,70 @@
     const regular = RESPONSES.filter(r => r.integrity === 'Regular occurrence').length;
     const teachers = RESPONSES.filter(r => r.role === 'Classroom teacher').length;
     const roleCounts = sorted(count(RESPONSES.map(r => r.role)));
-    const [topConcern, topConcernN] = concernRank[0];
-    const integrityN = concernCounts['Academic integrity'] || 0;
-    const integrityRank = concernRank.filter(c => c[1] > integrityN).length + 1;
+
+    // Registration roster — a different population from RESPONSES (everyone
+    // signed up, not only the people who answered the pre-survey).
+    const R = ROSTER.length;
+    const roleGroups = sorted(count(ROSTER.map(r => r.roleGroup)));
+    const gradeOrder = ['Elementary (K–5)', 'Middle School (6–8)', 'High School (9–12)', 'K–12', 'N/A'];
+    const gradeCounts = count(ROSTER.map(r => r.grade));
+    const gradeLabels = gradeOrder.filter(g => gradeCounts[g]);
+    const members = ROSTER.filter(r => r.membership === 'CALIE Member').length;
+    const orgCounts = sorted(count(ROSTER.map(r => ORG_ALIASES[r.org] || r.org)));
+    const merged = Object.keys(ORG_ALIASES).filter(k => ROSTER.some(r => r.org === k));
+
+    const countList = (rows) => `<ul class="countlist">${rows.map(([k, v]) =>
+      `<li><span class="countlist__name">${esc(k)}</span><span class="countlist__num">${v}</span></li>`).join('')}</ul>`;
+    const plainList = (items) => `<ul class="plainlist">${items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>`;
 
     el.innerHTML = `
       <h2>The room at a glance</h2>
       <div class="ex-stats">
         <div class="ex-stat"><div class="ex-stat__num">${N}<span class="ex-stat__of"> / ${REGISTERED}</span></div>
-          <div class="ex-stat__label">responses in, of everyone registered. Everything on this page is ${N} people — small enough that one response moves a bar.</div></div>
+          <div class="ex-stat__label">pre-survey responses in, of everyone registered.</div></div>
         <div class="ex-stat"><div class="ex-stat__num">${tinker}<span class="ex-stat__of"> / ${N}</span></div>
-          <div class="ex-stat__label">call themselves <em>the tinkerer</em>. Nobody picked manual holdout or systems engineer. Is that who we are, or who we'd like to be?</div></div>
+          <div class="ex-stat__label">picked <em>the tinkerer</em>. Manual holdout and systems engineer were also on the list; neither was picked.</div></div>
         <div class="ex-stat"><div class="ex-stat__num">${dealt}<span class="ex-stat__of"> / ${N}</span></div>
           <div class="ex-stat__label">have already handled an AI academic-integrity incident. ${regular} say it happens regularly.</div></div>
       </div>
 
+      <h2 style="margin-top:2.5rem">Everyone registered — all ${R}</h2>
+      <p class="lede">From the registration sheet, not the pre-survey. This section counts all ${R} people who signed up. Every other section on this page counts only the ${N} who answered the survey.</p>
+
+      <div class="ex-grid">
+        <div class="ex-card"><h3>Role, as grouped at registration</h3>
+          <div class="chartbox"><canvas id="c_rgroup" role="img" aria-label="Bar chart of role groups on the registration roster"></canvas></div>
+          ${numbersTable(['Role group', 'People'], roleGroups.map(([k, v]) => [k, v]))}
+        </div>
+        <div class="ex-card"><h3>Grade level served</h3>
+          <div class="chartbox"><canvas id="c_grade" role="img" aria-label="Bar chart of grade levels served by registered participants"></canvas></div>
+          ${numbersTable(['Grade level', 'People'], gradeLabels.map(g => [g, gradeCounts[g]]))}
+        </div>
+      </div>
+
+      <div class="ex-grid" style="margin-top:1.25rem">
+        <div class="ex-card"><h3>Organizations</h3>
+          ${countList(orgCounts)}
+          ${cap(`${orgCounts.length} organizations across ${R} people. ${merged.length} entries typed differently at registration — ${merged.map(m => `"${esc(m)}"`).join(', ')} — are counted with their full-name match.`)}
+        </div>
+        <div class="ex-card"><h3>CALIE membership</h3>
+          ${countList([['CALIE Member', members], ['Left blank', R - members]])}
+          ${cap('The registration sheet records a membership type or nothing at all. Blank is shown as blank.')}
+        </div>
+      </div>
+
+      <div class="ex-grid" style="margin-top:1.25rem">
+        <div class="ex-card"><h3>Subject areas, as written</h3>${plainList(ROSTER.map(r => r.subject).sort((a, b) => a.localeCompare(b)))}</div>
+      </div>
+
+      <h2 style="margin-top:2.5rem">The ${N} who answered the pre-survey</h2>
+
       <div class="ex-grid">
         <div class="ex-card">
-          <h3>Who's in the room</h3>
+          <h3>Primary role, as answered on the survey</h3>
           <div class="chartbox"><canvas id="c_roles" role="img" aria-label="Bar chart of roles represented in the group"></canvas></div>
           ${numbersTable(['Role', 'People'], roleCounts.map(([k, v]) => [k, v]))}
-          ${cap(`Only ${teachers} of ${N} are classroom teachers. This is a room of coaches, TOSAs and administrators talking about classrooms.`)}
+          ${cap(`${teachers} of ${N} selected "classroom teacher."`)}
         </div>
 
         <div class="ex-card">
@@ -186,26 +229,19 @@
           ${cap('Both axes are bands, not points — the survey never asked for a number. Dots are nudged apart so overlapping answers stay visible.')}
         </div>
       </div>
+`;
 
-      <h2>Connor's read — argue with it</h2>
-      <ol class="reads">
-        <li><strong>You describe a conversation you're not actually having.</strong> Ask what people talk about and you get cheating and the end of thinking. Ask what worries <em>you</em> and the top answer is ${esc(topConcern.toLowerCase())}, named by ${topConcernN} of ${N}. Academic integrity lands ${integrityRank}${(integrityRank % 100 >= 11 && integrityRank % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][integrityRank % 10] || 'th')}, named by ${integrityN}.</li>
-        <li><strong>Tools churn hard here.</strong> SchoolAI: ${tried['SchoolAI'] || 0} tried, ${kept['SchoolAI'] || 0} kept. Brisk: ${tried['Brisk'] || 0} tried, ${kept['Brisk'] || 0} kept. NotebookLM: ${tried['NotebookLM'] || 0} tried, ${kept['NotebookLM'] || 0} kept. What survives is what fits an existing job.</li>
-        <li><strong>The gap is policy, not skill.</strong> Three of you named the absence of district guidance — "we have no district guidance," "guidelines for AI usage," "we did not have an AI policy" — as the thing making everything harder.</li>
-        <li><strong>Almost nobody here is standing in a classroom every day.</strong> ${teachers} of ${N} are classroom teachers; the rest coach, support or lead. Whose experience is missing from every chart on this page?</li>
-      </ol>
+    new Chart(document.getElementById('c_rgroup'), {
+      type: 'bar',
+      data: { labels: roleGroups.map(e => e[0]), datasets: [{ data: roleGroups.map(e => e[1]), backgroundColor: TEAL, borderRadius: 4 }] },
+      options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { ticks: { stepSize: 1, precision: 0 }, grid: { color: 'rgba(0,0,0,.05)' } }, y: { grid: { display: false }, ticks: { autoSkip: false, callback: function (v) { return String(this.getLabelForValue(v)).split(' ').reduce((a, w) => { if (!a.length || (a[a.length - 1] + ' ' + w).length > 16) a.push(w); else a[a.length - 1] += ' ' + w; return a; }, []); } } } } }
+    });
 
-      <div class="honesty">
-        <h3>What this data cannot tell you</h3>
-        <ul>
-          <li><strong>${N} people.</strong> One more response can reorder any bar. Nothing here is a finding; it's a conversation starter.</li>
-          <li><strong>Hours are guesses.</strong> "51–150" was a band on a form, recalled from memory, not a measurement.</li>
-          <li><strong>Confidence and UDL are bands too.</strong> Earlier drafts of this page averaged them into decimals like 4.5. They aren't shown that way any more, because nobody answered 4.5.</li>
-          <li><strong>Concerns were capped at three.</strong> A low count may mean "not my top three," not "I don't care."</li>
-          <li><strong>One row contradicts itself.</strong> A respondent listed Microsoft Copilot under "tools I come back to" but not under "tools I've tried." It's left as submitted rather than tidied up.</li>
-          <li><strong>Names are not on this page</strong> — only role and who you serve. The free text is verbatim, so you may still recognise each other.</li>
-        </ul>
-      </div>`;
+    new Chart(document.getElementById('c_grade'), {
+      type: 'bar',
+      data: { labels: gradeLabels, datasets: [{ data: gradeLabels.map(g => gradeCounts[g]), backgroundColor: TEAL, borderRadius: 4 }] },
+      options: { plugins: { legend: { display: false } }, scales: { y: { ticks: { stepSize: 1, precision: 0 } }, x: { grid: { display: false } } } }
+    });
 
     new Chart(document.getElementById('c_roles'), {
       type: 'bar',
@@ -299,7 +335,7 @@
     const magicTried = tried['MagicSchool'] || 0, magicKept = kept['MagicSchool'] || 0;
 
     el.innerHTML = `
-      <h2>Hours, habits, and the tool churn</h2>
+      <h2>Hours, habits, and tools</h2>
       <div class="ex-grid">
         <div class="ex-card"><h3>Total hours with AI tools</h3>
           <div class="chartbox"><canvas id="c_hours" role="img" aria-label="Bar chart of self-estimated total hours with AI tools"></canvas></div>
@@ -308,7 +344,7 @@
         <div class="ex-card"><h3>"Which of these sounds most like you?"</h3>
           <div class="chartbox"><canvas id="c_arch" role="img" aria-label="Bar chart of self-selected AI user archetypes"></canvas></div>
           ${numbersTable(['Archetype', 'People'], archLabels.map((l, i) => [l, archCount[archKeys[i]] || 0]))}
-          ${cap('Two of the four options got zero takers. Either the middle is genuinely where this room lives, or the ends were unattractive things to admit on a form.')}
+          ${cap('Four options were offered. Two were picked; two got zero.')}
         </div>
       </div>
 
@@ -336,10 +372,10 @@
             <span class="stick__num">${s.kept} of ${s.tried}</span>
           </li>`).join('')}
         </ul>
-        ${cap('Tools that at least three people tried. The short bars are the ones this room picked up and put down.')}
+        ${cap('Tools that at least three people tried. Bar length is the share of those people who still come back to it.')}
       </div>
 
-      ${prompt('Look at your own two lists — tried, and came back to. What did the survivors have in common? Almost always it is that they slot into a job you already had, rather than asking you to invent a new one.')}`;
+      ${prompt('Pull up your own two answers — what you tried, and what you came back to. What separates the two lists?')}`;
 
     new Chart(document.getElementById('c_hours'), {
       type: 'bar',
@@ -371,8 +407,8 @@
       const guess = Number(gr.value);
       const diff = guess - magicKept;
       const res = document.getElementById('g_result');
-      res.innerHTML = `<strong>${magicKept} of ${magicTried}.</strong> ${diff === 0 ? 'Exactly right.' : diff > 0 ? `You guessed ${diff} too high.` : `You guessed ${-diff} too low.`}
-        MagicSchool is the most-tried tool built specifically for teachers in this group, and ${pct(magicKept, magicTried)}% of the people who tried it still use it. NotebookLM, which was built for nobody in particular, holds ${pct(kept['NotebookLM'] || 0, tried['NotebookLM'] || 1)}%.`;
+      res.innerHTML = `<strong>${magicKept} of ${magicTried}</strong> — ${pct(magicKept, magicTried)}%. ${diff === 0 ? 'Exactly right.' : diff > 0 ? `You guessed ${diff} too high.` : `You guessed ${-diff} too low.`}
+        Every tool's figure is in the stick-rate list below.`;
       res.classList.add('is-shown');
     });
   })();
@@ -413,11 +449,11 @@
         </div>
         <div class="ex-card"><h3>"A challenge your school already had that AI is making worse"</h3>
           <div class="quotes">${worse.map(r => `<blockquote class="quote">${esc(r.worse)}<cite>${esc(r.role)}</cite></blockquote>`).join('')}</div>
-          ${cap(`${N - worse.length} response${N - worse.length === 1 ? '' : 's'} not shown: answered "unsure." Several answers name a missing policy rather than a challenge — that gap is itself the answer.`)}
+          ${cap(`Every answer to this question is shown except ${N - worse.length} that read simply "unsure."`)}
         </div>
       </div>
 
-      ${prompt('The concern you ranked first and the concern your staff room talks about are probably not the same thing. Which of the two is driving your school\'s actual AI decisions right now?')}`;
+      ${prompt('Compare your own answers to two of these questions: what you hear people talking about, and what you picked as your own top three. What do you make of the comparison?')}`;
 
     let built = false;
     function buildCharts() {
@@ -503,19 +539,19 @@
 
     el.innerHTML = `
       <h2>UDL baseline</h2>
-      <p class="lede">This calibrates how far we start into Session 5. If most of the room already designs with UDL from the start, we skip the introduction.</p>
+      <p class="lede">Two questions from the survey: how much UDL is already in your practice, and which supports you have used.</p>
       <div class="ex-grid">
         <div class="ex-card"><h3>How much UDL is already in your practice?</h3>
           <div class="chartbox"><canvas id="c_udl" role="img" aria-label="Bar chart of self-reported UDL practice level"></canvas></div>
           ${numbersTable(['Level', 'People'], udlLabels.map(k => [UDL_LABEL[k], uc[k]]))}
-          ${cap(`${designers} of ${N} say they design with UDL from the start. Nobody in this group is starting from zero.`)}
+          ${cap(`${designers} of ${N} selected "I design with UDL from the start."`)}
         </div>
         <div class="ex-card"><h3>Supports already in play</h3>
           <div class="chartbox chartbox--tall"><canvas id="c_supports" role="img" aria-label="Bar chart of UDL supports respondents have used"></canvas></div>
           ${numbersTable(['Support', 'People'], sl.map(s => [s, sc[s]]))}
         </div>
       </div>
-      ${cap(`Most reached for: ${esc(sl[0])}, at ${sc[sl[0]]} of ${N}. Thinnest on the ground: ${rare.map(esc).join(' and ')}, at ${low} of ${N}. The supports near the bottom are the ones that change the shape of a lesson rather than add something to it.`)}
+      ${cap(`Highest count: ${esc(sl[0])}, at ${sc[sl[0]]} of ${N}. Lowest: ${rare.map(esc).join(' and ')}, at ${low} of ${N}.`)}
       ${prompt('Pick the one support on this list you have never tried. What would have to be true about a lesson for it to be the obvious choice?')}`;
 
     new Chart(document.getElementById('c_udl'), {

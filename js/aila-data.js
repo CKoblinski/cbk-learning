@@ -16,6 +16,41 @@ const HOURS_BANDS = ['Under 10', '10-50', '51-150', '151-500', '500+'];
 const CONF_BANDS = ['1 = not yet', '2-3 = experimented, nothing stuck', '4 = a few reliable uses', '5-6 = confident where it fits', '7 = it is core to how I work'];
 const UDL_BANDS = ['1 = new to UDL', '2-3 = a few supports when time allows', '4-5 = I design with UDL from the start'];
 
+/* ----------------------------------------
+   Registration roster — all REGISTERED people, whether or not they
+   filled in the pre-survey. Separate population from RESPONSES below.
+   Fields are verbatim from the registration sheet, including spelling
+   variants in organization names. Blank membership = left blank.
+   ---------------------------------------- */
+/* Entries typed differently at registration that name the same organization.
+   Add a line here if another variant turns up. */
+const ORG_ALIASES = {
+  'Paso Robles Join Unified School District': 'Paso Robles Joint Unified School District',
+  'Lifelong Learning Corp': 'Lifelong Learning Administration Corporation',
+  'AUSD': 'Alisal Union School District'
+};
+
+const ROSTER = [
+  { membership: 'CALIE Member', grade: 'High School (9–12)', org: 'Paso Robles Joint Unified School District', roleGroup: 'Instructional Support & Coaching', title: 'Instructional Coach', subject: 'Literacy' },
+  { membership: 'CALIE Member', grade: 'High School (9–12)', org: 'Kern High School District', roleGroup: 'Instructional Support & Coaching', title: 'TOSA New Teacher Support', subject: 'Science' },
+  { membership: 'CALIE Member', grade: 'K–12', org: 'Paso Robles Join Unified School District', roleGroup: 'Instructional Support & Coaching', title: 'Ed Tech TOSA', subject: 'Tech' },
+  { membership: 'CALIE Member', grade: 'N/A', org: 'San Diego County Office of Education', roleGroup: 'School, District or County Administrator', title: 'Coordinator Educational Technology', subject: 'Educational Technology' },
+  { membership: 'CALIE Member', grade: 'Elementary (K–5)', org: 'Alisal Union School District', roleGroup: 'School, District or County Administrator', title: 'Director of Innovation Design and Learning', subject: 'All' },
+  { membership: 'CALIE Member', grade: 'High School (9–12)', org: 'Kern High School District', roleGroup: 'Instructional Support & Coaching', title: 'Induction Coordinator', subject: 'Induction' },
+  { membership: 'CALIE Member', grade: 'High School (9–12)', org: 'Banning Unified', roleGroup: 'Classroom Educator', title: 'SAI Teacher', subject: 'Special Education' },
+  { membership: 'CALIE Member', grade: 'Elementary (K–5)', org: 'AUSD', roleGroup: 'Classroom Educator', title: 'VAPA TOSA', subject: 'Visual & performing Arts' },
+  { membership: '', grade: 'K–12', org: 'Lifelong Learning Administration Corporation', roleGroup: 'Instructional Support & Coaching', title: 'Director, Education - Professional Learning and Program Implementation', subject: 'National Educational Services' },
+  { membership: '', grade: 'High School (9–12)', org: 'Lifelong Learning Corp', roleGroup: 'School, District or County Administrator', title: 'Vice President, Educational Services', subject: 'All subjects' },
+  { membership: '', grade: 'K–12', org: 'Lifelong Learning Administration Corporation', roleGroup: 'Instructional Support & Coaching', title: 'Director, Education - Program Strategy and Development', subject: 'Curriculum Instruction' },
+  { membership: 'CALIE Member', grade: 'K–12', org: 'Edison Township Public Schools', roleGroup: 'School, District or County Administrator', title: 'Coordinator of Access & Engagement', subject: 'K-12' },
+  { membership: '', grade: 'Middle School (6–8)', org: 'San Carlos School District', roleGroup: 'Classroom Educator', title: 'Math and Computer Science teacher', subject: 'Math/CS' },
+  { membership: '', grade: 'Middle School (6–8)', org: 'Sand Creek International School', roleGroup: 'Instructional Support & Coaching', title: 'IB Coordinator/AI Coordinator', subject: 'IB/AI Coordinator' },
+  { membership: 'CALIE Member', grade: 'Elementary (K–5)', org: 'Alisal Union School District', roleGroup: 'Instructional Support & Coaching', title: 'Teacher On Special Assignment - Technology Trainer', subject: 'Educational Technology' },
+  { membership: 'CALIE Member', grade: 'Elementary (K–5)', org: 'Alisal Union School District', roleGroup: 'Instructional Support & Coaching', title: 'TOSA - Technology Trainer', subject: 'Educational Technology' },
+  { membership: 'CALIE Member', grade: 'K–12', org: 'San Mateo County Office of Education', roleGroup: 'School, District or County Administrator', title: 'Coordinator, Instructional Technology and Artificial Intelligence', subject: 'Instructional Technology and Artificial Intelligence' },
+  { membership: 'CALIE Member', grade: 'Elementary (K–5)', org: 'Santa Paula USD', roleGroup: 'School, District or County Administrator', title: 'School Principal', subject: 'Elementary School' }
+];
+
 const RESPONSES = [
   {
     id: 1, role: 'District admin/office', grade: 'Adults (PD, staff)', years: '10-19',
