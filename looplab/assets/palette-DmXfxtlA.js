@@ -1,0 +1,1 @@
+const a={paper:"#f3f1ea",card:"#ffffff",ink:"#191613",inkmut:"#54504a",inkfaint:"#8b8578",line:"#d9d5c9",game:"#4c3fa3",gamesoft:"#eceafb",steady:"#1f6f4a",steadysoft:"#dcead9",danger:"#b3261e",warn:"#b45309",gold:"#c2932f",goldsoft:"#faf1d6"},f='600 16px "IBM Plex Mono", monospace',e='700 14px "Public Sans", system-ui, sans-serif';export{e as F,a as P,f as a};
