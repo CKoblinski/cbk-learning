@@ -1,1 +1,0 @@
-import{r as e,j as t}from"./index-DMpzSapU.js";import{e as s,F as d,a}from"./FullBoard-DAutOElN.js";import"./sfx-DrDsKhCT.js";import"./weekboard-C5HZnQPn.js";function p({arm:o}){const r=e.useMemo(()=>s({d:a.d,forceArm:o??void 0}),[o]);return t.jsx(d,{onClose:()=>{},seed:r.seed,study:r})}export{p as default};
